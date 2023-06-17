@@ -1,6 +1,6 @@
 
 // обчислює ступінь після додаання заданого інтервалу (в ступенях)
-#include <iostream>;
+#include "Notes.h";
 int addstep(int step1, int step2)
 {
 	int step = step1 + step2;
@@ -8,3 +8,5 @@ int addstep(int step1, int step2)
 	if (step > 6) step -= 7;
 	return step;
 }
+
+
