@@ -1,0 +1,11 @@
+﻿Build started...
+1>------ Build started: Project: Chord_inversions, Configuration: Debug x64 ------
+1>Chord_inversions.cpp
+1>D:\G [docs]\Мої документи\C++ learn\Chord_inversions\Chord_inversions.cpp(318,9): warning C4553: '==': result of expression not used; did you intend '='?
+1>D:\G [docs]\Мої документи\C++ learn\Chord_inversions\Chord_inversions.cpp(322,9): warning C4553: '==': result of expression not used; did you intend '='?
+1>D:\G [docs]\Мої документи\C++ learn\Chord_inversions\Chord_inversions.cpp(669,7): warning C4101: 'pitch': unreferenced local variable
+1>D:\G [docs]\Мої документи\C++ learn\Chord_inversions\Chord_inversions.cpp(670,7): warning C4101: 'step': unreferenced local variable
+1>Chord_inversions.vcxproj -> D:\G [docs]\Мої документи\C++ learn\Chord_inversions\x64\Debug\Chord_inversions.exe
+1>Done building project "Chord_inversions.vcxproj".
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+========== Elapsed 00:02,049 ==========
