@@ -17,7 +17,7 @@ using std::setw;
 enum NOTENAMES { DO, RE, MI, FA, SOL, LA, SI };
 enum QALITY { PERFECT = 0, MAJ = 1, MIN = -1, AUG = 2, DIM = -2, AUG2 = 3, DIM2 = -3 };
 enum INTERVALS { PRIMA, SECUNDA, TERZIA, QUARTA, QUINTA, SEKSTA, SEPTYMA, OCTAVA };
-
+enum IFMAJOR {dur = true, moll = false};
 
 /// МАЛЮНОЧОК
 void clef();
@@ -48,9 +48,9 @@ int alter_from_pitch(int step, int pitch);
 
 int alteration_counter(string key, int notation);
 
-void color(int color);
+void Color(int color);
 
-long long combination_counter(int NoN, int sounds = 2); // параметр за замовчуванням для інтервалів
+//long long combination_counter(int NoN, int sounds = 2); // параметр за замовчуванням для інтервалів
 
 float Consonans_rate(int* step, int* pitch, int NoN);
 
@@ -70,7 +70,7 @@ Polychord Initial9(string initial, int notation);
 
 Polychord Initial11(string initial, int notation);
 
-int int_quality(int steps, int halftones); // якість інтервалу
+int Int_quality(int steps, int halftones); // якість інтервалу
 
 int If_note_in_Chord(int* step, int interval, int NON); // визначає позицію заданого інтервалу в акорді
 

@@ -24,9 +24,9 @@ void Chord_inversions1_3(Polychord* Polychords, int& modifications)
 	bool oncemore = 1;
 	while (oncemore)
 	{
-		color(11);
+		Color(11);
 		cout << "\nоберіть модель ундецимакорда: \n";
-		color(7);
+		Color(7);
 		cout << "1 - мажорний, 2 - домінантовий, 3 - мінорний, 4 - мажорний із секстою, 5 - збільшений, 0 - ввести вручну " << endl;
 		model = EnterNum(5);
 		cout << endl << notes;

@@ -3,7 +3,7 @@
 void allsum(int c)
 {
 cout << "\nусього: ";
-color(14);
+Color(14);
 cout << c << endl;
-color(7);
+Color(7);
 }

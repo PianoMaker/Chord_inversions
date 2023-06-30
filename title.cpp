@@ -3,8 +3,8 @@
 void title(int c, string title)
 {
 
-	color(c);
+	Color(c);
 	cout << title << endl;
-     color(7);
+     Color(7);
 
 }

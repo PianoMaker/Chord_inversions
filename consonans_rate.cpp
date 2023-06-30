@@ -1,5 +1,15 @@
 #include "Notes.h"
 
+long long combination_counter(int NoN, int sounds = 2) // параметр за замовчуванням для інтервалів
+{
+	if (NoN < sounds)
+		return 0;
+	long long diff, combinations;
+	diff = NoN - sounds;
+	combinations = factorial_counter(NoN) / (factorial_counter(sounds) * factorial_counter(diff));
+	return combinations;
+}
+
 float Consonans_rate(int* step, int* pitch, int NoN)
 {
 
@@ -29,7 +39,7 @@ float Consonans_rate(int* step, int* pitch, int NoN)
 
 	for (int nq = 0;nq < multiN; nq++)
 	{
-		allqualities[nq] = int_quality(allsteps[nq], allhalftones[nq]); // якості інтервалів між голосами
+		allqualities[nq] = Int_quality(allsteps[nq], allhalftones[nq]); // якості інтервалів між голосами
 
 	}
 

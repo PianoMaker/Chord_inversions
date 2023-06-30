@@ -127,14 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\7Chord_resolver\if_note_in_chord.cpp" />
-    <ClCompile Include="..\7Chord_resolver\int_quality.cpp" />
-    <ClCompile Include="..\7Chord_resolver\quality_of_a_step.cpp" />
-    <ClCompile Include="..\ChordMaster_2.0\combination_counter.cpp" />
-    <ClCompile Include="..\Chords_master\Clef.cpp" />
-    <ClCompile Include="..\Chords_master\pitchdiff.cpp" />
-    <ClCompile Include="..\Chords_master\stepdiff.cpp" />
-    <ClCompile Include="..\Chords_master\step_to_pitch.cpp" />
     <ClCompile Include="addstep.cpp" />
     <ClCompile Include="Allsum.cpp" />
     <ClCompile Include="all_sharpness.cpp" />
@@ -143,9 +135,10 @@
     <ClCompile Include="Arrays.cpp" />
     <ClCompile Include="Chord_inversions1_1.cpp" />
     <ClCompile Include="Chord_inversions1_2.cpp" />
-    <ClCompile Include="Color.cpp" />
+    <ClCompile Include="Clef.cpp" />
     <ClCompile Include="consonans_rate.cpp" />
     <ClCompile Include="Current_time.cpp" />
+    <ClCompile Include="D:\G [docs]\C++ learn\Chords_master\pitchdiff.cpp" />
     <ClCompile Include="EnterNote.cpp" />
     <ClCompile Include="Enternum.cpp" />
     <ClCompile Include="Extchordstats.cpp" />
@@ -163,6 +156,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MeanSharpness.cpp" />
     <ClCompile Include="model.cpp" />
+    <ClCompile Include="Notes.cpp" />
     <ClCompile Include="Oct_pitch_filter.cpp" />
     <ClCompile Include="Oncemore.cpp" />
     <ClCompile Include="Polychord.cpp" />
@@ -173,9 +167,12 @@
     <ClCompile Include="Polychord_add.cpp" />
     <ClCompile Include="Chord_inversions1_4.cpp" />
     <ClCompile Include="Printnotes.cpp" />
+    <ClCompile Include="quality_of_a_step.cpp" />
     <ClCompile Include="sharpness.cpp" />
     <ClCompile Include="Sharpness_from_key.cpp" />
+    <ClCompile Include="stepdiff.cpp" />
     <ClCompile Include="step_to_notename.cpp" />
+    <ClCompile Include="step_to_pitch.cpp" />
     <ClCompile Include="sum_pitchs.cpp" />
     <ClCompile Include="sum_steps.cpp" />
     <ClCompile Include="Table header.cpp" />
