@@ -96,9 +96,6 @@
     <ClCompile Include="ifconsonans.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="factorial_counter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Table header.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
