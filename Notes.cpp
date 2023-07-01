@@ -1,12 +1,5 @@
 #include <iostream>
-#include <windows.h>
 
-void Color(int color)
-{
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, color);
-
-}
 
 int Int_quality(int steps, int halftones)
 {

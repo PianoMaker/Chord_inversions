@@ -1,6 +1,6 @@
 #include "Notes.h"
 
-long long factorial_counter(int amount)
+long long Factorial_counter(int amount)
 {
 	long long factorial = 1.0;
 
@@ -16,20 +16,20 @@ long long factorial_counter(int amount)
 }
 
 
-long long combination_counter(int NoN, int sounds = 2) // параметр за замовчуванням для інтервалів
+long long Combination_counter(int NoN, int sounds = 2) // параметр за замовчуванням для інтервалів
 {
 	if (NoN < sounds)
 		return 0;
 	long long diff, combinations;
 	diff = NoN - sounds;
-	combinations = factorial_counter(NoN) / (factorial_counter(sounds) * factorial_counter(diff));
+	combinations = Factorial_counter(NoN) / (Factorial_counter(sounds) * Factorial_counter(diff));
 	return combinations;
 }
 
 float Consonans_rate(int* step, int* pitch, int NoN)
 {
 
-	long multiN = combination_counter(NoN);
+	long multiN = Combination_counter(NoN);
 	int NoI = NoN - 1;
 
 	int* allhalftones = new int[multiN]; // усі можливі інтервали мід голосами у півтонах (октава = 12)
@@ -40,7 +40,7 @@ float Consonans_rate(int* step, int* pitch, int NoN)
 	for (int i = 0;i < NoN;i++)
 		for (int k = i + 1;k < NoN;k++)
 		{
-			allsteps[n_steps] = stepdiff(step[i], step[k]); // усі можливі інтервали мід голосами
+			allsteps[n_steps] = Stepdiff(step[i], step[k]); // усі можливі інтервали мід голосами
 			n_steps++;
 		}
 
@@ -49,7 +49,7 @@ float Consonans_rate(int* step, int* pitch, int NoN)
 	for (int i = 0;i < NoN; i++)
 		for (int k = i + 1;k < NoN;k++)
 		{
-			allhalftones[n_htones] = pitchdiff(pitch[i], pitch[k]); // півтонів між голосами
+			allhalftones[n_htones] = Pitchdiff(pitch[i], pitch[k]); // півтонів між голосами
 			n_htones++;
 		}
 

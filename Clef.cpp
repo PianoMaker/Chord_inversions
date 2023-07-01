@@ -3,7 +3,16 @@
 using std::cout;
 using std::endl;
 
+string Longline()
+{
+	return
+		"\n_________________\n";
+}
 
+void Line()
+{
+	cout << "\n____________________________________________________________________\n";
+}
 
 void clef()
 {

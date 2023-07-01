@@ -136,13 +136,11 @@
     <ClCompile Include="Chord_inversions1_1.cpp" />
     <ClCompile Include="Chord_inversions1_2.cpp" />
     <ClCompile Include="Clef.cpp" />
-    <ClCompile Include="consonans_rate.cpp" />
+    <ClCompile Include="Consonans_rate.cpp" />
     <ClCompile Include="Current_time.cpp" />
     <ClCompile Include="D:\G [docs]\C++ learn\Chords_master\pitchdiff.cpp" />
     <ClCompile Include="EnterNote.cpp" />
-    <ClCompile Include="Enternum.cpp" />
     <ClCompile Include="Extchordstats.cpp" />
-    <ClCompile Include="GetArray.cpp" />
     <ClCompile Include="ifconsonans.cpp" />
     <ClCompile Include="Initial11.cpp" />
     <ClCompile Include="Initial9_builder.cpp" />
@@ -150,8 +148,6 @@
     <ClCompile Include="key_to_notename.cpp" />
     <ClCompile Include="key_to_pitch.cpp" />
     <ClCompile Include="key_to_step.cpp" />
-    <ClCompile Include="Line.cpp" />
-    <ClCompile Include="longline.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MeanSharpness.cpp" />
     <ClCompile Include="model.cpp" />
@@ -176,7 +172,7 @@
     <ClCompile Include="sum_steps.cpp" />
     <ClCompile Include="Table header.cpp" />
     <ClCompile Include="tablefooter.cpp" />
-    <ClCompile Include="title.cpp" />
+    <ClCompile Include="Generalfunctions.cpp" />
     <ClCompile Include="Trans_to_Inv.cpp" />
     <ClCompile Include="Chord_inversions1_3.cpp" />
   </ItemGroup>

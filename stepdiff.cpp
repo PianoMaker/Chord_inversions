@@ -1,6 +1,6 @@
 #include <iostream>
 
-int stepdiff(int low_note, int high_note)
+int Stepdiff(int low_note, int high_note)
 {
 	if (low_note > high_note) high_note += 7;
 	int interval = high_note - low_note;

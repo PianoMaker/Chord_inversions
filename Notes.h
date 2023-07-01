@@ -50,7 +50,7 @@ int alteration_counter(string key, int notation);
 
 void Color(int color);
 
-//long long combination_counter(int NoN, int sounds = 2); // параметр за замовчуванням для інтервалів
+//long long Combination_counter(int NoN, int sounds = 2); // параметр за замовчуванням для інтервалів
 
 float Consonans_rate(int* step, int* pitch, int NoN);
 
@@ -58,7 +58,7 @@ string EnterNotes(int notation); // введення ноти з відсіюв�
 
 int EnterNum(int max); // введення числа не більше заданого
 
-long long factorial_counter(int amount);
+long long Factorial_counter(int amount);
 
 string get_current_time();
 
@@ -115,13 +115,13 @@ bool PitchFilter(int* pitch, int sounds); // фільтрує акорди з о
 тому за потреби додаємо до вищого голосу октаву: 7 ступенів або 12 півтонів
 */
 
-int pitchdiff(int low_pitch, int high_pitch);
+int Pitchdiff(int low_pitch, int high_pitch);
 
 Polychord* Polychord_Add(Polychord* polychord, int modifications, int& counter, int& sound, int sounds, bool test);
 
 float Sharpness(int enterstep, int alter); // вводиться step, alter 
 
-int stepdiff(int low_note, int high_note);
+int Stepdiff(int low_note, int high_note);
 
 int step_to_pitch(int step, int alteration);  /// ВИЗНАЧЕННЯ НАЗВИ НОТИ (ЗА ЛАТИСНКЬИМ ПОЗНАЧЕННЯМ) 
 
@@ -129,7 +129,7 @@ int sum_steps(int step[], int NoI);
 
 int sum_pitchs(int pitch[], int NoI);
 
-void title(int c, string title);
+void Title(int c, string title);
 
 void tableheader(string header);
 

@@ -45,7 +45,7 @@
     <ClCompile Include="addstep.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="title.cpp">
+    <ClCompile Include="Generalfunctions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Allsum.cpp">
@@ -55,9 +55,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Line.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Chord_inversions1_2.cpp">
@@ -70,9 +67,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Printnotes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="longline.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="model.cpp">
@@ -90,7 +84,7 @@
     <ClCompile Include="all_sharpness.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="consonans_rate.cpp">
+    <ClCompile Include="Consonans_rate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ifconsonans.cpp">
@@ -117,9 +111,6 @@
     <ClCompile Include="EnterNote.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GetArray.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Arrays.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -127,9 +118,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Oct_pitch_filter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Enternum.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="sharpness.cpp">

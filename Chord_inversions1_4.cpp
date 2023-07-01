@@ -15,10 +15,10 @@ void Chord_inversions1_4(Polychord* Polychords, int& modifications)
 			string initial; // ручне введення основного тону
 		int notation = 1, sounds;
 
-		title(11, "\nВведіть основний тон");
+		Title(11, "\nВведіть основний тон");
 		initial = EnterNotes(notation);
 
-		title(11, "\nВведіть кількість нот (до 12)");
+		Title(11, "\nВведіть кількість нот (до 12)");
 		sounds = EnterNum(12);
 
 		modifications = pow (2, sounds-1);
@@ -29,7 +29,7 @@ void Chord_inversions1_4(Polychord* Polychords, int& modifications)
 		
 
 		bool test;
-		title (8,"test regime ? 1 - yes, 0 - no\n");
+		Title (8,"test regime ? 1 - yes, 0 - no\n");
 		cin >> test;
 
 

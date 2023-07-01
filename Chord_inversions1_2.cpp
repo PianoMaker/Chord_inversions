@@ -46,7 +46,7 @@ void Chord_inversions1_2(Polychord* Polychords, int& modifications)
 			bool repeat = 0;
 
 			{
-				title(11, "Введіть 5 звуків");
+				Title(11, "Введіть 5 звуків");
 
 				for (int i = 0; i < 5; i++)
 					key[i] = EnterNotes(notation);
@@ -58,9 +58,9 @@ void Chord_inversions1_2(Polychord* Polychords, int& modifications)
 					Initial.name[i] = key_to_notename(key[i], notation); // назва ноти, string
 				}
 				for (int i = 0; i < 4; i++)
-					if (stepdiff(Initial.step[i], Initial.step[i + 1]) != 2)
+					if (Stepdiff(Initial.step[i], Initial.step[i + 1]) != 2)
 					{
-						title(12, "введений акорд не є нонакордом. Все одно продовжити? 1 - так, 0 - спробуати знову");
+						Title(12, "введений акорд не є нонакордом. Все одно продовжити? 1 - так, 0 - спробуати знову");
 						cin >> repeat;
 						break;
 					}
@@ -71,8 +71,8 @@ void Chord_inversions1_2(Polychord* Polychords, int& modifications)
 
 		else
 		{
-			if (model == 6) title(11, "Введіть мелодичний тон");
-			else title(11, "Введіть основний тон");
+			if (model == 6) Title(11, "Введіть мелодичний тон");
+			else Title(11, "Введіть основний тон");
 
 			initial = EnterNotes(notation);
 
@@ -141,7 +141,7 @@ void Chord_inversions1_2(Polychord* Polychords, int& modifications)
 	operation:
 		int mode = Mode();
 
-		title(11, "\nОберіть операцію");
+		Title(11, "\nОберіть операцію");
 		cout << "\nВивести усі нонакорди в порядку обернень - 1\nВивести лише нонакорди з ноною у мелодичному положенні -2\nвивести лише акорди з інтервалом нони між крайніми голосами -3\nВивести усі акорди в порядку зростання діапазону - 4\nВивести нонакорди та обернення від заданої ноти - 5\nВивести нонакорди та обернення із заданим мелодичним тоном - 6 " << endl;
 		int choice;
 		cin >> choice;
@@ -231,7 +231,7 @@ void Chord_inversions1_2(Polychord* Polychords, int& modifications)
 				if (!(mode > 0 && Inverted[j].nona - Inverted[j].prima < 2))
 				{
 
-					if (stepdiff(Initial.step[0], Inverted[j].step[4]) == 1)// !!
+					if (Stepdiff(Initial.step[0], Inverted[j].step[4]) == 1)// !!
 					{
 						for (int i = 0; i < 5; i++)
 							Polychords[d] = Inverted[j];
@@ -253,7 +253,7 @@ void Chord_inversions1_2(Polychord* Polychords, int& modifications)
 			{
 				if (!(mode > 0 && Inverted[j].nona - Inverted[j].prima < 2))
 				{
-					if (stepdiff(Inverted[j].step[0], Inverted[j].step[4]) == 1)
+					if (Stepdiff(Inverted[j].step[0], Inverted[j].step[4]) == 1)
 					{
 						for (int i = 0; i < 5; i++)
 							Polychords[d] = Inverted[j];
@@ -306,8 +306,8 @@ void Chord_inversions1_2(Polychord* Polychords, int& modifications)
 
 			for (int i = 0; i < 120; i++)
 			{
-				int stepshift = stepdiff(Inverted[i].step[0], Transposed[0].step[0]); // зсув про ступенях
-				int pitchshift = pitchdiff(Inverted[i].pitch[0], Transposed[0].pitch[0]); // зсув по півтонах
+				int stepshift = Stepdiff(Inverted[i].step[0], Transposed[0].step[0]); // зсув про ступенях
+				int pitchshift = Pitchdiff(Inverted[i].pitch[0], Transposed[0].pitch[0]); // зсув по півтонах
 				Transposed[i].prima = Inverted[i].prima;
 				Transposed[i].terzia = Inverted[i].terzia;
 				Transposed[i].quinta = Inverted[i].quinta;
@@ -360,8 +360,8 @@ void Chord_inversions1_2(Polychord* Polychords, int& modifications)
 
 			for (int i = 0; i < 120; i++)
 			{
-				int stepshift = stepdiff(Inverted[i].step[4], Transposed[0].step[4]); // зсув про ступенях
-				int pitchshift = pitchdiff(Inverted[i].pitch[4], Transposed[0].pitch[4]); // зсув по півтонах
+				int stepshift = Stepdiff(Inverted[i].step[4], Transposed[0].step[4]); // зсув про ступенях
+				int pitchshift = Pitchdiff(Inverted[i].pitch[4], Transposed[0].pitch[4]); // зсув по півтонах
 				Transposed[i].prima = Inverted[i].prima;
 				Transposed[i].terzia = Inverted[i].terzia;
 				Transposed[i].quinta = Inverted[i].quinta;
@@ -400,7 +400,7 @@ void Chord_inversions1_2(Polychord* Polychords, int& modifications)
 		}
 		else
 		{
-			title(12, "спробуйте ще раз");
+			Title(12, "спробуйте ще раз");
 			goto operation;
 		}
 
