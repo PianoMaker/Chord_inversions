@@ -21,16 +21,7 @@
     <ClCompile Include="step_to_notename.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="key_to_notename.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="key_to_step.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="pitch_to_notename.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="key_to_pitch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="pitchchange.cpp">
@@ -51,9 +42,6 @@
     <ClCompile Include="Allsum.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IntPositionDetector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -72,10 +60,7 @@
     <ClCompile Include="model.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Initial9_builder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Trans_to_Inv.cpp">
+    <ClCompile Include="Combinations.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Polychord.cpp">
@@ -84,10 +69,7 @@
     <ClCompile Include="all_sharpness.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Consonans_rate.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ifconsonans.cpp">
+    <ClCompile Include="Consonans_counter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Table header.cpp">
@@ -102,7 +84,7 @@
     <ClCompile Include="Chord_inversions1_3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Initial11.cpp">
+    <ClCompile Include="InitializeChords.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Chord_inversions1_4.cpp">

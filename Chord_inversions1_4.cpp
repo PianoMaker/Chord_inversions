@@ -36,9 +36,9 @@ void Chord_inversions1_4(Polychord* Polychords, int& modifications)
 		for (int i =0; i< modifications; i++)
 		{
 			Multichord[i].key[0] = initial; // назва ноти, string
-			Multichord[i].step[0] = key_to_step(initial, notation);  // ступінь від "до", int
-			Multichord[i].pitch[0] = key_to_pitch(initial, notation); // висота в півтонах від "до", int
-			Multichord[i].name[0] = key_to_notename(initial, notation); // назва ноти, string
+			Multichord[i].step[0] = Key_to_step(initial, notation);  // ступінь від "до", int
+			Multichord[i].pitch[0] = Key_to_pitch(initial, notation); // висота в півтонах від "до", int
+			Multichord[i].name[0] = Key_to_notename(initial, notation); // назва ноти, string
 		}
 
 		if (test)cout << "test base: " << Multichord[0].name[0] << " " << Multichord[0].pitch[0] << endl;
@@ -77,7 +77,7 @@ void Chord_inversions1_4(Polychord* Polychords, int& modifications)
 			for (int i = 0; i < sounds; i++)
 			{
 				if (test)cout << Multichord[j].pitch[i] << " ";
-				Multichord[j].name[i] = pitch_to_notename(Multichord[j].step[i], Multichord[j].pitch[i]); // генеруємо назви нот (string)
+				Multichord[j].name[i] = Pitch_to_notename(Multichord[j].step[i], Multichord[j].pitch[i]); // генеруємо назви нот (string)
 				if (test)cout << Multichord[j].name[i] << " ,";
 			}
 			
@@ -88,7 +88,7 @@ void Chord_inversions1_4(Polychord* Polychords, int& modifications)
 
 				Polychords[c] = Multichord[j];
 				for (int i = 0; i < sounds; i++)
-				Polychords[c].name[i] = pitch_to_notename(Polychords[c].step[i], Polychords[c].pitch[i]);
+				Polychords[c].name[i] = Pitch_to_notename(Polychords[c].step[i], Polychords[c].pitch[i]);
 			
 				c++;
 				if(test) cout << ": +\n";

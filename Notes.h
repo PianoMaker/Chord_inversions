@@ -64,8 +64,6 @@ string get_current_time();
 
 //void generateArrays(int n, int k, vector<vector<int>>& res, vector<int> currArray, int lastElement);
 
-int** getArray();
-
 Polychord Initial9(string initial, int notation);
 
 Polychord Initial11(string initial, int notation);
@@ -74,13 +72,13 @@ int Int_quality(int steps, int halftones); // якість інтервалу
 
 int If_note_in_Chord(int* step, int interval, int NON); // визначає позицію заданого інтервалу в акорді
 
-bool ifconsonans(int steps, int quality);
+bool Ifconsonans(int steps, int quality);
 
-int key_to_step(string key, int notation = 1); // ВИЗНАЧЕННЯ СТУПЕНЮ (ВІДНОСНО ДО) за латинським позначеням 
+int Key_to_step(string key, int notation = 1); // ВИЗНАЧЕННЯ СТУПЕНЮ (ВІДНОСНО ДО) за латинським позначеням 
 
-int key_to_pitch(string key, int notation = 1); // Визначення висоти (в півтонах) за латинським позначеням
+int Key_to_pitch(string key, int notation = 1); // Визначення висоти (в півтонах) за латинським позначеням
 
-string key_to_notename(string key, int notation = 1); /// ВИЗНАЧЕННЯ НАЗВИ НОТИ (СЛОВАМИ)
+string Key_to_notename(string key, int notation = 1); /// ВИЗНАЧЕННЯ НАЗВИ НОТИ (СЛОВАМИ)
 
 void Line();
 
@@ -98,11 +96,11 @@ Polychord nonchord_from_keys(string key[], int notation);
 
 string get_chord_string(int sounds);
  
-string note_to_key(int step, int pitch); // Трансформує значення ступеню і висоти в латинське написання 
+string Note_to_key(int step, int pitch); // Трансформує значення ступеню і висоти в латинське написання 
 
-string pitch_to_notename(int step, int pitch); /// ВИЗНАЧЕННЯ НАЗВИ НОТИ (ЗА СТУПІННЮ І ВИСОТОЮ) 
+string Pitch_to_notename(int step, int pitch); /// ВИЗНАЧЕННЯ НАЗВИ НОТИ (ЗА СТУПІННЮ І ВИСОТОЮ) 
 
-string step_to_notename(int step, int alter); /// ВИЗНАЧЕННЯ АБСОЛЮТНОЇ ВИСОТИ ЗВУКА (У ПІВТОНАХ від рівня ДО)
+string Step_to_notename(int step, int alter); /// ВИЗНАЧЕННЯ АБСОЛЮТНОЇ ВИСОТИ ЗВУКА (У ПІВТОНАХ від рівня ДО)
 
 int pitchchange(string n_acc, string note_as_written, int notation = 1); /// допоміжний для визначення назви ноти
 

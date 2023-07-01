@@ -2,7 +2,7 @@
 #include"Notes.h"
 
 
-string note_to_key(int step, int pitch)
+string Note_to_key(int step, int pitch)
 {
 	string notename;
 	string noteaccname;
@@ -80,12 +80,12 @@ string note_to_key(int step, int pitch)
 		return "Помилка при введенні ноти\n";
 	}
 
-	string key_to_notename(notename + noteaccname);
+	string Key_to_notename(notename + noteaccname);
 
-	if (key_to_notename == "hes") key_to_notename = "b";
-	if (key_to_notename == "heses") key_to_notename = "bes";
-	if (key_to_notename == "aes") key_to_notename = "as";
-	if (key_to_notename == "ees") key_to_notename = "es";
+	if (Key_to_notename == "hes") Key_to_notename = "b";
+	if (Key_to_notename == "heses") Key_to_notename = "bes";
+	if (Key_to_notename == "aes") Key_to_notename = "as";
+	if (Key_to_notename == "ees") Key_to_notename = "es";
 
-	return key_to_notename;
+	return Key_to_notename;
 }

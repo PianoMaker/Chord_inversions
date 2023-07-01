@@ -8,9 +8,9 @@ Polychord nonchord_from_keys(string key[], int notation)
 	{
 		
 		Initial.key[i] = key[i]; // назва ноти, string
-		Initial.step[i] = key_to_step(key[i], notation);  // ступінь від "до", int
-		Initial.pitch[i] = key_to_pitch(key[i], notation); // висота в півтонах від "до", int
-		Initial.name[i] = key_to_notename(key[i], notation); // назва ноти, string
+		Initial.step[i] = Key_to_step(key[i], notation);  // ступінь від "до", int
+		Initial.pitch[i] = Key_to_pitch(key[i], notation); // висота в півтонах від "до", int
+		Initial.name[i] = Key_to_notename(key[i], notation); // назва ноти, string
 	}
 	return Initial;
 }

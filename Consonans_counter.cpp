@@ -15,6 +15,20 @@ long long Factorial_counter(int amount)
 	return factorial;
 }
 
+bool Ifconsonans(int steps, int quality)
+{
+	bool consonans;
+	if (quality == PERFECT)
+		consonans = 1;//консонанс
+	else if (quality > 1 || quality < -1)
+		consonans = 0;// дисонанс
+	else if (steps == TERZIA || steps == SEKSTA)
+		if (quality == 1 || quality == -1)
+			consonans = 1;
+		else consonans = 0;
+	else consonans = 0;
+	return consonans;
+}
 
 long long Combination_counter(int NoN, int sounds = 2) // параметр за замовчуванням для інтервалів
 {
@@ -63,7 +77,7 @@ float Consonans_rate(int* step, int* pitch, int NoN)
 	float* ifc = new float[multiN];
 	for (int i = 0; i < multiN; i++)
 	{
-		ifc[i] = ifconsonans(allsteps[i], allqualities[i]); // якості інтервалів між голосами
+		ifc[i] = Ifconsonans(allsteps[i], allqualities[i]); // якості інтервалів між голосами
 		
 	}
 

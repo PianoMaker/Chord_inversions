@@ -1,10 +1,11 @@
 /// ВИЗНАЧЕННЯ АБСОЛЮТНОЇ ВИСОТИ ЗВУКА (У ПІВТОНАХ від рівня ДО)
 
-enum NOTES2 { DO, RE, MI, FA, SOL, LA, SI };
+
 #include <iostream>;
+#include "Notes.h";
 using namespace std;
 
-string step_to_notename(int step, int alter)
+string Step_to_notename(int step, int alter)
 {
 	string notename;
 	string noteaccname;
@@ -75,7 +76,7 @@ string step_to_notename(int step, int alter)
 	{
 		return "Помилка при введенні ноти\n";
 	}
-	string key_to_notename(notename + noteaccname);
+	string Key_to_notename(notename + noteaccname);
 
-	return key_to_notename;
+	return Key_to_notename;
 }

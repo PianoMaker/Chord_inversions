@@ -1,9 +1,10 @@
 /// ВИЗНАЧЕННЯ НАЗВИ НОТИ (ЗА СТУПІННЮ І ВИСОТОЮ) 
-#include <iostream>;
-using namespace std;
-enum NOTES3 { DO, RE, MI, FA, SOL, LA, SI };
+#include <iostream>
+#include "Notes.h"
 
-string pitch_to_notename(int step, int pitch)
+
+
+string Pitch_to_notename(int step, int pitch)
 {
 	string notename;
 	string noteaccname;
@@ -107,7 +108,7 @@ string pitch_to_notename(int step, int pitch)
 		return "Помилка при введенні ноти\n";
 	}
 
-	string key_to_notename(notename + noteaccname);
+	string Key_to_notename(notename + noteaccname);
 
-	return key_to_notename;
+	return Key_to_notename;
 }

@@ -10,7 +10,7 @@
 using namespace std;
 using std::string;
 
-string note_to_key(int step, int pitch);
+string Note_to_key(int step, int pitch);
 
 
 void Chord_inversions1_1(Polychord* Polychords, int& modifications)
@@ -63,9 +63,9 @@ void Chord_inversions1_1(Polychord* Polychords, int& modifications)
 				for (int i = 0; i < 5; i++)
 				{
 					Initial.key[i] = key[i]; // назва ноти, string
-					Initial.step[i] = key_to_step(key[i], notation);  // ступінь від "до", int
-					Initial.pitch[i] = key_to_pitch(key[i], notation); // висота в півтонах від "до", int
-					Initial.name[i] = key_to_notename(key[i], notation); // назва ноти, string
+					Initial.step[i] = Key_to_step(key[i], notation);  // ступінь від "до", int
+					Initial.pitch[i] = Key_to_pitch(key[i], notation); // висота в півтонах від "до", int
+					Initial.name[i] = Key_to_notename(key[i], notation); // назва ноти, string
 				}
 				for (int i = 0; i < 4; i++)
 					if (Stepdiff(Initial.step[i], Initial.step[i + 1]) != 2)
@@ -88,9 +88,9 @@ void Chord_inversions1_1(Polychord* Polychords, int& modifications)
 			{
 				cin >> initial;
 
-				if (key_to_step(initial, notation) == -100)
+				if (Key_to_step(initial, notation) == -100)
 					Title(12, "помилка при введенні ноти, спробуйте ще!");
-			} while (key_to_step(initial, notation) == -100);
+			} while (Key_to_step(initial, notation) == -100);
 
 			Initial = Initial9(initial, notation);
 
@@ -126,14 +126,14 @@ void Chord_inversions1_1(Polychord* Polychords, int& modifications)
 			for (int i = 0; i < 5; i++)
 			{
 
-				Initial.key[i] = note_to_key(Initial.step[i], Initial.pitch[i]);
+				Initial.key[i] = Note_to_key(Initial.step[i], Initial.pitch[i]);
 			}
 
 		}
 		if (model != 0)
 			for (int i = 0; i < 5; i++)
 			{
-				Initial.name[i] = pitch_to_notename(Initial.step[i], Initial.pitch[i]); // генеруємо назви нот (string)
+				Initial.name[i] = Pitch_to_notename(Initial.step[i], Initial.pitch[i]); // генеруємо назви нот (string)
 			}
 
 
@@ -195,9 +195,9 @@ void Chord_inversions1_1(Polychord* Polychords, int& modifications)
 		for (int j = 0; j < c; j++)
 			for (int i = 0; i < 5; i++)
 			{
-				Inverted[j].pitch[i] = key_to_pitch(Inverted[j].key[i], notation); // висота (int)
-				Inverted[j].name[i] = key_to_notename(Inverted[j].key[i], notation); // назва (string)
-				Inverted[j].step[i] = key_to_step(Inverted[j].key[i], notation);  // ступінь від "до" (int)
+				Inverted[j].pitch[i] = Key_to_pitch(Inverted[j].key[i], notation); // висота (int)
+				Inverted[j].name[i] = Key_to_notename(Inverted[j].key[i], notation); // назва (string)
+				Inverted[j].step[i] = Key_to_step(Inverted[j].key[i], notation);  // ступінь від "до" (int)
 			}
 		;
 
@@ -349,8 +349,8 @@ void Chord_inversions1_1(Polychord* Polychords, int& modifications)
 			myFile << "\nНонакроди за зростанням діапазону від заданої ноти" << endl;
 
 			destination = initial;
-			Transposed[0].step[0] = key_to_step(destination);
-			Transposed[0].pitch[0] = key_to_pitch(destination);
+			Transposed[0].step[0] = Key_to_step(destination);
+			Transposed[0].pitch[0] = Key_to_pitch(destination);
 
 
 
@@ -368,7 +368,7 @@ void Chord_inversions1_1(Polychord* Polychords, int& modifications)
 				{
 					Transposed[i].step[j] = addstep(Inverted[i].step[j], stepshift);  // транспонування
 					Transposed[i].pitch[j] = addpitch(Inverted[i].pitch[j], pitchshift); // транспонування
-					Transposed[i].key[j] = note_to_key(Transposed[i].step[j], Transposed[i].pitch[j]); // генерування key
+					Transposed[i].key[j] = Note_to_key(Transposed[i].step[j], Transposed[i].pitch[j]); // генерування key
 
 				}
 			}
@@ -376,7 +376,7 @@ void Chord_inversions1_1(Polychord* Polychords, int& modifications)
 			for (int j = 0; j < c; j++)
 				for (int i = 0; i < 5; i++)
 				{
-					Transposed[j].name[i] = pitch_to_notename(Transposed[j].step[i], Transposed[j].pitch[i]); // генеруємо назви нот (string)
+					Transposed[j].name[i] = Pitch_to_notename(Transposed[j].step[i], Transposed[j].pitch[i]); // генеруємо назви нот (string)
 				}
 
 
@@ -410,8 +410,8 @@ void Chord_inversions1_1(Polychord* Polychords, int& modifications)
 			cout << "\nНонакроди за зростанням діапазону із заданим мелодичним тоном" << endl;
 
 			destination = initial; // вводиться 
-			Transposed[0].step[4] = key_to_step(destination);
-			Transposed[0].pitch[4] = key_to_pitch(destination);
+			Transposed[0].step[4] = Key_to_step(destination);
+			Transposed[0].pitch[4] = Key_to_pitch(destination);
 
 
 			for (int i = 0; i < 120; i++)
@@ -434,8 +434,8 @@ void Chord_inversions1_1(Polychord* Polychords, int& modifications)
 			for (int j = 0; j < c; j++)
 				for (int i = 0; i < 5; i++)
 				{
-					Transposed[j].name[i] = pitch_to_notename(Transposed[j].step[i], Transposed[j].pitch[i]); // генеруємо назви нот (string)
-					Transposed[j].key[i] = note_to_key(Transposed[j].step[i], Transposed[j].pitch[i]); // генерування key
+					Transposed[j].name[i] = Pitch_to_notename(Transposed[j].step[i], Transposed[j].pitch[i]); // генеруємо назви нот (string)
+					Transposed[j].key[i] = Note_to_key(Transposed[j].step[i], Transposed[j].pitch[i]); // генерування key
 				}
 
 			for (int k = 6; k < 50; k++)

@@ -26,9 +26,9 @@ for(int i = 3; i<13; i++)
 	for (int i = 0; i < modifications; i++)
 	{
 		Multichord[i].key[0] = initial; // назва ноти, string
-		Multichord[i].step[0] = key_to_step(initial, notation);  // ступінь від "до", int
-		Multichord[i].pitch[0] = key_to_pitch(initial, notation); // висота в півтонах від "до", int
-		Multichord[i].name[0] = key_to_notename(initial, notation); // назва ноти, string
+		Multichord[i].step[0] = Key_to_step(initial, notation);  // ступінь від "до", int
+		Multichord[i].pitch[0] = Key_to_pitch(initial, notation); // висота в півтонах від "до", int
+		Multichord[i].name[0] = Key_to_notename(initial, notation); // назва ноти, string
 	}
 
 
@@ -44,7 +44,7 @@ for(int i = 3; i<13; i++)
 
 		for (int i = 0; i < sounds; i++)
 		{
-			Multichord[j].name[i] = pitch_to_notename(Multichord[j].step[i], Multichord[j].pitch[i]); // генеруємо назви нот (string)
+			Multichord[j].name[i] = Pitch_to_notename(Multichord[j].step[i], Multichord[j].pitch[i]); // генеруємо назви нот (string)
 		}
 
 
@@ -54,7 +54,7 @@ for(int i = 3; i<13; i++)
 
 			Polychords[c] = Multichord[j];
 			for (int i = 0; i < sounds; i++)
-				Polychords[c].name[i] = pitch_to_notename(Polychords[c].step[i], Polychords[c].pitch[i]);
+				Polychords[c].name[i] = Pitch_to_notename(Polychords[c].step[i], Polychords[c].pitch[i]);
 			c++;
 		}
 		else
