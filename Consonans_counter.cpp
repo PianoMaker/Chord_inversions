@@ -30,29 +30,41 @@ bool Ifconsonans(int steps, int quality)
 	return consonans;
 }
 
-long long Combination_counter(int NoN, int sounds = 2) // параметр за замовчуванням для інтервалів
+int CountCombinations(int numberofnotes)
 {
-	if (NoN < sounds)
-		return 0;
-	long long diff, combinations;
-	diff = NoN - sounds;
-	combinations = Factorial_counter(NoN) / (Factorial_counter(sounds) * Factorial_counter(diff));
+	int combinations = 1;
+	for (int i = 0; i < numberofnotes; i++)
+	{
+		combinations *= (numberofnotes - i);
+	}
+
 	return combinations;
 }
 
-float Consonans_rate(int* step, int* pitch, int NoN)
+
+long long CombinationsCounter(int numberofnotes, int sounds = 2) // параметр за замовчуванням для інтервалів
+{
+	if (numberofnotes < sounds)
+		return 0;
+	long long diff, combinations;
+	diff = numberofnotes - sounds;
+	combinations = Factorial_counter(numberofnotes) / (Factorial_counter(sounds) * Factorial_counter(diff));
+	return combinations;
+}
+
+float Consonans_rate(int* step, int* pitch, int numberofnotes)
 {
 
-	long multiN = Combination_counter(NoN);
-	int NoI = NoN - 1;
+	long multiN = CombinationsCounter(numberofnotes);
+	int numberofintervals = numberofnotes - 1;
 
 	int* allhalftones = new int[multiN]; // усі можливі інтервали мід голосами у півтонах (октава = 12)
 	int* allsteps = new int[multiN]; // усі можливі інтервали мід голосами у ступінях (секунда = 1, терція = 2 і т.д.)
 	int* allqualities = new int[multiN]; // якості інтервалів (чисті, малі, великі і т.д.)
 	int n_steps = 0;
 
-	for (int i = 0;i < NoN;i++)
-		for (int k = i + 1;k < NoN;k++)
+	for (int i = 0;i < numberofnotes;i++)
+		for (int k = i + 1;k < numberofnotes;k++)
 		{
 			allsteps[n_steps] = Stepdiff(step[i], step[k]); // усі можливі інтервали мід голосами
 			n_steps++;
@@ -60,8 +72,8 @@ float Consonans_rate(int* step, int* pitch, int NoN)
 
 	int n_htones = 0;
 
-	for (int i = 0;i < NoN; i++)
-		for (int k = i + 1;k < NoN;k++)
+	for (int i = 0;i < numberofnotes; i++)
+		for (int k = i + 1;k < numberofnotes;k++)
 		{
 			allhalftones[n_htones] = Pitchdiff(pitch[i], pitch[k]); // півтонів між голосами
 			n_htones++;

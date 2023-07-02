@@ -1,16 +1,16 @@
 #include"Notes.h"
 
-Polychord nonchord_from_keys(string key[], int notation)
+Polychord numberofnoteschord_from_keys(string key[], int notation)
 {
 	
-	Polychord Initial;
+	Polychord initial;
 	for (int i = 0; i < 5; i++)
 	{
 		
-		Initial.key[i] = key[i]; // назва ноти, string
-		Initial.step[i] = Key_to_step(key[i], notation);  // ступінь від "до", int
-		Initial.pitch[i] = Key_to_pitch(key[i], notation); // висота в півтонах від "до", int
-		Initial.name[i] = Key_to_notename(key[i], notation); // назва ноти, string
+		initial.key[i] = key[i]; // назва ноти, string
+		initial.step[i] = Key_to_step(key[i], notation);  // ступінь від "до", int
+		initial.pitch[i] = Key_to_pitch(key[i], notation); // висота в півтонах від "до", int
+		initial.name[i] = Key_to_notename(key[i], notation); // назва ноти, string
 	}
-	return Initial;
+	return initial;
 }

@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Chord_inversions1_1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="step_to_notename.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -45,22 +42,13 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Chord_inversions1_2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="sum_steps.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="sum_pitchs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Printnotes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="model.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Combinations.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Polychord.cpp">
@@ -93,9 +81,6 @@
     <ClCompile Include="EnterNote.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Arrays.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Polychord_add.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -126,19 +111,19 @@
     <ClCompile Include="D:\G [docs]\C++ learn\Chords_master\pitchdiff.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="quality_of_a_step.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="stepdiff.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="step_to_pitch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Notes.cpp">
+    <ClCompile Include="QualityInterval.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Clef.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="combinatorics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

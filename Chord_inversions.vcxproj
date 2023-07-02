@@ -132,10 +132,8 @@
     <ClCompile Include="all_sharpness.cpp" />
     <ClCompile Include="alteration counter.cpp" />
     <ClCompile Include="alter_from_pitch_step.cpp" />
-    <ClCompile Include="Arrays.cpp" />
-    <ClCompile Include="Chord_inversions1_1.cpp" />
-    <ClCompile Include="Chord_inversions1_2.cpp" />
     <ClCompile Include="Clef.cpp" />
+    <ClCompile Include="combinatorics.cpp" />
     <ClCompile Include="Consonans_counter.cpp" />
     <ClCompile Include="Current_time.cpp" />
     <ClCompile Include="D:\G [docs]\C++ learn\Chords_master\pitchdiff.cpp" />
@@ -145,7 +143,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MeanSharpness.cpp" />
     <ClCompile Include="model.cpp" />
-    <ClCompile Include="Notes.cpp" />
+    <ClCompile Include="QualityInterval.cpp" />
     <ClCompile Include="Oct_pitch_filter.cpp" />
     <ClCompile Include="Oncemore.cpp" />
     <ClCompile Include="Polychord.cpp" />
@@ -155,8 +153,6 @@
     <ClCompile Include="addpitch.cpp" />
     <ClCompile Include="Polychord_add.cpp" />
     <ClCompile Include="Chord_inversions1_4.cpp" />
-    <ClCompile Include="Printnotes.cpp" />
-    <ClCompile Include="quality_of_a_step.cpp" />
     <ClCompile Include="sharpness.cpp" />
     <ClCompile Include="Sharpness_from_key.cpp" />
     <ClCompile Include="stepdiff.cpp" />
@@ -167,7 +163,6 @@
     <ClCompile Include="Table header.cpp" />
     <ClCompile Include="tablefooter.cpp" />
     <ClCompile Include="Generalfunctions.cpp" />
-    <ClCompile Include="Combinations.cpp" />
     <ClCompile Include="Chord_inversions1_3.cpp" />
   </ItemGroup>
   <ItemGroup>

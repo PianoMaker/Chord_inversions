@@ -3,12 +3,16 @@
 #include <fstream>
 #include <iomanip>
 #include <vector>
+#define ifmode (!(mode > 0 && inverted[j].nona - inverted[j].prima < 2) && !(mode > 0 && inverted[j].undecima - inverted[j].prima < 3) && !(mode > 0 && inverted[j].undecima - inverted[j].terzia < 2))
+
 
 using std::cout;
 using std::cin;
 using std::string;
+using std::fstream;
 using std::endl;
 using std::setw;
+using std::ios;
 
 #ifndef NOTECOUNTER
 #define NOTECOUNTER
@@ -30,12 +34,13 @@ struct Polychord
 	int pitch[12]; // півтони від до=0
 	string position[12]; // позиція в акорді
 	int consonanse_rate;// консонантність
-	int prima;
+	int prima;//позиції інтервалів
 	int terzia;
 	int quinta;
 	int septyma;
 	int nona;
 	int undecima;
+	int terzdecima;
 };
 
 int addstep(int step1, int step2);
@@ -48,13 +53,45 @@ int alter_from_pitch(int step, int pitch);
 
 int alteration_counter(string key, int notation);
 
+void All_11(Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
+
+void AnalyzeEnteredChord(Polychord initial, int numberofnotes);
+
+void Chords11v2(Polychord initial, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
+
+void Chords11v3(Polychord initial, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
+
+void Chords11v4(Polychord initial, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
+
+void Chords11v5(string initialnote, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
+
+void Chords11v6(string initialnote, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
+
+
+int ChooseOperation();
+
 void Color(int color);
 
-//long long Combination_counter(int NoN, int sounds = 2); // параметр за замовчуванням для інтервалів
+//int Combine(Polychord* A, Polychord initialnote, int numberofnotes);
 
-float Consonans_rate(int* step, int* pitch, int NoN);
+int Combine5(Polychord initial, Polychord* inverted);
 
-string EnterNotes(int notation); // введення ноти з відсіюванням невірних символів
+int Combine6(Polychord initial, Polychord* inverted);
+
+int CombineN(Polychord initial, Polychord* inverted, int numberofnotes);
+
+long long CombinationsCounter(int numberofnotes, int sounds); // параметр за замовчуванням для інтервалів
+
+float Consonans_rate(int* step, int* pitch, int numberofnotes);
+
+void Construct11(Polychord& initial, int model);
+
+void Construct9(Polychord& initial, int model);
+
+int CountCombinations(int numberofnotes);
+
+
+string EnterNotes(int notation, string text); // введення ноти з відсіюванням невірних символів
 
 int EnterNum(int max); // введення числа не більше заданого
 
@@ -64,15 +101,25 @@ string get_current_time();
 
 //void generateArrays(int n, int k, vector<vector<int>>& res, vector<int> currArray, int lastElement);
 
-Polychord Initial9(string initial, int notation);
-
-Polychord Initial11(string initial, int notation);
+//Polychord Initial9(string initialnote, int notation);
+//
+//Polychord Initial11(string initialnote, int notation);
+//
+//void InitChord(Polychord& initial, int notation, int numberofnotes, int model);
 
 int Int_quality(int steps, int halftones); // якість інтервалу
 
-int If_note_in_Chord(int* step, int interval, int NON); // визначає позицію заданого інтервалу в акорді
+//int If_note_in_Chord(int* step, int interval, int numberofnotes); // визначає позицію заданого інтервалу в акорді
 
 bool Ifconsonans(int steps, int quality);
+
+void InitChordManual(Polychord& initial, string& initialnote, int notation, int numberofnotes);//конструктор акорду
+
+void InitNote(string& initialnote, int model, int notation); // введення основної ноти
+
+void InitChordAuto(Polychord& initial, string initialnote, int notation, int numberofnotes); // конструктор акорду
+
+void IntervaslAnalize(Polychord initial, Polychord* inverted, int numberofnotes, int numberofcombinations); // встановлює положення складових акорду
 
 int Key_to_step(string key, int notation = 1); // ВИЗНАЧЕННЯ СТУПЕНЮ (ВІДНОСНО ДО) за латинським позначеням 
 
@@ -88,11 +135,17 @@ float MeanSharpness(Polychord chord, int sounds); // визначає серед
 
 int Mode();
 
+int Model(int numberofnotes);
+
+void MultiAnalyze(Polychord* inverted, int numberofnotes, int notation, int numberofcombinations);
+
+
+
 bool Oncemore();
 
-string pnotes();
+string Textnotation();
 
-Polychord nonchord_from_keys(string key[], int notation);
+Polychord numberofnoteschord_from_keys(string key[], int notation);
 
 string get_chord_string(int sounds);
  
@@ -123,16 +176,16 @@ int Stepdiff(int low_note, int high_note);
 
 int step_to_pitch(int step, int alteration);  /// ВИЗНАЧЕННЯ НАЗВИ НОТИ (ЗА ЛАТИСНКЬИМ ПОЗНАЧЕННЯМ) 
 
-int sum_steps(int step[], int NoI);
+int sum_steps(int step[], int numberofintervals);
 
-int sum_pitchs(int pitch[], int NoI);
+int sum_pitchs(int pitch[], int numberofintervals);
 
-void Title(int c, string title);
+void Message(int c, string title);
 
 void tableheader(string header);
 
 void tablefooter(float consonansrate, bool rate, int amount);
 
-int quality_of_a_step(int position, int* steps, int* halftones, int inversion = 0);
+int Quality_of_a_step(int position, int* steps, int* halftones, int inversion = 0);
 
 #endif

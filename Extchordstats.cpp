@@ -1,12 +1,12 @@
 #include "Notes.h"
 #include <string>
-#define Sharp (MeanSharpness(Polychords[j], sounds))
+#define Sharp (MeanSharpness(polychords[j], sounds))
 
 
-void Extchordstats(Polychord* Polychords, int& modifications)
+void Extchordstats(Polychord* polychords, int& modifications)
 {
 
-	string initial = "c"; // ручне введення основного тону
+	string initialnote = "c"; // ручне введення основного тону
 	int notation = 1, sounds;
 
 	cout << "\nsounds \t" << "steps \t" << "chords possible \t";
@@ -25,10 +25,10 @@ for(int i = 3; i<13; i++)
 
 	for (int i = 0; i < modifications; i++)
 	{
-		Multichord[i].key[0] = initial; // назва ноти, string
-		Multichord[i].step[0] = Key_to_step(initial, notation);  // ступінь від "до", int
-		Multichord[i].pitch[0] = Key_to_pitch(initial, notation); // висота в півтонах від "до", int
-		Multichord[i].name[0] = Key_to_notename(initial, notation); // назва ноти, string
+		Multichord[i].key[0] = initialnote; // назва ноти, string
+		Multichord[i].step[0] = Key_to_step(initialnote, notation);  // ступінь від "до", int
+		Multichord[i].pitch[0] = Key_to_pitch(initialnote, notation); // висота в півтонах від "до", int
+		Multichord[i].name[0] = Key_to_notename(initialnote, notation); // назва ноти, string
 	}
 
 
@@ -52,9 +52,9 @@ for(int i = 3; i<13; i++)
 		if (PitchFilter(Multichord[j].pitch, sounds))
 		{
 
-			Polychords[c] = Multichord[j];
+			polychords[c] = Multichord[j];
 			for (int i = 0; i < sounds; i++)
-				Polychords[c].name[i] = Pitch_to_notename(Polychords[c].step[i], Polychords[c].pitch[i]);
+				polychords[c].name[i] = Pitch_to_notename(polychords[c].step[i], polychords[c].pitch[i]);
 			c++;
 		}
 		else
@@ -66,7 +66,7 @@ for(int i = 3; i<13; i++)
 
 	// РЕЗУЛЬТАТИ НА ЕКРАН
 
-	cout << i << "\t" << sum_steps(Polychords[0].step, sounds - 1) + 1 << "\t" << c << endl;
+	cout << i << "\t" << sum_steps(polychords[0].step, sounds - 1) + 1 << "\t" << c << endl;
 }
 
 Line();

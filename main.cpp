@@ -7,11 +7,11 @@ using std::setw;
 
 
 
-void Chord_inversions1_1(Polychord* Polychords, int& modifications);
-void Chord_inversions1_2(Polychord* Polychords, int& modifications);
-void Chord_inversions1_3(Polychord* Polychords, int& modifications);
-void Chord_inversions1_4(Polychord* Polychords, int& modifications);
-void Extchordstats(Polychord* Polychords, int& modifications); 
+//void Chord_inversions1_1(Polychord* polychords, int& modifications);
+//void Chord_inversions1_2(Polychord* polychords, int& modifications);
+void Chord_inversions1_3(Polychord* polychords, int& modifications);
+void Chord_inversions1_4(Polychord* polychords, int& modifications);
+void Extchordstats(Polychord* polychords, int& modifications); 
 
 
 int main()
@@ -20,15 +20,15 @@ int main()
 	cout << now;
 	clef();
 
-	int N, NoN;
+	int N, numberofnotes;
 	int notation = 1;
 	int choice;
 	int modifications;
 	string longline = Longline();
 
 
-	Title(11, "\nОберіть програму\n");
-	Title(15, "1 - Нонакорди v 1.1\n2 - Нонакорди v 1.2\n3 - Ундецимакорди v 1.3 \n4 - Політерцієві із заданою кількістю звуків \n5 - статистика");
+	Message(11, "\nОберіть програму\n");
+	Message(15, "1 - Нонакорди v 1.1\n2 - Нонакорди v 1.2\n3 - Ундецимакорди v 1.3 \n4 - Політерцієві із заданою кількістю звуків \n5 - статистика");
 	do
 	{
      cin >> choice;
@@ -38,11 +38,11 @@ int main()
 
 	if (choice == 1 || choice == 2)
 	{
-		N = 120; NoN = 5;
+		N = 120; numberofnotes = 5;
 	}
 	else
 	{
-		N = 840;NoN = 6;
+		N = 840;numberofnotes = 6;
 	}
 	
 	Polychord*polychord = new Polychord[N];
@@ -51,7 +51,7 @@ int main()
 
 	switch (choice)
 	{
-	case 1:
+/*/	case 1:
 	{
 		N = 120;
 		Chord_inversions1_1(&*polychord, modifications); break;
@@ -60,7 +60,7 @@ int main()
 	{
 		N = 120;
 		Chord_inversions1_2(&*polychord, modifications); break;
-	}
+	}*/
 	case 3:
 	{
 		N = 840;
@@ -80,7 +80,7 @@ int main()
 
 
 	int save;
-	Title(11, "зберегти результати в файл?\t1 - так, 0 - ні");
+	Message(11, "зберегти результати в файл?\t1 - так, 0 - ні");
 	cin >> save;
 	if (save)
 	{
@@ -92,20 +92,20 @@ int main()
 		print << "\t\t\tЗвуки\t\t| діапазон\n \t\t\t\t\t|ступенів | півтонів\n";
 		for (int j = 0; j < modifications; j++)
 		{
-			for (int i = 0; i < NoN; i++)
+			for (int i = 0; i < numberofnotes; i++)
 			{
 				print << setw(3) << polychord[j].name[i] << setw(1) << " \t"; // послідовно записуємо в файл усі акоди по одному звуку
 			}
-			print << setw(5) << " | " << setw(2) << sum_steps(polychord[j].step, NoN - 1) << setw(1) << " ";//підсумок - ступені
-			print << setw(5) << " | " << setw(2) << sum_pitchs(polychord[j].pitch, NoN - 1) << endl;// підсумок - півтони
+			print << setw(5) << " | " << setw(2) << sum_steps(polychord[j].step, numberofnotes - 1) << setw(1) << " ";//підсумок - ступені
+			print << setw(5) << " | " << setw(2) << sum_pitchs(polychord[j].pitch, numberofnotes - 1) << endl;// підсумок - півтони
 		}
 		print.close();
-		Title(11, "Збережено у файлі");
-		Title(15, filename);
+		Message(11, "Збережено у файлі");
+		Message(15, filename);
 	}
 
 	cout << longline;
-	Title(11, "Дякуємо за використання програми!");
+	Message(11, "Дякуємо за використання програми!");
 
 }
 

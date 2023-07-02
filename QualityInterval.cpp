@@ -1,4 +1,4 @@
-#include <iostream>
+#include "Notes.h"
 
 
 int Int_quality(int steps, int halftones)
@@ -76,5 +76,18 @@ int Int_quality(int steps, int halftones)
 		std::cout << "\n\nНе властиві альтерації. ступенів: " << steps << ", півтонів: " << halftones << "\n\n"; return 10;
 	}
 
+	return quality;
+}
+
+int Quality_of_a_step(int position, int* steps, int* halftones) // визначає якість інтервалу між басом і нотою на заданій позиції
+{
+	int quality;
+	int base_halftones = 0;
+	int base_steps = 0;
+	for (int i = 0; i < position; i++)
+		base_halftones += halftones[i];
+	for (int i = 0; i < position; i++)
+		base_steps += steps[i];
+	quality = Int_quality(base_steps, base_halftones);
 	return quality;
 }

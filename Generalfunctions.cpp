@@ -8,7 +8,7 @@ void Color(int color)
 
 }
 
-void Title(int c, string title)
+void Message(int c, string title)
 {
 
 	Color(c);
@@ -18,15 +18,15 @@ void Title(int c, string title)
 
 int EnterNum(int max)
 {
-	int initial;
+	int initialnote;
 	do
 	{
-		cin >> initial;
+		cin >> initialnote;
 
-		if (initial > max)
-			Title(12, "завелике число, спробуйте ще!");
-	} while (initial > max);
+		if (initialnote > max)
+			Message(12, "завелике число, спробуйте ще!");
+	} while (initialnote > max);
 
-	return initial;
+	return initialnote;
 
 }
