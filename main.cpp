@@ -5,11 +5,7 @@ using std::fstream;
 using std::setw;
 
 
-
-
-//void Chord_inversions1_1(Polychord* polychords, int& modifications);
-//void Chord_inversions1_2(Polychord* polychords, int& modifications);
-void Chord_inversions1_3(Polychord* polychords, int& modifications);
+void Chord_inversions1_3(Polychord* polychords, int& modifications, int numberofnotes);
 void Chord_inversions1_4(Polychord* polychords, int& modifications);
 void Extchordstats(Polychord* polychords, int& modifications); 
 
@@ -20,64 +16,23 @@ int main()
 	cout << now;
 	clef();
 
-	int N, numberofnotes;
+	int N, numberofnotes, modifications;
 	int notation = 1;
-	int choice;
-	int modifications;
-	string longline = Longline();
+	int choice = Menu(numberofnotes);
 
-
-	Message(11, "\nОберіть програму\n");
-	Message(15, "1 - Нонакорди v 1.1\n2 - Нонакорди v 1.2\n3 - Ундецимакорди v 1.3 \n4 - Політерцієві із заданою кількістю звуків \n5 - статистика");
-	do
-	{
-     cin >> choice;
-	 if (choice > 5) cout << "incorrect choice, try once more\n";
-	}while (choice < 1 || choice > 5);
-	system("cls");
-
-	if (choice == 1 || choice == 2)
-	{
-		N = 120; numberofnotes = 5;
-	}
-	else
-	{
-		N = 840;numberofnotes = 6;
-	}
-	
+	N = PermutationCounter(numberofnotes);
 	Polychord*polychord = new Polychord[N];
-
-	cout << "choice 1 passed";
 
 	switch (choice)
 	{
-/*/	case 1:
-	{
-		N = 120;
-		Chord_inversions1_1(&*polychord, modifications); break;
-	}
+	case 1:
 	case 2:
-	{
-		N = 120;
-		Chord_inversions1_2(&*polychord, modifications); break;
-	}*/
-	case 3:
-	{
-		N = 840;
-		Chord_inversions1_3(&*polychord, modifications); break;
-	}
-	case 4:
-	{
-		N = 120;
-		Chord_inversions1_4(&*polychord, modifications); break;
-	}
-	case 5:
-	{
-		Extchordstats(&*polychord, modifications); break;
-	}
+	case 3: Chord_inversions1_3(&*polychord, modifications, numberofnotes); break;
+	case 4:	Chord_inversions1_4(&*polychord, modifications); break;
+	case 5: Extchordstats(&*polychord, modifications); break;
 	default: cout << "\nincorrect choice";  break;
-	}
-
+	};
+	
 
 	int save;
 	Message(11, "зберегти результати в файл?\t1 - так, 0 - ні");
@@ -104,7 +59,7 @@ int main()
 		Message(15, filename);
 	}
 
-	cout << longline;
+	Longline();
 	Message(11, "Дякуємо за використання програми!");
 
 }

@@ -30,7 +30,7 @@ bool Ifconsonans(int steps, int quality)
 	return consonans;
 }
 
-int CountCombinations(int numberofnotes)
+long PermutationCounter(int numberofnotes)
 {
 	int combinations = 1;
 	for (int i = 0; i < numberofnotes; i++)
@@ -55,7 +55,7 @@ long long CombinationsCounter(int numberofnotes, int sounds = 2) // параме
 float Consonans_rate(int* step, int* pitch, int numberofnotes)
 {
 
-	long multiN = CombinationsCounter(numberofnotes);
+	long multiN = PermutationCounter(numberofnotes);
 	int numberofintervals = numberofnotes - 1;
 
 	int* allhalftones = new int[multiN]; // усі можливі інтервали мід голосами у півтонах (октава = 12)

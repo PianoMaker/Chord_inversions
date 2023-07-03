@@ -70,12 +70,6 @@ int Int_quality(int steps, int halftones)
 
 	else quality = 10;
 
-
-	if (quality == 10)
-	{
-		std::cout << "\n\nНе властиві альтерації. ступенів: " << steps << ", півтонів: " << halftones << "\n\n"; return 10;
-	}
-
 	return quality;
 }
 

@@ -1,30 +1,41 @@
 #include"Notes.h"
 #include <vector>
-#include <algorithm>
-#include <algorithm>
+#include <algorithm> // Для next_permutation
 
 
-int CombineN(Polychord initial, Polychord* inverted, int nn)
+void ProcessCombination(const Polychord& combination) {
+	// Обробка кожної перестановки
+	// TODO: Ваш код для обробки
+}
+
+int CombineN(const Polychord& initial, Polychord* inverted, int nn)
 {
-	inverted[0] = initial;
-
-	int c = 1; // рахує кількість модифікацій
-
 	std::vector<std::string> combination(nn);
 	for (int i = 0; i < nn; i++) {
 		combination[i] = initial.key[i];
 	}
 
+	int c = 0; // Рахує кількість перестановок
+
 	// Генеруємо всі можливі комбінації за допомогою next_permutation
-	while (std::next_permutation(combination.begin(), combination.end())) {
+	std::sort(combination.begin(), combination.end()); // Сортуємо комбінацію у лексикографічному порядку
+
+	do {
 		for (int i = 0; i < nn; i++) {
 			inverted[c].key[i] = combination[i];
 		}
+
+		ProcessCombination(inverted[c]);
+
 		c++;
-	}
+	} while (std::next_permutation(combination.begin(), combination.end()));
 
 	return c;
 }
+
+
+
+
 
 
 int Combine6(Polychord initial, Polychord* inverted)
@@ -97,4 +108,33 @@ int Combine5(Polychord initial, Polychord* inverted)
 	return c;
 }
 
+int Combine4(Polychord initial, Polychord* inverted)
+{
+
+	inverted[0] = initial;
+
+	int c = 0;//рахує кількість модифікацій
+
+	int nn = 4;//кількість нот в акорді
+
+	for (int i = 0; i < nn; i++)
+		for (int j = 0; j < nn; j++)
+			for (int k = 0; k < nn; k++)
+				for (int l = 0; l < nn; l++)
+					{
+						if (i != j && i != k && i != l  &&// умова для уникнення однакових нот
+							j != k && j != l 
+							&& k != l)
+						{
+
+							//cout << c << ": ";
+							inverted[c].key[0] = initial.key[i]; //cout << initial.key[i];
+							inverted[c].key[1] = initial.key[j]; //cout << initial.key[j];
+							inverted[c].key[2] = initial.key[k]; //cout << initial.key[k];
+							inverted[c].key[3] = initial.key[l]; //cout << initial.key[l];
+							c++;
+						}
+					}
+	return c;
+}
 

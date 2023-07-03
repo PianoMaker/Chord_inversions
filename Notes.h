@@ -11,6 +11,7 @@ using std::cin;
 using std::string;
 using std::fstream;
 using std::endl;
+using std::to_string;
 using std::setw;
 using std::ios;
 
@@ -67,28 +68,26 @@ void Chords11v5(string initialnote, Polychord* inverted, Polychord* polychords, 
 
 void Chords11v6(string initialnote, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
 
-
-int ChooseOperation();
+int ChooseOperation(int numberofnotes);// вибір моделі конструювання акорду
 
 void Color(int color);
 
 //int Combine(Polychord* A, Polychord initialnote, int numberofnotes);
 
+int Combine4(Polychord initial, Polychord* inverted);
 int Combine5(Polychord initial, Polychord* inverted);
-
 int Combine6(Polychord initial, Polychord* inverted);
+int CombineN(const Polychord& initial, Polychord* inverted, int nn);
 
-int CombineN(Polychord initial, Polychord* inverted, int numberofnotes);
 
 long long CombinationsCounter(int numberofnotes, int sounds); // параметр за замовчуванням для інтервалів
 
 float Consonans_rate(int* step, int* pitch, int numberofnotes);
 
 void Construct11(Polychord& initial, int model);
-
 void Construct9(Polychord& initial, int model);
-
-int CountCombinations(int numberofnotes);
+void Construct7(Polychord& initial, int model);
+int CombinationsCounter(int numberofnotes);
 
 
 string EnterNotes(int notation, string text); // введення ноти з відсіюванням невірних символів
@@ -99,12 +98,6 @@ long long Factorial_counter(int amount);
 
 string get_current_time();
 
-//void generateArrays(int n, int k, vector<vector<int>>& res, vector<int> currArray, int lastElement);
-
-//Polychord Initial9(string initialnote, int notation);
-//
-//Polychord Initial11(string initialnote, int notation);
-//
 //void InitChord(Polychord& initial, int notation, int numberofnotes, int model);
 
 int Int_quality(int steps, int halftones); // якість інтервалу
@@ -131,17 +124,19 @@ void Line();
 
 string Longline();
 
+int Menu(int& numberofnotes);// головне меню
+
 float MeanSharpness(Polychord chord, int sounds); // визначає середнє положення на квінтовому колі
 
-int Mode();
+int Restrictions(int numberofnotes); // вибір обмежень
 
-int Model(int numberofnotes);
+int Model(int numberofnotes); // вибір виду акордів
 
 void MultiAnalyze(Polychord* inverted, int numberofnotes, int notation, int numberofcombinations);
 
-
-
 bool Oncemore();
+
+long PermutationCounter(int numberofnotes);// рахує кількість перестановок
 
 string Textnotation();
 
