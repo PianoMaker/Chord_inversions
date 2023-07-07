@@ -162,7 +162,10 @@ void Construct9(Polychord& initial, int model)
 	}
 
 	for (int i = 0; i < 5; i++)
+	{
 		initial.key[i] = Note_to_key(initial.step[i], initial.pitch[i]);
+	}
+
 }
 
 void Construct11(Polychord& initial, int model)//конструювання інтервалів
@@ -252,12 +255,13 @@ string VoiceName(int numberofnotes)
 	}
 }
 
-void AnalyzeEnteredChord(Polychord initial, int numberofnotes)
+void AnalyzeEnteredChord(Polychord &initial, int numberofnotes)
 {
 	system("cls");
 	cout << "\nАкорд введено: ";
 	for (int i = 0; i < numberofnotes; i++)
 	{
+		initial.name[i] = Key_to_notename(initial.key[i]);
 		cout << initial.name[i] << " - ";
 	}
 }

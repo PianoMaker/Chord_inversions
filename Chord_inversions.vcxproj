@@ -132,6 +132,7 @@
     <ClCompile Include="all_sharpness.cpp" />
     <ClCompile Include="alteration counter.cpp" />
     <ClCompile Include="alter_from_pitch_step.cpp" />
+    <ClCompile Include="Beeper.cpp" />
     <ClCompile Include="Clef.cpp" />
     <ClCompile Include="combinatorics.cpp" />
     <ClCompile Include="Consonans_counter.cpp" />
@@ -142,7 +143,8 @@
     <ClCompile Include="InitializeChords.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MeanSharpness.cpp" />
-    <ClCompile Include="model.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="NoteRanger.cpp" />
     <ClCompile Include="QualityInterval.cpp" />
     <ClCompile Include="Oct_pitch_filter.cpp" />
     <ClCompile Include="Oncemore.cpp" />
@@ -153,6 +155,7 @@
     <ClCompile Include="addpitch.cpp" />
     <ClCompile Include="Polychord_add.cpp" />
     <ClCompile Include="Chord_inversions1_4.cpp" />
+    <ClCompile Include="Savetext.cpp" />
     <ClCompile Include="sharpness.cpp" />
     <ClCompile Include="Sharpness_from_key.cpp" />
     <ClCompile Include="stepdiff.cpp" />

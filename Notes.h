@@ -3,8 +3,10 @@
 #include <fstream>
 #include <iomanip>
 #include <vector>
-#define ifmode (!(mode > 0 && inverted[j].nona - inverted[j].prima < 2) && !(mode > 0 && inverted[j].undecima - inverted[j].prima < 3) && !(mode > 0 && inverted[j].undecima - inverted[j].terzia < 2))
-
+#define ifmode (!(mode > 0 && inverted[j].nona - inverted[j].prima < 2) && !(mode > 0 && numberofnotes > 5 && inverted[j].undecima - inverted[j].prima < 3) && !(mode > 0 && numberofnotes > 5 && inverted[j].undecima - inverted[j].terzia < 2))
+int const A4 = 440; // камертон (стандарт = 440)
+int const playspeed = 300; // тривалість звуку (реком.300)
+int const fermata = 100; // пауза між рядками (реком.100)
 
 using std::cout;
 using std::cin;
@@ -56,16 +58,16 @@ int alteration_counter(string key, int notation);
 
 void All_11(Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
 
-void AnalyzeEnteredChord(Polychord initial, int numberofnotes);
+void AnalyzeEnteredChord(Polychord& initial, int numberofnotes);
 
+// озвучення акордів
+void Beeper(Polychord* polychord, int modifications, int numberofnotes); 
+
+// конструктори акордів за інтервальною структурою
 void Chords11v2(Polychord initial, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
-
 void Chords11v3(Polychord initial, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
-
 void Chords11v4(Polychord initial, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
-
 void Chords11v5(string initialnote, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
-
 void Chords11v6(string initialnote, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
 
 int ChooseOperation(int numberofnotes);// вибір моделі конструювання акорду
@@ -134,9 +136,16 @@ int Model(int numberofnotes); // вибір виду акордів
 
 void MultiAnalyze(Polychord* inverted, int numberofnotes, int notation, int numberofcombinations);
 
+void NoteRanger(Polychord* polychord, int modifications, int numberofnotes);
+
 bool Oncemore();
 
 long PermutationCounter(int numberofnotes);// рахує кількість перестановок
+
+int Postmenu(); // постменю
+
+
+void SaveText(Polychord *polychord, int modifications, int numberofnotes);
 
 string Textnotation();
 

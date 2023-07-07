@@ -48,9 +48,6 @@
     <ClCompile Include="sum_pitchs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="model.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Polychord.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -124,6 +121,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="combinatorics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Savetext.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Beeper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NoteRanger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
