@@ -115,11 +115,11 @@ void Chord_inversions1_4(Polychord* polychords, long& modifications, int &number
 
 			for (int i = 0; i < numberofnotes; i++)
 			{
-				cout << setw(3) << polychords[j].name[i] << setw(1) << " \t";
+				cout << "\t" << setw(4) << polychords[j].name[i];
 			}
-			cout << setw(1) << " | " << setw(2) << sum_steps(polychords[j].step, numberofnotes - 1) << setw(1) << " ";
-			cout << setw(1) << " | " << setw(2) << sum_pitchs(polychords[j].pitch, numberofnotes - 1) << " ";
-			cout << setw(1) << " | " << setw(2) << round(Consonans_rate(polychords[j].step, polychords[j].pitch, numberofnotes) * 100) << " % "; // консонантність
+			cout << setw(4) << " \t| " << setw(1) << sum_steps(polychords[j].step, numberofnotes - 1) << setw(1) << " ";
+			cout << setw(1) << " | " << setw(1) << sum_pitchs(polychords[j].pitch, numberofnotes - 1) << " ";
+			cout << setw(1) << " | " << setw(1) << round(Consonans_rate(polychords[j].step, polychords[j].pitch, numberofnotes) * 100) << " % "; // консонантність
 			if (Sharp > 0) 	cout << setw(1) << " | " << setw(2) << "+" << Sharp << endl;
 			else 			cout << setw(1) << " | " << setw(2) << Sharp << endl;
 

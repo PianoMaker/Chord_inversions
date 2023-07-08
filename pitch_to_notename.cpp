@@ -70,7 +70,7 @@ string Pitch_to_notename(int step, int pitch)
 	{
 		alter = -3; noteaccname = " ььь";
 	}
-	else if (pitch == 11 && standartpitch == 1)
+	else if (pitch == 11 && standartpitch == 2)
 	{
 		alter = -3; noteaccname = " ььь";
 	}
@@ -83,6 +83,10 @@ string Pitch_to_notename(int step, int pitch)
 		alter = 2; noteaccname = " x";
 	}
 	else if (pitch == 2 && standartpitch == 11)
+	{
+		alter = 3; noteaccname = " x#";
+	}
+	else if (pitch == 0 && standartpitch == 9)
 	{
 		alter = 3; noteaccname = " x#";
 	}
