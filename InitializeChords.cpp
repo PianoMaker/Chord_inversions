@@ -233,7 +233,7 @@ string ChordName(int numberofnotes)
 int Model(int numberofnotes)
 {
 	Color(11);
-	cout << "\nоберіть вид" << ChordName(numberofnotes) << "акорда: \n";
+	cout << "\nоберіть вид " << ChordName(numberofnotes) << "акорда: \n";
 	Color(7);
 	if (numberofnotes == 6)cout << "1 - мажорний, 2 - домінантовий, 3 - мінорний, 4 - мажорний із секстою, 5 - збільшений, 0 - ввести вручну " << endl;
 	else if (numberofnotes == 5)cout << "1 - мажорний, 2 - домінантовий, 3 - мінорний, 4 - мажорний із секстою, 5 - зменшений, 0 - ввести вручну " << endl;

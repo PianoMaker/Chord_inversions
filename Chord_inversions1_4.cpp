@@ -1,30 +1,27 @@
 #include "Notes.h"
 #include <string>
-#define Sharp (MeanSharpness(polychords[j], sounds))
+#define Sharp (MeanSharpness(polychords[j], numberofnotes))
 
 
  string get_chord_string(int sounds) {
 	return "Акорди із " + std::to_string(sounds) + " звуків";
 }
 
-void Chord_inversions1_4(Polychord* polychords, int& modifications)
+void Chord_inversions1_4(Polychord* polychords, long& modifications, int &numberofnotes)
 {
-	bool oncemore = 1;
-	while (oncemore)
-	{
-			string initialnote; // ручне введення основного тону
-		int notation = 1, sounds;
+		string initialnote; // ручне введення основного тону
+		int notation = 1;
 
 		initialnote = EnterNotes(notation, "\nВведіть основний тон");
 
 		Message(11, "\nВведіть кількість нот (до 12)");
-		sounds = EnterNum(12);
+		numberofnotes = EnterNum(12);
 
-		modifications = pow (2, sounds-1);
+		modifications = pow (2, numberofnotes -1);
 		Polychord *Multichord = new Polychord[modifications];
 		cout << "modifications = " << modifications << endl; 
 
-		string header = get_chord_string(sounds);
+		string header = get_chord_string(numberofnotes);
 		
 
 		bool test;
@@ -44,7 +41,7 @@ void Chord_inversions1_4(Polychord* polychords, int& modifications)
 	
 
 		int counter = 1, sound = 0;
-		Multichord = Polychord_Add(Multichord, modifications, counter, sound, sounds, test);
+		Multichord = Polychord_Add(Multichord, modifications, counter, sound, numberofnotes, test);
 
 
 
@@ -73,7 +70,7 @@ void Chord_inversions1_4(Polychord* polychords, int& modifications)
 		{
 			if (test)cout << "j = " << " " << j << ":";
 
-			for (int i = 0; i < sounds; i++)
+			for (int i = 0; i < numberofnotes; i++)
 			{
 				if (test)cout << Multichord[j].pitch[i] << " ";
 				Multichord[j].name[i] = Pitch_to_notename(Multichord[j].step[i], Multichord[j].pitch[i]); // генеруємо назви нот (string)
@@ -82,11 +79,11 @@ void Chord_inversions1_4(Polychord* polychords, int& modifications)
 			
 		
 
-			if (PitchFilter(Multichord[j].pitch, sounds))
+			if (PitchFilter(Multichord[j].pitch, numberofnotes))
 			{
 
 				polychords[c] = Multichord[j];
-				for (int i = 0; i < sounds; i++)
+				for (int i = 0; i < numberofnotes; i++)
 				polychords[c].name[i] = Pitch_to_notename(polychords[c].step[i], polychords[c].pitch[i]);
 			
 				c++;
@@ -116,13 +113,13 @@ void Chord_inversions1_4(Polychord* polychords, int& modifications)
 		{
 			cout << j + 1 << "| ";
 
-			for (int i = 0; i < sounds; i++)
+			for (int i = 0; i < numberofnotes; i++)
 			{
 				cout << setw(3) << polychords[j].name[i] << setw(1) << " \t";
 			}
-			cout << setw(1) << " | " << setw(2) << sum_steps(polychords[j].step, sounds - 1) << setw(1) << " ";
-			cout << setw(1) << " | " << setw(2) << sum_pitchs(polychords[j].pitch, sounds - 1) << " ";
-			cout << setw(1) << " | " << setw(2) << round(Consonans_rate(polychords[j].step, polychords[j].pitch, sounds) * 100) << " % "; // консонантність
+			cout << setw(1) << " | " << setw(2) << sum_steps(polychords[j].step, numberofnotes - 1) << setw(1) << " ";
+			cout << setw(1) << " | " << setw(2) << sum_pitchs(polychords[j].pitch, numberofnotes - 1) << " ";
+			cout << setw(1) << " | " << setw(2) << round(Consonans_rate(polychords[j].step, polychords[j].pitch, numberofnotes) * 100) << " % "; // консонантність
 			if (Sharp > 0) 	cout << setw(1) << " | " << setw(2) << "+" << Sharp << endl;
 			else 			cout << setw(1) << " | " << setw(2) << Sharp << endl;
 
@@ -130,9 +127,7 @@ void Chord_inversions1_4(Polychord* polychords, int& modifications)
 
 		}
 		tablefooter(0, false, c);
+
+		modifications = c;
 	
-	oncemore = Oncemore();
-	}
-
-
 }

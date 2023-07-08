@@ -1,26 +1,26 @@
 #include "Notes.h"
 #include <string>
-#define Sharp (MeanSharpness(polychords[j], sounds))
+#define Sharp (MeanSharpness(polychords[j], numberofnotes))
 
 
-void Extchordstats(Polychord* polychords, int& modifications)
+void Extchordstats(Polychord* polychords, long& modifications, int& numberofnotes)
 {
-
+ 
 	string initialnote = "c"; // ручне введення основного тону
-	int notation = 1, sounds;
+	int notation = 1;
 
-	cout << "\nsounds \t" << "steps \t" << "chords possible \t";
+	cout << "\nnumberofnotes \t" << "steps \t" << "chords possible \t";
 	Line();
 
 for(int i = 3; i<13; i++)
 {
 
-	sounds = i;
+	numberofnotes = i;
 
-	modifications = pow(2, sounds - 1);
+	modifications = pow(2, numberofnotes - 1);
 	Polychord* Multichord = new Polychord[modifications];
 
-	string header = get_chord_string(sounds);
+	string header = get_chord_string(modifications);
 
 
 	for (int i = 0; i < modifications; i++)
@@ -33,7 +33,7 @@ for(int i = 3; i<13; i++)
 
 
 	int counter = 1, sound = 0;
-	Multichord = Polychord_Add(Multichord, modifications, counter, sound, sounds, 0);
+	Multichord = Polychord_Add(Multichord, modifications, counter, sound, numberofnotes, 0);
 
 
 	// фільтрація акордів
@@ -42,18 +42,18 @@ for(int i = 3; i<13; i++)
 	for (int j = 0; j < modifications; j++)
 	{
 
-		for (int i = 0; i < sounds; i++)
+		for (int i = 0; i < numberofnotes; i++)
 		{
 			Multichord[j].name[i] = Pitch_to_notename(Multichord[j].step[i], Multichord[j].pitch[i]); // генеруємо назви нот (string)
 		}
 
 
 
-		if (PitchFilter(Multichord[j].pitch, sounds))
+		if (PitchFilter(Multichord[j].pitch, numberofnotes))
 		{
 
 			polychords[c] = Multichord[j];
-			for (int i = 0; i < sounds; i++)
+			for (int i = 0; i < numberofnotes; i++)
 				polychords[c].name[i] = Pitch_to_notename(polychords[c].step[i], polychords[c].pitch[i]);
 			c++;
 		}
@@ -66,7 +66,7 @@ for(int i = 3; i<13; i++)
 
 	// РЕЗУЛЬТАТИ НА ЕКРАН
 
-	cout << i << "\t" << sum_steps(polychords[0].step, sounds - 1) + 1 << "\t" << c << endl;
+	cout << i << "\t" << sum_steps(polychords[0].step, numberofnotes - 1) + 1 << "\t" << c << endl;
 }
 
 Line();

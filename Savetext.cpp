@@ -1,6 +1,6 @@
 #include"Notes.h";
 
-void SaveText(Polychord *polychord, int modifications, int numberofnotes)
+void SaveText(Polychord *polychord, long modifications, int numberofnotes)
 {
 		fstream print;
 		string filename = get_current_time(); // у назву файлу вписується поточний час у секундах

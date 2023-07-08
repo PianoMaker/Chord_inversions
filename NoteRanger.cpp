@@ -1,6 +1,6 @@
 #include "Notes.h";
 
-void NoteRanger(Polychord* polychord, int modifications, int numberofnotes)
+void NoteRanger(Polychord* polychord, long modifications, int numberofnotes)
 {
 	for (int i = 0; i < modifications; i++)
 		for (int j = 0; j < numberofnotes - 1; j++)

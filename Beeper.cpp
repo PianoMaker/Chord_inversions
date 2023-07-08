@@ -22,7 +22,7 @@ void Play(double pitch, int oct, bool count)
 	else Beep(Pitch(Diffpitch(pitch, oct)), playspeed);
 }
 
-void Beeper(Polychord* polychord, int modifications, int numberofnotes)
+void Beeper(Polychord* polychord, long modifications, int numberofnotes)
 {
 	bool count; // перемикач для подовженої першої ноти
 	int oct = 0;//  октавна поправка для широких акордів
@@ -31,7 +31,8 @@ void Beeper(Polychord* polychord, int modifications, int numberofnotes)
 	{
 		if (polychord[i].pitch[numberofnotes - 1] < 25) oct = 0;
 		else if (polychord[i].pitch[numberofnotes - 1] < 37) oct = -1;
-		else oct = -2;
+		else if (polychord[i].pitch[0] > 5 || polychord[i].pitch[numberofnotes - 1] > 50) oct = -2;
+		else oct = -1;
 		for (int j = 0; j < numberofnotes; j++)
 		{
 			cout << polychord[i].pitch[j] << " ";

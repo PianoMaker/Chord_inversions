@@ -32,7 +32,7 @@ bool Ifconsonans(int steps, int quality)
 
 long PermutationCounter(int numberofnotes)
 {
-	int combinations = 1;
+	long combinations = 1;
 	for (int i = 0; i < numberofnotes; i++)
 	{
 		combinations *= (numberofnotes - i);
@@ -41,25 +41,26 @@ long PermutationCounter(int numberofnotes)
 	return combinations;
 }
 
-
-long long CombinationsCounter(int numberofnotes, int sounds = 2) // параметр за замовчуванням для інтервалів
+// рахує кількість інтервалів між звуками акорду
+long CombinationsCounter(int numberofnotes, int sounds) // параметр за замовчуванням для інтервалів
 {
 	if (numberofnotes < sounds)
 		return 0;
-	long long diff, combinations;
+	long diff, combinations;
 	diff = numberofnotes - sounds;
 	combinations = Factorial_counter(numberofnotes) / (Factorial_counter(sounds) * Factorial_counter(diff));
 	return combinations;
 }
 
+/* Відносна консонантність = частка консонансів серед усіх інтервалів між звуками акорду */
 float Consonans_rate(int* step, int* pitch, int numberofnotes)
 {
 
-	long multiN = PermutationCounter(numberofnotes);
+	int multiN = CombinationsCounter(numberofnotes);// кількість усіх інтервалів між усіма звуками акорду
 	int numberofintervals = numberofnotes - 1;
 
-	int* allhalftones = new int[multiN]; // усі можливі інтервали мід голосами у півтонах (октава = 12)
-	int* allsteps = new int[multiN]; // усі можливі інтервали мід голосами у ступінях (секунда = 1, терція = 2 і т.д.)
+	int* allhalftones = new int[multiN]; // список інтервалів між голосами у півтонах (октава = 12)
+	int* allsteps = new int[multiN]; // список інтервалів між голосами у ступінях (секунда = 1, терція = 2 і т.д.)
 	int* allqualities = new int[multiN]; // якості інтервалів (чисті, малі, великі і т.д.)
 	int n_steps = 0;
 
@@ -69,7 +70,6 @@ float Consonans_rate(int* step, int* pitch, int numberofnotes)
 			allsteps[n_steps] = Stepdiff(step[i], step[k]); // усі можливі інтервали мід голосами
 			n_steps++;
 		}
-
 	int n_htones = 0;
 
 	for (int i = 0;i < numberofnotes; i++)
@@ -86,7 +86,7 @@ float Consonans_rate(int* step, int* pitch, int numberofnotes)
 	}
 
 	//allconsonans:
-	float* ifc = new float[multiN];
+	int* ifc = new int[multiN];
 	for (int i = 0; i < multiN; i++)
 	{
 		ifc[i] = Ifconsonans(allsteps[i], allqualities[i]); // якості інтервалів між голосами
@@ -94,15 +94,24 @@ float Consonans_rate(int* step, int* pitch, int numberofnotes)
 	}
 
 	//consonans_rate:
-	float consonans_rate, sum_ifc = 0;
+	float consonans_rate;
+	int sum_ifc = 0;
 
 
 	for (int i = 0; i < multiN; i++)
 	{
 		sum_ifc += ifc[i];
 	}
+	//cout << "\nMultiN = " << multiN;
+	//cout << "\nsum_ifc = " << sum_ifc;
 
-	consonans_rate = sum_ifc / multiN;
+	consonans_rate = (float)sum_ifc / multiN;
+
+	delete[] allhalftones;
+	delete[] allsteps;
+	delete[] allqualities;
+	delete[] ifc;
+
 	
 	return consonans_rate;
 

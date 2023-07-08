@@ -5,7 +5,7 @@
 string Note_to_key(int step, int pitch);
 
 
-void Chord_inversions1_3(Polychord* polychords, int& modifications, int numberofnotes)
+void Chord_inversions1_3(Polychord* polychords, long& modifications, int numberofnotes)
 {
 	int numberofintervals = numberofnotes - 1;
 	long combinations = PermutationCounter(numberofnotes);

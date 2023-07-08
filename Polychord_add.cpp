@@ -1,14 +1,12 @@
 #include"Notes.h";
 
-Polychord* Polychord_Add(Polychord* polychord, int modifications, int& counter, int& sound, int sounds, bool test)
+Polychord* Polychord_Add(Polychord* polychord, long modifications, int& counter, int& sound, int sounds, bool test)
 {
 
 	Polychord* A = new Polychord[counter * 2];
 
-	
 
-
-	if (test)cout << "Start to process sound: " << sound << ", modifications exist: " << counter << "(+" << counter << " available until no." << counter * 2 - 1 << endl;
+	if (test)cout << "Start to process sound: " << sound << ", modifications exist: " << counter  << endl;
 	//else cout << "_";
 
 
@@ -24,7 +22,7 @@ Polychord* Polychord_Add(Polychord* polychord, int modifications, int& counter, 
 
 	}
 
-	if (test)std::system("pause>0");
+	//if (test)std::system("pause>0");
 	if (test)cout << "\nTransfering chords to make room for new ones: " << endl;
 	for (int i = counter - 1; i > 0; i--)
 	{
@@ -33,7 +31,7 @@ Polychord* Polychord_Add(Polychord* polychord, int modifications, int& counter, 
 	}
 
 
-	if (test)std::system("pause>0");
+	//if (test)std::system("pause>0");
 	if (test)cout << "\nCopying old sounds for new chords:\n ";
 	//else cout << ".";
 
@@ -51,7 +49,7 @@ Polychord* Polychord_Add(Polychord* polychord, int modifications, int& counter, 
 	if (test)
 	{
 
-		system("pause>0");
+		//system("pause>0");
 		cout << "\nVerifying chords:\n " << endl;
 		for (int i = 0; i < counter * 2; i++)
 		{
@@ -65,7 +63,7 @@ Polychord* Polychord_Add(Polychord* polychord, int modifications, int& counter, 
 
 	if (test)
 	{
-		system("pause>0");
+		//system("pause>0");
 		cout << "\nCreating new pitch for new chords:\n " << endl;
 	}
 	//else cout << ".";
@@ -86,7 +84,7 @@ Polychord* Polychord_Add(Polychord* polychord, int modifications, int& counter, 
 
 	if (test)		
 	{
-		system("pause>0");
+		//system("pause>0");
 		cout << "\nVerifying chords:\n " << endl;
 		for (int i = 0; i < counter * 2; i++)
 		{
@@ -99,7 +97,7 @@ Polychord* Polychord_Add(Polychord* polychord, int modifications, int& counter, 
 
 	if (test)
 	{
-		system("pause>0");
+		//system("pause>0");
 		cout << endl;
 		cout << "check counter = " << counter << ", check if sound < sounds: " << sound << " vs " << sounds - 1 << endl;
 	}
