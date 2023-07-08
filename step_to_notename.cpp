@@ -1,8 +1,6 @@
 /// ВИЗНАЧЕННЯ АБСОЛЮТНОЇ ВИСОТИ ЗВУКА (У ПІВТОНАХ від рівня ДО)
-
-
-#include <iostream>;
-#include "Notes.h";
+#include <iostream>
+#include "Notes.h"
 using namespace std;
 
 string Step_to_notename(int step, int alter)

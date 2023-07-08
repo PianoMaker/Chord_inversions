@@ -40,7 +40,7 @@ void Beeper(Polychord* polychord, long modifications, int numberofnotes)
 			else count = true;
 			Play(polychord[i].pitch[j], oct, count);
 		}
-		Sleep(fermata * numberofnotes);
+		Sleep(fermata * numberofnotes + 70);
 		cout << endl;
 	}
 }

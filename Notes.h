@@ -1,12 +1,12 @@
-#include <iostream>;
-#include <string>;
+#include <iostream>
+#include <string>
 #include <fstream>
 #include <iomanip>
 #include <vector>
 #define ifmode (!(mode > 0 && inverted[j].nona - inverted[j].prima < 2) && !(mode > 0 && numberofnotes > 5 && inverted[j].undecima - inverted[j].prima < 3) && !(mode > 0 && numberofnotes > 5 && inverted[j].undecima - inverted[j].terzia < 2))
 int const A4 = 440; // камертон (стандарт = 440)
 int const playspeed = 300; // тривалість звуку (реком.300)
-int const fermata = 150; // пауза між рядками (реком.100)
+int const fermata = 100; // пауза між рядками (реком.100)
 
 using std::cout;
 using std::cin;
@@ -82,6 +82,7 @@ int Combine5(Polychord initial, Polychord* inverted);
 int Combine6(Polychord initial, Polychord* inverted);
 int CombineN(const Polychord& initial, Polychord* inverted, int nn);
 
+string ChordName(int numberofnotes);
 
 long CombinationsCounter(int numberofnotes, int sounds); // параметр за замовчуванням для інтервалів
 

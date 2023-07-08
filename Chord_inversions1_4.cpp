@@ -39,11 +39,8 @@ void Chord_inversions1_4(Polychord* polychords, long& modifications, int &number
 
 		if (test)cout << "test base: " << Multichord[0].name[0] << " " << Multichord[0].pitch[0] << endl;
 	
-
 		int counter = 1, sound = 0;
 		Multichord = Polychord_Add(Multichord, modifications, counter, sound, numberofnotes, test);
-
-
 
 		if(test)
 		{

@@ -1,7 +1,7 @@
 #include "Notes.h"
 float Sharpness(int enterstep, int alter) // вводиться step, alter 
 {
-	int sharpness;
+	float sharpness;
 
 	while (enterstep > 6) enterstep -= 7;
 	if (enterstep == FA) sharpness = -3;

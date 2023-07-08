@@ -195,7 +195,7 @@ void Construct11(Polychord& initial, int model)//конструювання ін
 	}
 	case 4:
 	{
-		initial.pitch[1] = addpitch(initial.pitch[0], 4);
+		Preconstruct(initial, 1, 4);
 		initial.step[3] = addpitch(initial.step[2], 1);
 		initial.pitch[3] = addpitch(initial.pitch[0], 9);
 		initial.pitch[5] = addpitch(initial.pitch[0], 18);
@@ -203,11 +203,11 @@ void Construct11(Polychord& initial, int model)//конструювання ін
 	}
 	case 5:
 	{
-		initial.pitch[1] = addpitch(initial.pitch[0], 4);
-		initial.pitch[2] = addpitch(initial.pitch[0], 8);
-		initial.pitch[3] = addpitch(initial.pitch[0], 11);
-		initial.pitch[4] = addpitch(initial.pitch[0], 15);
-		initial.pitch[5] = addpitch(initial.pitch[0], 18);
+		Preconstruct(initial, 1, 4);
+		Preconstruct(initial, 2, 8);
+		Preconstruct(initial, 3, 11);
+		Preconstruct(initial, 4, 15);
+		Preconstruct(initial, 5, 18);
 		break;
 	}
 	}
