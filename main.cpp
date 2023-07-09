@@ -5,9 +5,9 @@ using std::fstream;
 using std::setw;
 
 
-void Chord_inversions1_3(Polychord* polychords, long& modifications, int numberofnotes);
-void Chord_inversions1_4(Polychord* polychords, long& modifications, int& numberofnotes);
-void Extchordstats(Polychord* polychords, long& modifications, int& numberofnotes);
+void Chord_inversions1_3(Polychord* polychords, long& modifications, int numberofnotes, bool notation);
+void Chord_inversions1_4(Polychord* polychords, long& modifications, int& numberofnotes, bool notation);
+void Extchordstats(Polychord* polychords, long& modifications, int& numberofnotes, bool notation);
 
 
 int main()
@@ -19,7 +19,7 @@ int main()
 
 	int N, numberofnotes;
 	long modifications;
-	int notation = 1;
+	bool notation = ChooseNotation();
 	int choice = Menu(numberofnotes);
 	bool oncemore = false;
 
@@ -30,9 +30,9 @@ int main()
 	{
 	case 1:
 	case 2:
-	case 3: Chord_inversions1_3(&*polychord, modifications, numberofnotes); break;
-	case 4:	Chord_inversions1_4(&*polychord, modifications, numberofnotes); break;
-	case 5: Extchordstats(&*polychord, modifications, numberofnotes); break;
+	case 3: Chord_inversions1_3(&*polychord, modifications, numberofnotes, notation); break;
+	case 4:	Chord_inversions1_4(&*polychord, modifications, numberofnotes, notation); break;
+	case 5: Extchordstats(&*polychord, modifications, numberofnotes, notation); break;
 	default: cout << "\nincorrect choice";  break;
 	};
 	if (choice < 5)
@@ -46,8 +46,8 @@ int main()
 			{
 			case 1: Beeper(polychord, modifications, numberofnotes); break;
 			case 2: SaveText(polychord, modifications, numberofnotes); break;
-			case 4: if (choice < 3)Chord_inversions1_3(&*polychord, modifications, numberofnotes);
-				  else if (choice == 4)Chord_inversions1_4(&*polychord, modifications, numberofnotes);
+			case 4: if (choice < 3)Chord_inversions1_3(&*polychord, modifications, numberofnotes, notation);
+				  else if (choice == 4)Chord_inversions1_4(&*polychord, modifications, numberofnotes, notation);
 				oncemore = true;
 				break;
 			default:

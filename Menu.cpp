@@ -1,4 +1,14 @@
 #include "Notes.h"
+
+bool ChooseNotation()
+{
+	Message(11, "\nОберіть нотацію");
+	Message(7, "\n1 - класична європейська нотація\n2 - американська нотація");
+	return EnterBool("");
+	
+}
+
+
 int Menu(int &numberofnotes)
 {
 	int choice;

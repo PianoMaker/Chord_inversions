@@ -18,7 +18,7 @@ int Pitch(double diffpitch)
 void Play(double pitch, int oct, bool count)
 {
 	
-	if(!count)Beep(Pitch(Diffpitch(pitch, oct)), playspeed+30);
+	if(!count)Beep(Pitch(Diffpitch(pitch, oct)), playspeed+30);//const 
 	else Beep(Pitch(Diffpitch(pitch, oct)), playspeed);
 }
 

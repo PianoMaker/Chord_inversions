@@ -1,10 +1,11 @@
 #include"Notes.h";
 //enum NOTES1 { DO, RE, MI, FA, SOL, LA, SI };
+//notation=1 : європейська нотація
 
 // ВИЗНАЧЕННЯ СТУПЕНЮ (ВІДНОСНО ДО)
 // введеної за клавіатури ноти 
 
-int Key_to_step(string key, int notation)
+int Key_to_step(string key, bool notation)
 {
 	string note_as_written(key, 0, 1);
 	string n_acc(key, 1, 4);
@@ -35,7 +36,7 @@ int Key_to_step(string key, int notation)
 // ВИЗНАЧЕННЯ НАЗВИ НОТИ (українською)
 // введеної за клавіатури ноти 
 
-string Key_to_notename(string key, int notation)
+string Key_to_notename(string key, bool notation)
 {
 	string note_as_written(key, 0, 1);
 	string n_acc(key, 1, 4);
@@ -90,12 +91,11 @@ string Key_to_notename(string key, int notation)
 // ВИЗНАЧЕННЯ ЗВУКОВИСОТНОСТІ
 // введеної за клавіатури ноти 
 
-int Key_to_pitch(string key, int notation)
+int Key_to_pitch(string key, bool notation)
 {
 	string note_as_written(key, 0, 1);
 	string n_acc(key, 1, 4);
 
-	int notation_type = notation;
 	/*cout << note_as_written << " (тест)\t";*/
 
 	int pitch, alteration;
@@ -111,12 +111,12 @@ int Key_to_pitch(string key, int notation)
 	else if (note_as_written == "h" && (notation) && n_acc == "es")
 		return -100;
 
-	else if (note_as_written == "b" && (notation_type)) pitch = 10;
+	else if (note_as_written == "b" && (notation)) pitch = 10;
 	else if (note_as_written == "b") pitch = 11;
 
 	else if (note_as_written == "h")
 	{
-		if (notation_type)	pitch = 11;
+		if (notation)	pitch = 11;
 		else return -100;
 	}
 	else return -100;
@@ -141,11 +141,11 @@ int Key_to_pitch(string key, int notation)
 
 //  ВВЕДЕННЯ З КЛАВІАТУРИ
 
-string EnterNotes(int notation, string text)
+string EnterNotes(bool notation, string text)
 {
 	string note;
 	Message(11,text);
-	Message(7, Textnotation());
+	Message(7, Textnotation(notation));
 	do
 	{
 	cin >> note;

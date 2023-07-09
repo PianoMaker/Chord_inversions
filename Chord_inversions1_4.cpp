@@ -7,11 +7,10 @@
 	return "Акорди із " + std::to_string(sounds) + " звуків";
 }
 
-void Chord_inversions1_4(Polychord* polychords, long& modifications, int &numberofnotes)
+void Chord_inversions1_4(Polychord* polychords, long& modifications, int &numberofnotes, bool notation)
 {
 		string initialnote; // ручне введення основного тону
-		int notation = 1;
-
+		
 		initialnote = EnterNotes(notation, "\nВведіть основний тон");
 
 		Message(11, "\nВведіть кількість нот (до 12)");

@@ -4,7 +4,7 @@
 using namespace std;
 enum NOTES5 { DO, RE, MI, FA, SOL, LA, SI };
 
-int pitchchange(string n_acc, string note_as_written, int notation = 1)  // "notation" означає тип нотації - європейський 
+int pitchchange(string n_acc, string note_as_written, bool notation = 1)  // "notation" означає тип нотації - європейський 
 {
 	int pitchalteration;
 	if (n_acc == "")

@@ -5,18 +5,16 @@
 string Note_to_key(int step, int pitch);
 
 
-void Chord_inversions1_3(Polychord* polychords, long& modifications, int numberofnotes)
+void Chord_inversions1_3(Polychord* polychords, long& modifications, int numberofnotes, bool notation)
 {
 	int numberofintervals = numberofnotes - 1;
 	long combinations = PermutationCounter(numberofnotes);
-	cout << "combinations = " << combinations;
 	Polychord initial;
 	Polychord* inverted = new Polychord[combinations];
 	Polychord* transposed = new Polychord[combinations];
 	int model, sum;
 	string initialnote; // для побудови нонакорду за моделлю
 	string destination; // для транспозиції
-	bool notation = 1; //змінна для переключення європейської та американської нотації (поки що не розроблено)
 	bool oncemore = 1;
 
 
@@ -35,9 +33,9 @@ void Chord_inversions1_3(Polychord* polychords, long& modifications, int numbero
 	{
 		InitNote(initialnote, choice, notation);
 		InitChordAuto(initial, initialnote, notation, numberofnotes);
-		if (numberofnotes == 6)Construct11(initial, model);
-		else if (numberofnotes == 5)Construct9(initial, model); 
-		else if (numberofnotes == 4)Construct7(initial, model);
+		if (numberofnotes == 6)Construct11(initial, model, notation);
+		else if (numberofnotes == 5)Construct9(initial, model, notation);
+		else if (numberofnotes == 4)Construct7(initial, model, notation);
 	}
 
 	// Запис вихідного акорда нотами
@@ -77,9 +75,9 @@ operation:
 			// за зростанням діапазону.
 		case 4:	Chords11v4(initial, inverted, polychords, sum, header, numberofcombinations, numberofnotes, mode); break;
 			// задана нота в басу
-		case 5:	Chords11v5(initialnote, inverted, polychords, sum, header, numberofcombinations, numberofnotes, mode); break;
+		case 5:	Chords11v5(initialnote, inverted, polychords, sum, header, numberofcombinations, numberofnotes, mode, notation); break;
 			// задана нота в мелодії
-		case 6: Chords11v6(initialnote, inverted, polychords, sum, header, numberofcombinations, numberofnotes, mode); break;
+		case 6: Chords11v6(initialnote, inverted, polychords, sum, header, numberofcombinations, numberofnotes, mode, notation); break;
 		default: Message(12, "спробуйте ще раз");
 		}
 	}
@@ -91,9 +89,9 @@ operation:
 			// ундецима в мелодії.
 		case 2:	Chords11v4(initial, inverted, polychords, sum, header, numberofcombinations, numberofnotes, mode); break;
 			// задана нота в басу
-		case 3:	Chords11v5(initialnote, inverted, polychords, sum, header, numberofcombinations, numberofnotes, mode); break;
+		case 3:	Chords11v5(initialnote, inverted, polychords, sum, header, numberofcombinations, numberofnotes, mode, notation); break;
 			// задана нота в мелодії
-		case 4: Chords11v6(initialnote, inverted, polychords, sum, header, numberofcombinations, numberofnotes, mode); break;
+		case 4: Chords11v6(initialnote, inverted, polychords, sum, header, numberofcombinations, numberofnotes, mode, notation); break;
 		default: Message(12, "спробуйте ще раз");
 		}
 	}

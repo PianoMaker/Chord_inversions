@@ -1,6 +1,6 @@
 #include"Notes.h"
 
-Polychord numberofnoteschord_from_keys(string key[], int notation)
+Polychord numberofnoteschord_from_keys(string key[], bool notation)
 {
 	
 	Polychord initial;

@@ -2,7 +2,7 @@
 #include"Notes.h"
 
 
-string Note_to_key(int step, int pitch)
+string Note_to_key(int step, int pitch, bool notation)
 {
 	string notename;
 	string noteaccname;
@@ -40,9 +40,13 @@ string Note_to_key(int step, int pitch)
 	{
 		notename = "a"; standartpitch = 9;
 	}
-	else if (step == SI)
+	else if (step == SI && notation)
 	{
 		notename = "h"; standartpitch = 11;
+	}
+	else if (step == SI && !notation)
+	{
+		notename = "b"; standartpitch = 11;
 	}
 
 	else
@@ -53,26 +57,46 @@ string Note_to_key(int step, int pitch)
 	alter = pitch - standartpitch;
 	if (alter == 0)
 		noteaccname = "";
-	else if (step == SI && pitch == 0)
+	else if (step == SI && pitch == 0 && notation)
 	{
 		notename = "h"; noteaccname = "is";
 	}
+	else if (step == SI && pitch == 0 && !notation)
+	{
+		notename = "b"; noteaccname = "x";
+	}
 
-	else if (alter == 2)
+	else if (alter == 2 && notation)
 	{
 		noteaccname = "isis";
 	}
-	else if (alter == -2)
+	else if (alter == 2 && !notation)
+	{
+		noteaccname = "x";
+	}
+	else if (alter == -2 && notation)
 	{
 		noteaccname = "eses";
 	}
-	else if (alter == 1)
+	else if (alter == -2 && !notation)
+	{
+		noteaccname = "bb";
+	}
+	else if (alter == 1 && notation)
 	{
 		noteaccname = "is";
 	}
-	else if (alter == -1)
+	else if (alter == 1 && !notation)
+	{
+		noteaccname = "#";
+	}
+	else if (alter == -1 && notation)
 	{
 		noteaccname = "es";
+	}
+	else if (alter == -1 && !notation)
+	{
+		noteaccname = "b";
 	}
 
 	else

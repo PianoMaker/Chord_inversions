@@ -3,11 +3,10 @@
 #define Sharp (MeanSharpness(polychords[j], numberofnotes))
 
 
-void Extchordstats(Polychord* polychords, long& modifications, int& numberofnotes)
+void Extchordstats(Polychord* polychords, long& modifications, int& numberofnotes, bool notation)
 {
  
 	string initialnote = "c"; // ручне введення основного тону
-	int notation = 1;
 
 	cout << "\nnumberofnotes \t" << "steps \t" << "chords possible \t";
 	Line();
