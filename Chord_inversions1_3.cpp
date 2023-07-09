@@ -24,19 +24,19 @@ void Chord_inversions1_3(Polychord* polychords, long& modifications, int numbero
 		//ВВЕСТИ АКОРД
 	string enteringtext;
 	model = Model(numberofnotes); // вибір вид акорду
-	int mode = Restrictions(numberofnotes);// обираємо модель конструювання обернень (9-акорд і вище)
+	if (model == 0) InitChordManual(initial, initialnote, notation, numberofnotes);// для ручного вводу
 	int choice = ChooseOperation(numberofnotes);// модель конструювання
+	if (model != 0) InitNote(initialnote, choice, notation);
+	int mode = Restrictions(numberofnotes);// обираємо модель конструювання обернень (9-акорд і вище)
+
+	/* Конструюється вихідний акорд "initial"  за моделлю*/
+
+
+	InitChordAuto(initial, initialnote, notation, numberofnotes);
+	if (numberofnotes == 6)Construct11(initial, model, notation);
+	else if (numberofnotes == 5)Construct9(initial, model, notation);
+	else if (numberofnotes == 4)Construct7(initial, model, notation);
 	
-	/* Конструюється вихідний акорд "initial"*/
-	if (model == 0) InitChordManual(initial, initialnote, notation, numberofnotes);
-	else
-	{
-		InitNote(initialnote, choice, notation);
-		InitChordAuto(initial, initialnote, notation, numberofnotes);
-		if (numberofnotes == 6)Construct11(initial, model, notation);
-		else if (numberofnotes == 5)Construct9(initial, model, notation);
-		else if (numberofnotes == 4)Construct7(initial, model, notation);
-	}
 
 	// Запис вихідного акорда нотами
 	AnalyzeEnteredChord(initial, numberofnotes);

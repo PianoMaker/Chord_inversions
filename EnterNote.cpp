@@ -141,17 +141,18 @@ int Key_to_pitch(string key, bool notation)
 
 //  ВВЕДЕННЯ З КЛАВІАТУРИ
 
-string EnterNotes(bool notation, string text)
+string EnterNotes(bool notation, string text, string comment)
 {
 	string note;
-	Message(11,text);
-	Message(7, Textnotation(notation));
+
+	Message(11, text);
+	Message(7, comment);
 	do
 	{
 	cin >> note;
 
 	if (Key_to_step(note, notation) == -100)
-	Message(12, "помилка при введенні ноти, спробуйте ще!");
+	Message(12, "помилка при введенні ноти, спробуйте ще!\n");
 	} while (Key_to_step(note, notation) == -100);
 
 	return note;

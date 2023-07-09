@@ -94,7 +94,7 @@ void Construct7(Polychord& initial, int model, bool notation);
 long CombinationsCounter(int numberofnotes, int sounds = 2);
 
 
-string EnterNotes(bool notation, string text); // введення ноти з відсіюванням невірних символів
+string EnterNotes(bool notation, string text, string comment = " "); // введення ноти з відсіюванням невірних символів
 
 int EnterNum(int max); // введення числа не більше заданого
 

@@ -11,9 +11,9 @@ void Chord_inversions1_4(Polychord* polychords, long& modifications, int &number
 {
 		string initialnote; // ручне введення основного тону
 		
-		initialnote = EnterNotes(notation, "\nВведіть основний тон");
+		initialnote = EnterNotes(notation, "\nВведіть основний тон\n");
 
-		Message(11, "\nВведіть кількість нот (до 12)");
+		Message(11, "\nВведіть кількість нот (до 12)\n");
 		numberofnotes = EnterNum(12);
 
 		modifications = pow (2, numberofnotes -1);

@@ -10,10 +10,9 @@ void Color(int color)
 
 void Message(int c, string title)
 {
-
 	Color(c);
-	cout << title << endl;
-     Color(7);
+	cout << title;
+    Color(7);
 }
 
 int EnterNum(int max)
@@ -24,7 +23,7 @@ int EnterNum(int max)
 		cin >> initialnote;
 
 		if (initialnote > max)
-			Message(12, "завелике число, спробуйте ще!");
+			Message(12, "завелике число, спробуйте ще!\n");
 	} while (initialnote > max);
 
 	return initialnote;

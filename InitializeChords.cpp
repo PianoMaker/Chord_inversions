@@ -4,10 +4,12 @@ void InitChordManual(Polychord& initial, string &initialnote, bool notation, int
 {
 	bool repeat = 0;
 	string* key = new string[numberofnotes];
-	string enteringtext = "Введіть " + std::to_string(numberofnotes) + " звуків";
+	string enteringtext = "Введіть " + to_string(numberofnotes) + " звуків\n";
 	{
+		Message(11, enteringtext);
 		for (int i = 0; i < numberofnotes; i++)
-			key[i] = EnterNotes(notation, enteringtext);
+			key[i] = EnterNotes(notation, "\nзвук " + to_string(i+1) + " ");
+		initialnote = key[0];
 		for (int i = 0; i < numberofnotes; i++)
 		{
 			initial.key[i] = key[i]; // назва ноти, string
@@ -18,7 +20,7 @@ void InitChordManual(Polychord& initial, string &initialnote, bool notation, int
 		for (int i = 0; i < 4; i++)
 			if (Stepdiff(initial.step[i], initial.step[i + 1]) != 2)
 			{
-				Message(12, "введений акорд не є ундецимакордом. Все одно продовжити? 1 - так, 0 - спробуати знову");
+				Message(12, "введений акорд не є ундецимакордом. Все одно продовжити? 1 - так, 0 - спробуати знову\n");
 				cin >> repeat;
 				break;
 			}
@@ -31,9 +33,10 @@ void InitChordManual(Polychord& initial, string &initialnote, bool notation, int
 void InitNote(string& initialnote, int choice, bool notation)
 {
 	string enteringtext;
-	if (choice == 6) enteringtext = "Введіть мелодичний тон";
-	else enteringtext = "Введіть основний тон";
-	initialnote = EnterNotes(notation, enteringtext);
+	if (choice == 6) enteringtext = "Введіть мелодичний тон\n";
+	else enteringtext = "Введіть основний тон\n";
+	;
+	initialnote = EnterNotes(notation, enteringtext, Textnotation(notation));
 }
 
 void InitChordAuto(Polychord& initial, string initialnote, bool notation, int numberofnotes)//напівавтоматичний конструктор
@@ -49,43 +52,6 @@ void InitChordAuto(Polychord& initial, string initialnote, bool notation, int nu
 	if (numberofnotes > 4)initial.pitch[4] = addpitch(initial.pitch[0], 2);
 }
 
-
-/*
-
-Polychord Initial9(string initialnote, bool notation)
-{
-	Polychord initial;
-
-	initial.step[0] = Key_to_step(initialnote, notation);
-	initial.pitch[0] = Key_to_pitch(initialnote, notation);
-	initial.step[1] = addstep(initial.step[0], 2);
-	initial.step[2] = addstep(initial.step[1], 2);
-	initial.step[3] = addstep(initial.step[2], 2);
-	initial.step[4] = addstep(initial.step[3], 2);
-	initial.pitch[2] = addpitch(initial.pitch[0], 7);
-	initial.pitch[4] = addpitch(initial.pitch[0], 2);
-
-	return initial;
-}
-
-Polychord Initial11(string initialnote, bool notation)
-{
-	Polychord initial;
-
-	initial.step[0] = Key_to_step(initialnote, notation);
-	initial.pitch[0] = Key_to_pitch(initialnote, notation);
-	initial.step[1] = addstep(initial.step[0], 2);
-	initial.step[2] = addstep(initial.step[1], 2);
-	initial.step[3] = addstep(initial.step[2], 2);
-	initial.step[4] = addstep(initial.step[3], 2);
-	initial.step[5] = addstep(initial.step[4], 2);
-	initial.pitch[2] = addpitch(initial.pitch[0], 7);
-	initial.pitch[4] = addpitch(initial.pitch[0], 2);
-
-	return initial;
-}
-
-*/
 
 void Preconstruct(Polychord& initial, int index, int add)
 {
@@ -295,7 +261,7 @@ for (int j = 0; j < numberofcombinations; j++)
 
 void All_11(Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode)
 {
-	header = "Усі" + ChordName(numberofnotes) + "акорди";
+	header = "\nУсі " + ChordName(numberofnotes) + "акорди";
 	for (int j = 0; j < numberofcombinations; j++)
 	{
 		if (ifmode)
@@ -440,7 +406,7 @@ void Chords11v6(string initialnote, Polychord* inverted, Polychord* polychords, 
 {
 
 	// нонакорди за зростанням діапазону.
-	header = ChordName(numberofnotes) + "акроди за зростанням діапазону із заданим мелодичним тоном";
+	header = ChordName(numberofnotes) + "акорди за зростанням діапазону із заданим мелодичним тоном";
 	Polychord* transposed = new Polychord[numberofcombinations];
 	string destination = initialnote; // вводиться 
 	int numberofintervals = numberofnotes - 1;
