@@ -148,8 +148,8 @@ const string c_chords_uk = "акорди";
 const string c_chords_en = " chords";
 string c_chords(bool lang);
 
-const string c_chordsw_uk = "акорди з";
-const string c_chordsw_en = "chords with";
+const string c_chordsw_uk = "\nАкорди з ";
+const string c_chordsw_en = "\nChords with ";
 string c_chordsw(bool lang);
 
 const string in_melody_uk = "ою в мелодичному положенні";
@@ -218,7 +218,7 @@ const string inversions_melody_en = " and inversions with a given melody tone";
 string inversions_melody(bool lang);
 
 const string with_interval_uk = " з інтервалом ";
-const string with_interval_en = " with";
+const string with_interval_en = " with ";
 string with_interval(bool lang);
 
 const string between_uk = "и між крайніми голосами";
@@ -246,6 +246,17 @@ const string chord_structure3_en = "1 - major, 2 - dominant, 3 - minor major, 4 
 string chord_structure1(bool lang);
 string chord_structure2(bool lang);
 string chord_structure3(bool lang);
+
+
+const string tonetable_uk = "\t\t\tЗвуки\t\t| діапазон\n \t\t\t\t\t|ступенів | півтонів\n";
+const string tonetable_en = "\t\t\tPitches\t\t| range\n \t\t\t\t\t|degree | halftones\n";
+string tonetable(bool lang);
+
+const string ifsave_uk = "\nЗберегти у файл?";
+const string ifsave_en = "\nSave as file?";
+string ifsave(bool lang);
+
+
 
 
 

@@ -16,11 +16,11 @@ int main()
 	CLS;
 	int N, numberofnotes;
 	long modifications;
-	bool lang = ChooseLanguage();
+	bool lang = ChooseLanguage();//обираємо мову
 	CLS;
-	bool notation = ChooseNotation(lang);
+	bool notation = ChooseNotation(lang);//обираємо вид нотації
 	CLS;
-	int choice = Menu(numberofnotes, lang);
+	int choice = Menu(numberofnotes, lang);//головне меню
 	bool oncemore = false;
 
 	N = PermutationCounter(numberofnotes);
@@ -28,24 +28,28 @@ int main()
 
 	switch (choice)
 	{
-	case 1:
-	case 2:
-	case 3: Chord_inversions1_3(&*polychord, modifications, numberofnotes, notation, lang); break;
-	case 4:	Chord_inversions1_4(&*polychord, modifications, numberofnotes, notation, lang); break;
-	case 5: Extchordstats(&*polychord, modifications, numberofnotes, notation, lang); break;
+	case 1:/*септакороди*/
+	case 2:/*нонакорди*/
+	case 3:/*ундецимакорди*/ Chord_inversions1_3(&*polychord, modifications, numberofnotes, notation, lang); break;
+	case 4:	/*політерцієві*/ Chord_inversions1_4(&*polychord, modifications, numberofnotes, notation, lang); break;
+	case 5: /*статистика*/   Extchordstats(&*polychord, modifications, numberofnotes, notation, lang); break;
 	default: cout << "\nincorrect choice";  break;
 	};
+	// ПІСЛЯ КОНСТРУЮВАННЯ СПИСКУ АКОРДІВ
 	if (choice < 5)
 	{
 		do
 		{
-			int action = Postmenu(lang);
+			int action = Postmenu(lang);// меню
 			NoteRanger(polychord, modifications, numberofnotes);
+			bool savetext;
 
 			switch (action)
 			{
-			case 1: Beeper(polychord, modifications, numberofnotes); break;
-			case 2: SaveText(polychord, modifications, numberofnotes, lang); break;
+			case 1: /*звук*/Beeper(polychord, modifications, numberofnotes); 
+				savetext = EnterBool(ifsave(lang)); if(!savetext) break;
+			case 2: /*текст*/SaveText(polychord, modifications, numberofnotes, lang); break;
+				//case 3 - створення xml - зробити!!
 			case 4: if (choice < 3)Chord_inversions1_3(&*polychord, modifications, numberofnotes, notation, lang);
 				  else if (choice == 4)Chord_inversions1_4(&*polychord, modifications, numberofnotes, notation, lang);
 				oncemore = true;

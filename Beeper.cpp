@@ -35,7 +35,7 @@ void Beeper(Polychord* polychord, long modifications, int numberofnotes)
 		else oct = -1;
 		for (int j = 0; j < numberofnotes; j++)
 		{
-			cout << polychord[i].pitch[j] << " ";
+			cout << polychord[i].name[j] << "  ";
 			if (j == 0) count = false;
 			else count = true;
 			Play(polychord[i].pitch[j], oct, count);

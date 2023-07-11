@@ -1,5 +1,6 @@
 #include "Notes.h"
 #include"Messages.h"
+
 #define print (cout << setw(3) << inverted[j].name[i] << setw(2) << "\t")
 
 
@@ -40,7 +41,7 @@ void Chord_inversions1_3(Polychord* polychords, long& modifications, int numbero
 	
 
 	// Запис вихідного акорда нотами
-	AnalyzeEnteredChord(initial, numberofnotes, lang);
+	AnalyzeEnteredChord(initial, numberofnotes, notation, lang);
 
 
 operation:
@@ -52,16 +53,16 @@ operation:
 	if (numberofnotes == 5)numberofcombinations = Combine5(initial, inverted);
 	if (numberofnotes == 4)numberofcombinations = Combine4(initial, inverted);
 	//int numberofcombinations = CombineN(initial, inverted, numberofnotes);
-	cout << "combinations = " << combinations;
+	//cout << "\ncombinations = " << combinations;
 
 
 	// записує у структуру значення звуковисотностей
-	MultiAnalyze(inverted, numberofnotes, notation, numberofcombinations);
+	MultiAnalyze(inverted, numberofnotes, notation, numberofcombinations, lang);
 
 	// визначення положення інтервалів
 	IntervaslAnalize(initial, inverted, numberofnotes, numberofcombinations);// встановлює позиції звуків акорду
 
-	// СТВОРЕННЯ СПИСКІВ АКОРДІВ
+	// СТВОРЕННЯ СПИСКІВ АКОРДІВ (ФІЛЬТРАЦІЯ або СОРТУВАННЯ)
 	sum = 0;
 	string header;
 	if (numberofnotes > 4)
@@ -108,7 +109,7 @@ operation:
 	{
 		for (int i = 0; i < numberofnotes; i++)
 		{
-			cout << setw(3) << polychords[j].name[i] << setw(1) << " \t";
+			cout << left << setw(3) << /*ноти*/polychords[j].name[i] << setw(1) << " \t";
 		}
 		cout << setw(1) << " | " << setw(2) << sum_steps(polychords[j].step, numberofintervals) << setw(1) << " ";
 		cout << setw(1) << " | " << setw(2) << sum_pitchs(polychords[j].pitch, numberofintervals) << endl;

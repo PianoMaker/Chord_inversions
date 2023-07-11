@@ -20,7 +20,7 @@ void InitChordManual(Polychord& initial, string &initialnote, bool notation, int
 			initial.key[i] = key[i]; // назва ноти, string
 			initial.step[i] = Key_to_step(key[i], notation);  // ступінь від "до", int
 			initial.pitch[i] = Key_to_pitch(key[i], notation); // висота в півтонах від "до", int
-			initial.name[i] = Key_to_notename(key[i], notation); // назва ноти, string
+			initial.name[i] = Key_to_notename(key[i], notation, lang); // назва ноти, string
 		}
 		for (int i = 0; i < numberofnotes - 1; i++)
 			if (Stepdiff(initial.step[i], initial.step[i + 1]) != 2)
@@ -227,24 +227,24 @@ string VoiceName(int numberofnotes, bool lang)
 	}
 }
 
-void AnalyzeEnteredChord(Polychord &initial, int numberofnotes, bool lang)
+void AnalyzeEnteredChord(Polychord &initial, int numberofnotes, bool notation, bool lang)
 {
 	system("cls");
 	cout << chord_entered(lang);
 	for (int i = 0; i < numberofnotes; i++)
 	{
-		initial.name[i] = Key_to_notename(initial.key[i], lang);
+		initial.name[i] = Key_to_notename(initial.key[i], notation, lang);
 		cout << initial.name[i] << " - ";
 	}
 }
 
-void MultiAnalyze(Polychord* inverted, int numberofnotes, bool notation, int numberofcombinations)
+void MultiAnalyze(Polychord* inverted, int numberofnotes, bool notation, int numberofcombinations, bool lang)
 {
 	for (int j = 0; j < numberofcombinations; j++)
 		for (int i = 0; i < numberofnotes; i++)
 		{
 			inverted[j].pitch[i] = Key_to_pitch(inverted[j].key[i], notation); // висота (int)
-			inverted[j].name[i] = Key_to_notename(inverted[j].key[i], notation); // назва (string)
+			inverted[j].name[i] = Key_to_notename(inverted[j].key[i], notation, lang); // назва (string)
 			inverted[j].step[i] = Key_to_step(inverted[j].key[i], notation);  // ступінь від "до" (int)
 		}
 	;
@@ -291,9 +291,9 @@ void Chords11v2(Polychord initial, Polychord* inverted, Polychord* polychords, i
 		if (ifmode)
 		{
 
-			if (Stepdiff(initial.step[0], inverted[j].step[5]) == 3)// !!
+			if (Stepdiff(initial.step[0], inverted[j].step[numberofnotes - 1]) == (numberofnotes * 2 - 2)%7)// !!
 			{
-				for (int i = 0; i < 6; i++)
+				for (int i = 0; i < numberofnotes; i++)
 					polychords[d] = inverted[j];
 				d++;
 			}

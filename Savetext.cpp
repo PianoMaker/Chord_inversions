@@ -8,7 +8,7 @@ void SaveText(Polychord *polychord, long modifications, int numberofnotes, bool 
 		filename.append("_chords.txt");
 		print.open(filename, ios::out);
 		print << chords_achieved(lang);
-		print << "\t\t\tЗвуки\t\t| діапазон\n \t\t\t\t\t|ступенів | півтонів\n";
+		print << tonetable(lang);
 		for (int j = 0; j < modifications; j++)
 		{
 			for (int i = 0; i < numberofnotes; i++)

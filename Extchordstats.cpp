@@ -28,7 +28,7 @@ for(int i = 3; i<13; i++)
 		Multichord[i].key[0] = initialnote; // назва ноти, string
 		Multichord[i].step[0] = Key_to_step(initialnote, notation);  // ступінь від "до", int
 		Multichord[i].pitch[0] = Key_to_pitch(initialnote, notation); // висота в півтонах від "до", int
-		Multichord[i].name[0] = Key_to_notename(initialnote, notation); // назва ноти, string
+		Multichord[i].name[0] = Key_to_notename(initialnote, notation, lang); // назва ноти, string
 	}
 
 

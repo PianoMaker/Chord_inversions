@@ -61,7 +61,7 @@ string Key_to_notename(string key, bool notation, bool lang)
 	else if (note_as_written == "b" && (!notation)) notename = nsi(lang);
 	else if (note_as_written == "h")
 	{
-		if (notation) notename = "сі";
+		if (notation) notename = nsi(lang);
 
 		else
 			return note_error(lang);

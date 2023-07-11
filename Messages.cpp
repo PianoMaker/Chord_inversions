@@ -342,3 +342,15 @@ string chord_structure3(bool lang)
 	if (lang) return chord_structure3_uk;
 	else return chord_structure3_en;
 }
+
+string tonetable(bool lang)
+{
+	if (lang) return tonetable_uk;
+	else return tonetable_en;
+}
+
+string ifsave(bool lang)
+{
+	if (lang) return ifsave_uk;
+	else return ifsave_en;
+}

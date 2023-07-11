@@ -17,6 +17,7 @@ using std::fstream;
 using std::endl;
 using std::to_string;
 using std::setw;
+using std::left;
 using std::ios;
 
 #ifndef NOTECOUNTER
@@ -31,7 +32,7 @@ enum IFMAJOR {dur = true, moll = false};
 /// МАЛЮНОЧОК
 void clef();
 void greeting();
-void setLang(bool lang);
+
 struct Polychord
 {
 	string key[12]; // назва латинкою
@@ -61,7 +62,7 @@ int alteration_counter(string key, bool notation);
 
 void All_11(Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode, bool lang);
 
-void AnalyzeEnteredChord(Polychord& initial, int numberofnotes, bool lang);
+void AnalyzeEnteredChord(Polychord& initial, int numberofnotes, bool notation, bool lang);
 
 // озвучення акордів
 void Beeper(Polychord* polychord, long modifications, int numberofnotes); 
@@ -124,7 +125,7 @@ int Key_to_step(string key, bool notation = 1); // ВИЗНАЧЕННЯ СТУП
 
 int Key_to_pitch(string key, bool notation = 1); // Визначення висоти (в півтонах) за латинським позначеням
 
-string Key_to_notename(string key, bool lang, bool notation = 1); /// ВИЗНАЧЕННЯ НАЗВИ НОТИ (СЛОВАМИ)
+string Key_to_notename(string key, bool notation, bool lang); /// ВИЗНАЧЕННЯ НАЗВИ НОТИ (СЛОВАМИ)
 
 void Line();
 
@@ -138,7 +139,7 @@ int Restrictions(int numberofnotes, bool lang); // вибір обмежень
 
 int Model(int numberofnotes, bool lang); // вибір виду акордів
 
-void MultiAnalyze(Polychord* inverted, int numberofnotes, bool notation, int numberofcombinations);
+void MultiAnalyze(Polychord* inverted, int numberofnotes, bool notation, int numberofcombinations, bool lang);
 
 void NoteRanger(Polychord* polychord, long modifications, int numberofnotes);
 
@@ -153,7 +154,7 @@ void SaveText(Polychord *polychord, long modifications, int numberofnotes, bool 
 
 void Textnotation(bool notation, bool lang);
 
-Polychord numberofnoteschord_from_keys(string key[], bool notation);
+Polychord numberofnoteschord_from_keys(string key[], bool notation, bool lang);
 
 string get_chord_string(int sounds, bool lang);
  
