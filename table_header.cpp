@@ -1,5 +1,5 @@
 #include"Notes.h"
-void tableheader(string header)
+void tableheader(string header, bool lang)
 {
 Message(11, header);
 Line();

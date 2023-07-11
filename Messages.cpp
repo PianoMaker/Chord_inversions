@@ -354,3 +354,38 @@ string ifsave(bool lang)
 	if (lang) return ifsave_uk;
 	else return ifsave_en;
 }
+
+string intotal(bool lang)
+{
+	if (lang) return intotal_uk;
+	else return intotal_en;
+}
+string table_header(bool lang)
+{
+	if (lang) return table_header_uk;
+	else return table_header_en;
+}
+
+string use_eu(bool lang)
+{
+	if (lang) return use_eu_uk;
+	else return use_eu_en;
+}
+
+string use_us(bool lang)
+{
+	if (lang) return use_us_uk;
+	else return use_us_en;
+}
+
+string notes_eu(bool lang)
+{
+	if (lang) return notes_eu_uk;
+	else return notes_eu_en;
+}
+
+string notes_us(bool lang)
+{
+	if (lang) return notes_us_uk;
+	else return notes_us_en;
+}

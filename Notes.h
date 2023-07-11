@@ -18,6 +18,7 @@ using std::endl;
 using std::to_string;
 using std::setw;
 using std::left;
+using std::setfill;
 using std::ios;
 
 #ifndef NOTECOUNTER
@@ -54,7 +55,7 @@ int addstep(int step1, int step2);
 
 int addpitch(int pitch1, int pitch2);
 
-void allsum(int c);
+void allsum(int c, bool lang);
 
 int alter_from_pitch(int step, int pitch);
 
@@ -154,8 +155,6 @@ void SaveText(Polychord *polychord, long modifications, int numberofnotes, bool 
 
 void Textnotation(bool notation, bool lang);
 
-Polychord numberofnoteschord_from_keys(string key[], bool notation, bool lang);
-
 string get_chord_string(int sounds, bool lang);
  
 string Note_to_key(int step, int pitch, bool notation, bool lang); // Трансформує значення ступеню і висоти в латинське написання 
@@ -191,7 +190,7 @@ int sum_pitchs(int pitch[], int numberofintervals);
 
 void Message(int c, string title);
 
-void tableheader(string header);
+void tableheader(string header, bool lang);
 
 void tablefooter(float consonansrate, bool rate, int amount);
 

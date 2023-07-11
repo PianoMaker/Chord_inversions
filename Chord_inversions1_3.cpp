@@ -103,7 +103,7 @@ operation:
 
 	// РЕЗУЛЬТАТИ НА ЕКРАН
 
-	tableheader(header);
+	tableheader(header, lang);
 
 	for (int j = 0; j < sum; j++)
 	{

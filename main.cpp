@@ -1,10 +1,7 @@
 #include"Notes.h"
 #include"Messages.h"
 #define CLS system("cls"); greeting(); clef();
-using std::cin;
-using std::ios;
-using std::fstream;
-using std::setw;
+
 
 void Chord_inversions1_3(Polychord* polychords, long& modifications, int numberofnotes, bool notation, bool lang);
 void Chord_inversions1_4(Polychord* polychords, long& modifications, int& numberofnotes, bool notation, bool lang);

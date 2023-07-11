@@ -12,7 +12,7 @@ void Chord_inversions1_4(Polychord* polychords, long& modifications, int &number
 {
 		string initialnote; // ручне введення основного тону
 		
-		initialnote = EnterNotes(notation, enter(lang) + root(lang), lang);
+		initialnote = EnterNotes(notation, enter(lang) + root(lang), lang, true);
 
 		Message(11, enter(lang) + upto12(lang));
 		numberofnotes = EnterNum(12, lang);
@@ -104,7 +104,7 @@ void Chord_inversions1_4(Polychord* polychords, long& modifications, int &number
 
 		// РЕЗУЛЬТАТИ НА ЕКРАН
 
-		tableheader(header);
+		tableheader(header, lang);
 
 		for (int j = 0; j < c; j++)
 		{
@@ -112,7 +112,7 @@ void Chord_inversions1_4(Polychord* polychords, long& modifications, int &number
 
 			for (int i = 0; i < numberofnotes; i++)
 			{
-				cout << "\t" << setw(4) << polychords[j].name[i];
+				cout << "\t" << left << setw(4) << polychords[j].name[i];
 			}
 			cout << setw(4) << " \t| " << setw(1) << sum_steps(polychords[j].step, numberofnotes - 1) << setw(1) << " ";
 			cout << setw(1) << " | " << setw(1) << sum_pitchs(polychords[j].pitch, numberofnotes - 1) << " ";

@@ -48,7 +48,7 @@
     <ClCompile Include="sum_pitchs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Polychord.cpp">
+    <ClCompile Include="non_from_keys.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="all_sharpness.cpp">
@@ -57,10 +57,10 @@
     <ClCompile Include="Consonans_counter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Table header.cpp">
+    <ClCompile Include="table_header.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tablefooter.cpp">
+    <ClCompile Include="table_footer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Current_time.cpp">

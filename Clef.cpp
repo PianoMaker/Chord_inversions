@@ -1,5 +1,7 @@
 #include <iostream>;
 #include "Notes.h";
+#include"Messages.h"
+#define LEFT cout << setw(10) << "" <<
 using std::cout;
 using std::endl;
 
@@ -18,43 +20,49 @@ void Textnotation(bool notation, bool lang)
 {
 	if (notation)
 	{
-		Message(7, "\nДля введення нот використовуйте європейську буквенну нотацію:");
-		Message(8, "\nс - до, \td - ре, \te - мі, \nf - фа, \tg - соль, \ta - ля, \nb - сі - бемоль\th - сі \nis - дiєз, \tes - бемоль  \n");
+		Message(7, use_eu(lang));
+		Message(8, notes_eu(lang));
 	}
 	else 
 	{
-		Message(7, "\nДля введення нот використовуйте американську буквенну нотацію:");
-		Message(8, "\nс - до, \td - ре, \te - мі, \nf - фа, \tg - соль, \ta - ля, \nb - сі \t#   - дiєз, \tb - бемоль  \n");
+		Message(7, use_us(lang));
+		Message(8, notes_us(lang));
 	}
 	}
+
+const int lline = 40;
 
 void greeting()
 {
+	cout << left << setw(lline) << setfill('.') << "\n";
+	Color(15);
+	cout << "\nВас вітає створювач політерцієвих акордів!" << endl;
+	Color(14);
+	cout << endl << "   Welcome to extended chords generator!";
 	Color(7);
-	cout << endl << "+++++++++++++++++++" << endl << "Вас вітає Розв’язувач акордів" << endl << "+++++++++++++++++++\n_________________\n";
+	cout << setw(lline) << "\n" << endl;
 }
-
 
 void clef()
 {
-	
 	Color(14);
-	cout << "         #" << endl;
-	cout << "         ##" << endl;
-	cout << "         # #" << endl;
-	cout << "         ##" << endl;
-	cout << "        ##" << endl;
-	cout << "       # #" << endl;
-	cout << "      #  #" << endl;
-	cout << "     #   #" << endl;
-	cout << "    #    #" << endl;
-	cout << "   #   # # # *" << endl;
-	cout << "   #  *  #    #" << endl;
-	cout << "    #    #    #" << endl;
-	cout << "      #  #   # " << endl;
-	cout << "       * * *  " << endl;
-	cout << "         # " << endl;
-	cout << "      #  # " << endl;
-	cout << "       ## " << endl;
+	cout << setfill(' ') << "\n";
+	LEFT "         #" << endl;
+	LEFT"         ##" << endl;
+	LEFT"         # #" << endl;
+	LEFT"         ##" << endl;
+	LEFT"        ##" << endl;
+	LEFT"       # #" << endl;
+	LEFT"      #  #" << endl;
+	LEFT"     #   #" << endl;
+	LEFT"    #    #" << endl;
+	LEFT"   #   # # # *" << endl;
+	LEFT"   #  *  #    #" << endl;
+	LEFT"    #    #    #" << endl;
+	LEFT"      #  #   # " << endl;
+	LEFT"       * * *  " << endl;
+	LEFT"         # " << endl;
+	LEFT"      #  # " << endl;
+	LEFT"       ## " << endl;
 	Color(7);
 }

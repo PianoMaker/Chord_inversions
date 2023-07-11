@@ -348,7 +348,7 @@ void Chords11v4(Polychord initial, Polychord* inverted, Polychord* polychords, i
 				}
 			}
 		}
-	allsum(sum);
+	allsum(sum, lang);
 }
 
 void Chords11v5(string initialnote, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode, bool notation, bool lang)
@@ -404,7 +404,7 @@ void Chords11v5(string initialnote, Polychord* inverted, Polychord* polychords, 
 			}
 		}
 
-	allsum(sum);
+	allsum(sum, lang);
 	delete[] transposed;
 }
 
@@ -459,6 +459,6 @@ void Chords11v6(string initialnote, Polychord* inverted, Polychord* polychords, 
 			}
 		}
 
-	allsum(sum);
+	allsum(sum, lang);
 	delete[] transposed;
 }

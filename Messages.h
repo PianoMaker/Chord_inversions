@@ -252,13 +252,34 @@ const string tonetable_uk = "\t\t\tЗвуки\t\t| діапазон\n \t\t\t\t\t
 const string tonetable_en = "\t\t\tPitches\t\t| range\n \t\t\t\t\t|degree | halftones\n";
 string tonetable(bool lang);
 
-const string ifsave_uk = "\nЗберегти у файл?";
-const string ifsave_en = "\nSave as file?";
+const string ifsave_uk = "\nЗберегти у файл? 1 - так, 2 - ні";
+const string ifsave_en = "\nSave as file? 1 - yes, 2 - no";
 string ifsave(bool lang);
 
 
+const string intotal_uk = "\nусього: ";
+const string intotal_en = "\ntotal: ";
+string intotal(bool lang);
 
+const string table_header_uk = "\t\t\tЗвуки\t\t| діапазон\n \t\t\t\t\t|ступенів / півтонів | консонансність | кв.коло ";
+const string table_header_en = "\t\t\tTones\t\t| range\n \t\t\t\t\t|degrees / halftones | consonanse rate| sharpness ";
+string table_header(bool lang);
 
+const string use_eu_uk = "\nДля введення нот використовуйте європейську буквенну нотацію:";
+const string use_eu_en = "\nUse european traditional notation to enter notes:";
+string use_eu(bool lang);
+
+const string use_us_uk = "\nДля введення нот використовуйте американську буквенну нотацію:";
+const string use_us_en = "\nUse american scientific notation to enter notes:";
+string use_us(bool lang);
+
+const string notes_eu_uk = "\nс - до, \td - ре, \te - мі, \nf - фа, \tg - соль, \ta - ля, \nb - сі-бемоль\th - сі \nis - дiєз, \tes - бемоль  \n";
+const string notes_eu_en = "\nс - do, \td - re, \te - mi, \nf - fa, \tg - sol, \ta - la, \nb - si-b\th - si \nis - sharp, \tes - flat  \n";
+string notes_eu(bool lang);
+
+const string notes_us_uk = "\nс - до, \td - ре, \te - мі, \nf - фа, \tg - соль, \ta - ля, \nb - сі \t#   - дiєз, \tb - бемоль  \n";
+const string notes_us_en = "\n# - sharp, \tb - flat  \n";
+string notes_us(bool lang);
 
 //const string
 //const string
