@@ -1,14 +1,15 @@
 #include "Notes.h"
+#include"Messages.h"
 #include <string>
 #define Sharp (MeanSharpness(polychords[j], numberofnotes))
 
 
-void Extchordstats(Polychord* polychords, long& modifications, int& numberofnotes, bool notation)
+void Extchordstats(Polychord* polychords, long& modifications, int& numberofnotes, bool notation, bool lang)
 {
  
 	string initialnote = "c"; // ручне введення основного тону
 
-	cout << "\nnumberofnotes \t" << "steps \t" << "chords possible \t";
+	tablestats(lang);
 	Line();
 
 for(int i = 3; i<13; i++)
@@ -19,7 +20,7 @@ for(int i = 3; i<13; i++)
 	modifications = pow(2, numberofnotes - 1);
 	Polychord* Multichord = new Polychord[modifications];
 
-	string header = get_chord_string(modifications);
+	string header = get_chord_string(modifications, lang);
 
 
 	for (int i = 0; i < modifications; i++)
@@ -43,7 +44,7 @@ for(int i = 3; i<13; i++)
 
 		for (int i = 0; i < numberofnotes; i++)
 		{
-			Multichord[j].name[i] = Pitch_to_notename(Multichord[j].step[i], Multichord[j].pitch[i]); // генеруємо назви нот (string)
+			Multichord[j].name[i] = Pitch_to_notename(Multichord[j].step[i], Multichord[j].pitch[i], lang); // генеруємо назви нот (string)
 		}
 
 
@@ -53,7 +54,7 @@ for(int i = 3; i<13; i++)
 
 			polychords[c] = Multichord[j];
 			for (int i = 0; i < numberofnotes; i++)
-				polychords[c].name[i] = Pitch_to_notename(polychords[c].step[i], polychords[c].pitch[i]);
+				polychords[c].name[i] = Pitch_to_notename(polychords[c].step[i], polychords[c].pitch[i], lang);
 			c++;
 		}
 		else

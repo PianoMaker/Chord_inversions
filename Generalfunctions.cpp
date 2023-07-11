@@ -1,11 +1,11 @@
 #include"Notes.h"
 #include <windows.h>
+#include "Messages.h"
 
 void Color(int color)
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsole, color);
-
 }
 
 void Message(int c, string title)
@@ -15,7 +15,7 @@ void Message(int c, string title)
     Color(7);
 }
 
-int EnterNum(int max)
+int EnterNum(int max, bool lang)
 {
 	int initialnote;
 	do
@@ -23,7 +23,7 @@ int EnterNum(int max)
 		cin >> initialnote;
 
 		if (initialnote > max)
-			Message(12, "завелике число, спробуйте ще!\n");
+			Message(12, less(lang) + to_string(max) + "\n");
 	} while (initialnote > max);
 
 	return initialnote;
@@ -38,8 +38,8 @@ bool EnterBool(string text) // захист від випадково невір
 	{
 		if (cin.rdbuf()->in_avail() > 0) { cin.clear(); cin.ignore(INT_MAX, '\n'); }
 		cin.getline(choice, 3);
-		if (strcmp(choice, "1") == 0) return true;
+		if (strcmp(choice, "1") == 0) return true; 
 		else if (strcmp(choice, "2") == 0) return false;
-		else cout << "try once more!1 or 2!\n";
+		else cout << "try once more!  1 or 2!\n";
 	}
 }

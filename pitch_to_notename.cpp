@@ -1,10 +1,10 @@
 /// ВИЗНАЧЕННЯ НАЗВИ НОТИ (ЗА СТУПІННЮ І ВИСОТОЮ) 
-#include <iostream>
 #include "Notes.h"
+#include"Messages.h"
 
 
 
-string Pitch_to_notename(int step, int pitch)
+string Pitch_to_notename(int step, int pitch, bool lang)
 {
 	string notename;
 	string noteaccname;
@@ -23,36 +23,36 @@ string Pitch_to_notename(int step, int pitch)
 
 	if (step == DO)
 	{
-		notename = "до"; standartpitch = 0;
+		notename = (ndo(lang)); standartpitch = 0;
 	}
 	else if (step == RE)
 	{
-		notename = "ре"; standartpitch = 2;
+		notename = (nre(lang)); standartpitch = 2;
 	}
 	else if (step == MI)
 	{
-		notename = "мі"; standartpitch = 4;
+		notename = (nmi(lang)); standartpitch = 4;
 	}
 	else if (step == FA)
 	{
-		notename = "фа"; standartpitch = 5;
+		notename = (nfa(lang)); standartpitch = 5;
 	}
 	else if (step == SOL)
 	{
-		notename = "соль"; standartpitch = 7;
+		notename = (nsol(lang)); standartpitch = 7;
 	}
 	else if (step == LA)
 	{
-		notename = "ля"; standartpitch = 9;
+		notename = (nla(lang)); standartpitch = 9;
 	}
 	else if (step == SI)
 	{
-		notename = "сі"; standartpitch = 11;
+		notename = (nsi(lang)); standartpitch = 11;
 	}
 
 	else
 	{
-		return "Помилка при введенні ноти\n";
+		return (note_error(lang));
 	}
 
 	alter = pitch - standartpitch;
@@ -125,7 +125,7 @@ string Pitch_to_notename(int step, int pitch)
 
 	else
 	{
-		return "Помилка при введенні ноти\n";
+		return (note_error(lang));
 	}
 
 	string Key_to_notename(notename + noteaccname);

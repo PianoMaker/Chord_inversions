@@ -1,26 +1,27 @@
 #include "Notes.h"
+#include"Messages.h"
 #include <string>
 #define Sharp (MeanSharpness(polychords[j], numberofnotes))
 
 
- string get_chord_string(int sounds) {
-	return "Акорди із " + std::to_string(sounds) + " звуків";
+ string get_chord_string(int sounds, bool lang) {
+	return chords_containing(lang) + to_string(sounds) + fsounds(lang);
 }
 
-void Chord_inversions1_4(Polychord* polychords, long& modifications, int &numberofnotes, bool notation)
+void Chord_inversions1_4(Polychord* polychords, long& modifications, int &numberofnotes, bool notation, bool lang)
 {
 		string initialnote; // ручне введення основного тону
 		
-		initialnote = EnterNotes(notation, "\nВведіть основний тон\n");
+		initialnote = EnterNotes(notation, enter(lang) + root(lang), lang);
 
-		Message(11, "\nВведіть кількість нот (до 12)\n");
-		numberofnotes = EnterNum(12);
+		Message(11, enter(lang) + upto12(lang));
+		numberofnotes = EnterNum(12, lang);
 
 		modifications = pow (2, numberofnotes -1);
 		Polychord *Multichord = new Polychord[modifications];
 		cout << "modifications = " << modifications << endl; 
 
-		string header = get_chord_string(numberofnotes);
+		string header = get_chord_string(numberofnotes, lang);
 		
 
 		bool test;
@@ -69,7 +70,7 @@ void Chord_inversions1_4(Polychord* polychords, long& modifications, int &number
 			for (int i = 0; i < numberofnotes; i++)
 			{
 				if (test)cout << Multichord[j].pitch[i] << " ";
-				Multichord[j].name[i] = Pitch_to_notename(Multichord[j].step[i], Multichord[j].pitch[i]); // генеруємо назви нот (string)
+				Multichord[j].name[i] = Pitch_to_notename(Multichord[j].step[i], Multichord[j].pitch[i], lang); // генеруємо назви нот (string)
 				if (test)cout << Multichord[j].name[i] << " ,";
 			}
 			
@@ -80,7 +81,7 @@ void Chord_inversions1_4(Polychord* polychords, long& modifications, int &number
 
 				polychords[c] = Multichord[j];
 				for (int i = 0; i < numberofnotes; i++)
-				polychords[c].name[i] = Pitch_to_notename(polychords[c].step[i], polychords[c].pitch[i]);
+				polychords[c].name[i] = Pitch_to_notename(polychords[c].step[i], polychords[c].pitch[i], lang);
 			
 				c++;
 				if(test) cout << ": +\n";

@@ -141,9 +141,11 @@
     <ClCompile Include="EnterNote.cpp" />
     <ClCompile Include="Extchordstats.cpp" />
     <ClCompile Include="InitializeChords.cpp" />
+    <ClCompile Include="lang.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MeanSharpness.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Messages.cpp" />
     <ClCompile Include="NoteRanger.cpp" />
     <ClCompile Include="QualityInterval.cpp" />
     <ClCompile Include="Oct_pitch_filter.cpp" />
@@ -169,7 +171,11 @@
     <ClCompile Include="Chord_inversions1_3.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Messages.h" />
     <ClInclude Include="Notes.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Image.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

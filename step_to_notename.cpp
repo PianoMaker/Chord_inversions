@@ -1,9 +1,10 @@
 /// ВИЗНАЧЕННЯ АБСОЛЮТНОЇ ВИСОТИ ЗВУКА (У ПІВТОНАХ від рівня ДО)
 #include <iostream>
+#include"Messages.h"
 #include "Notes.h"
 using namespace std;
 
-string Step_to_notename(int step, int alter)
+string Step_to_notename(int step, int alter, bool lang)
 {
 	string notename;
 	string noteaccname;
@@ -19,36 +20,36 @@ string Step_to_notename(int step, int alter)
 	//cout << "test2 step =" << step << "\n";
 	if (step == DO)
 	{
-		notename = "до";
+		notename = ndo(lang);
 	}
 	else if (step == RE)
 	{
-		notename = "ре";
+		notename = nre(lang);
 	}
 	else if (step == MI)
 	{
-		notename = "мі";
+		notename = nmi(lang);
 	}
 	else if (step == FA)
 	{
-		notename = "фа";
+		notename = nfa(lang);
 	}
 	else if (step == SOL)
 	{
-		notename = "соль";
+		notename = nsol(lang);
 	}
 	else if (step == LA)
 	{
-		notename = "ля";
+		notename = nla(lang);
 	}
 	else if (step == SI)
 	{
-		notename = "сі";
+		notename = nsi(lang);
 	}
 
 	else
 	{
-		return "Помилка при введенні ноти\n";
+		return note_error(lang);
 	}
 
 	if (alter == 0)
@@ -72,7 +73,7 @@ string Step_to_notename(int step, int alter)
 
 	else
 	{
-		return "Помилка при введенні ноти\n";
+		return note_error(lang);
 	}
 	string Key_to_notename(notename + noteaccname);
 

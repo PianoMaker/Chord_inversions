@@ -1,24 +1,31 @@
 #include "Notes.h"
+#include "Messages.h"
 
-bool ChooseNotation()
+bool ChooseLanguage()
 {
-	Message(11, "\nОберіть нотацію");
-	Message(7, "\n1 - класична європейська нотація\n2 - американська нотація\n");
+	Message(10, "\n1 - Українська");
+	Message(10, "\t\t2 - English\n");
 	return EnterBool("");
-	
 }
 
 
-int Menu(int &numberofnotes)
+bool ChooseNotation(bool lang)
+{
+	Message(11, choose_notation(lang));
+	Message(7, notationtypes(lang));
+	return EnterBool("");
+}
+
+int Menu(int &numberofnotes, bool lang)
 {
 	int choice;
-	Message(11, "\nОберіть програму\n");
-	Message(15, "1 - Септакорди\n2 - Нонакорди\n3 - Ундецимакорди \n4 - Політерцієві із заданою кількістю звуків \n5 - статистика\n");
+	Message(11, choose_program(lang));
+	Message(15, choose_chords(lang));
 	do
 	{
 		cin >> choice;
 
-		if (choice < 1 || choice > 5) Message(12, "Оберіть від 1 до 5\n");
+		if (choice < 1 || choice > 5) Message(12, btw1and5(lang));
 	} while (choice < 1 || choice > 5);
 	system("cls");
 
@@ -32,50 +39,50 @@ int Menu(int &numberofnotes)
 	return choice;
 }
 
-int Restrictions(int numberofnotes)
+int Restrictions(int numberofnotes, bool lang)
 {
 	if (numberofnotes < 5) return 0;
 	else
 	{
-		Message(11, "\n\nОберіть модель\n");
-		cout << "Шукати усі обернення та розташування - 0" << endl;
-		cout << "Шукати лише розташування, в яких 9-, 11- і 13- тони";
-		Message(6, " вищі ");
-		Color(7);
-		cout << "за основний тон щонайменш на нону - 1\n";
+		Message(11, choose_model(lang));
+		Message(7, all_voicings(lang));
+		Message(7, sp_voicings(lang));
+		Message(6, above(lang));
+		Message(7, aboveroot(lang));
 
-		int mode = EnterNum(1);
+		int mode = EnterNum(1, lang);
 		return mode;
 	}
 }
 
-int ChooseOperation(int numberofnotes)
+int ChooseOperation(int numberofnotes, bool lang)
 {
-	Message(11, "\nОберіть операцію");
-	if (numberofnotes>4) cout << "\n1 - Вивести усі " << ChordName(numberofnotes) << "акорди в порядку обернень" <<
-		"\n2 - Вивести лише " << ChordName(numberofnotes) << "акорди з " << ChordName(numberofnotes) <<"ою у мелодичному положенні" <<
-		"\n3 - вивести лише " << ChordName(numberofnotes) << "акорди з інтервалом " << ChordName(numberofnotes) << "и між крайніми голосами" <<
-		"\n4 - Вивести усі " << ChordName(numberofnotes) << "акорди в порядку зростання діапазону" <<
-		"\n5 - Вивести " << ChordName(numberofnotes) << "акорди та обернення від заданої ноти" <<
-		"\n6 - Вивести " << ChordName(numberofnotes) << "акорди та обернення із заданим мелодичним тоном" << endl;
-	else  cout << "\n1- Вивести усі " << ChordName(numberofnotes) << "акорди в порядку обернень" <<
-		"\n2 - Вивести усі " << ChordName(numberofnotes) << "акорди в порядку зростання діапазону" <<
-		"\n3 - Вивести усі " << ChordName(numberofnotes) << "акорди та обернення від заданої ноти" <<
-		"\n4 - Вивести " << ChordName(numberofnotes) << "акорди та обернення із заданим мелодичним тоном" << endl;
+	Message(11, choose_action(lang));
+	if (numberofnotes > 4) cout << "\n1 - " << display_all(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_order(lang) <<
+		"\n2 - " << display_only(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << with_interval(lang) << ChordName(numberofnotes, lang) << in_melody(lang) <<
+		"\n3 - " << display_only(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << with_interval(lang) << ChordName(numberofnotes, lang) << between(lang) <<
+		"\n4 - " << display_all(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << range_order(lang) <<
+		"\n5 - " << display(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_root(lang) <<
+		"\n6 - " << display(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_melody(lang) << endl;
+	else  cout << "\n1- " << display_all(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_order(lang) <<
+		"\n2 - " << display_all(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << range_order(lang) <<
+		"\n3 - " << display_all(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_root(lang) <<
+		"\n4 - " << display(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_melody(lang) << endl;
 
 	int choice;
-	if (numberofnotes > 4) choice = EnterNum(6);
-	else choice = EnterNum(4);
+	cin.ignore();
+	if (numberofnotes > 4) choice = EnterNum(6, lang);
+	else choice = EnterNum(4, lang);
 	return choice;
 
 }
 
-int Postmenu()
+int Postmenu(bool lang)
 {
 	int choice;
-	Message(11, "\nОберіть дію\n");
-	Message(15, "1 - Зіграти акорди\n2 - Зберегти як текст\n3 - Зберегти як xml)\n4 - спробувати інший акорд\n0 - завершення роботи\n");
-	choice = EnterNum(4);
+	Message(11, choose_action(lang));
+	Message(15, final_action(lang));
+	choice = EnterNum(4, lang);
 	system("cls");
 	return choice;
 }

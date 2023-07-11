@@ -1,8 +1,9 @@
 //Визначає латинську назву за ступенем і висотою
 #include"Notes.h"
+#include"Messages.h"
 
 
-string Note_to_key(int step, int pitch, bool notation)
+string Note_to_key(int step, int pitch, bool notation, bool lang)
 {
 	string notename;
 	string noteaccname;
@@ -51,7 +52,7 @@ string Note_to_key(int step, int pitch, bool notation)
 
 	else
 	{
-		return "Помилка при введенні ноти\n";
+		return note_error(lang);
 	}
 
 	alter = pitch - standartpitch;
@@ -101,7 +102,7 @@ string Note_to_key(int step, int pitch, bool notation)
 
 	else
 	{
-		return "Помилка при введенні ноти\n";
+		return note_error(lang);
 	}
 
 	string Key_to_notename(notename + noteaccname);

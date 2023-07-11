@@ -1,4 +1,5 @@
 #include"Notes.h";
+#include"Messages.h";
 //enum NOTES1 { DO, RE, MI, FA, SOL, LA, SI };
 //notation=1 : європейська нотація
 
@@ -36,37 +37,37 @@ int Key_to_step(string key, bool notation)
 // ВИЗНАЧЕННЯ НАЗВИ НОТИ (українською)
 // введеної за клавіатури ноти 
 
-string Key_to_notename(string key, bool notation)
+string Key_to_notename(string key, bool notation, bool lang)
 {
 	string note_as_written(key, 0, 1);
 	string n_acc(key, 1, 4);
 	string notename;
 	string noteaccname;
 
-	if (note_as_written == "c")	notename = "до";
-	else if (note_as_written == "d") notename = "ре";
-	else if (note_as_written == "e") notename = "мі";
-	else if (note_as_written == "f") notename = "фа";
-	else if (note_as_written == "g") notename = "соль";
-	else if (note_as_written == "a") notename = "ля";
+	if (note_as_written == "c")	notename = ndo(lang);
+	else if (note_as_written == "d") notename = nre(lang);
+	else if (note_as_written == "e") notename = nmi(lang);
+	else if (note_as_written == "f") notename = nfa(lang);
+	else if (note_as_written == "g") notename = nsol(lang);
+	else if (note_as_written == "a") notename = nla(lang);
 	else if ((note_as_written == "b" && (notation) && n_acc == "is") || (note_as_written == "b" && (notation) && n_acc == "isis"))
-		return "Помилка при введенні ноти\n";
+		return note_error(lang);
 
 	else if (note_as_written == "h" && (notation) && n_acc == "es")
-		return "Помилка при введенні ноти\n";
+		return note_error(lang);
 
-	else if (note_as_written == "b" && (notation) && n_acc == "es") notename = "сі";
-	else if (note_as_written == "b" && (notation)) notename = "сі ь";
-	else if (note_as_written == "b" && (!notation)) notename = "сі";
+	else if (note_as_written == "b" && (notation) && n_acc == "es") notename = nsi(lang);
+	else if (note_as_written == "b" && (notation)) notename = nsi(lang) + "b";
+	else if (note_as_written == "b" && (!notation)) notename = nsi(lang);
 	else if (note_as_written == "h")
 	{
 		if (notation) notename = "сі";
 
 		else
-			return "Помилка при введенні ноти\n";
+			return note_error(lang);
 	}
 	else
-		return "Помилка при введенні ноти\n";
+		return note_error(lang);
 
 
 	if (n_acc == "") noteaccname = "";
@@ -81,7 +82,7 @@ string Key_to_notename(string key, bool notation)
 	else if (n_acc == "es" && (notation) || n_acc == "s" && (notation) || n_acc == "b" && (!notation))
 		noteaccname = " ь";
 	else
-		return "Помилка при введенні ноти\n";
+		return note_error(lang);
 
 	string Key_to_notename(notename + noteaccname);
 
@@ -141,18 +142,18 @@ int Key_to_pitch(string key, bool notation)
 
 //  ВВЕДЕННЯ З КЛАВІАТУРИ
 
-string EnterNotes(bool notation, string text, string comment)
+string EnterNotes(bool notation, string text, bool lang, bool faq)
 {
 	string note;
 
 	Message(11, text);
-	Message(7, comment);
+	if(faq)Textnotation(notation, lang);
 	do
 	{
 	cin >> note;
 
 	if (Key_to_step(note, notation) == -100)
-	Message(12, "помилка при введенні ноти, спробуйте ще!\n");
+	Message(12, note_error(lang) + trymore(lang) + "\n");
 	} while (Key_to_step(note, notation) == -100);
 
 	return note;
