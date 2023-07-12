@@ -389,3 +389,39 @@ string notes_us(bool lang)
 	if (lang) return notes_us_uk;
 	else return notes_us_en;
 }
+
+string increase_range_mel(bool lang)
+{
+	if (lang) return increase_range_mel_uk;
+	else return increase_range_mel_en;
+}
+
+string increase_range(bool lang)
+{
+	if (lang) return increase_range_uk;
+	else return increase_range_en;
+}
+
+string increase_range_root(bool lang)
+{
+	if (lang) return increase_range_root_uk;
+	else return increase_range_root_en;
+}
+
+string noentered(bool lang)
+{
+	if (lang) return noentered_uk;
+	else return noentered_en;
+}
+
+string anyway(bool lang)
+{
+	if (lang) return anyway_uk;
+	else return anyway_en;
+}
+
+string try_or_more(bool lang)
+{
+	if (lang) return try_or_more_uk;
+	else return try_or_more_en;
+}

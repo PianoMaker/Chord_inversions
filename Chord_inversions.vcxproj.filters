@@ -48,9 +48,6 @@
     <ClCompile Include="sum_pitchs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="non_from_keys.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="all_sharpness.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

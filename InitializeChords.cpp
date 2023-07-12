@@ -5,14 +5,14 @@ void InitChordManual(Polychord& initial, string &initialnote, bool notation, int
 {
 	bool repeat = 0;
 	string* key = new string[numberofnotes];
-	string enteringtext = enter(lang) + to_string(numberofnotes) + " звуків\n";
+	string enteringtext = enter(lang) + to_string(numberofnotes) + fsounds(lang);
 	do 
 	{
 		Message(11, enteringtext);
 		Textnotation(notation, lang);
 		for (int i = 0; i < numberofnotes; i++)
 			key[i] = EnterNotes(notation, sound(lang) + to_string(i + 1) + " ", lang);
-		cin.ignore();  // Очистити зайві символи
+		cin.ignore(INT_FAST16_MAX, '\n');  // Очистити зайві символи
 
 		initialnote = key[0];
 		for (int i = 0; i < numberofnotes; i++)
@@ -25,13 +25,14 @@ void InitChordManual(Polychord& initial, string &initialnote, bool notation, int
 		for (int i = 0; i < numberofnotes - 1; i++)
 			if (Stepdiff(initial.step[i], initial.step[i + 1]) != 2)
 			{
-				Message(12, "введений акорд не є " + ChordName(numberofnotes, lang) + "акордом. Все одно продовжити? \n");
-				repeat = EnterBool("1 - так, 2 - спробувати знову\n");
+				Message(12, noentered(lang) + ChordName(numberofnotes, lang) + anyway(lang));
+				repeat = EnterBool(try_or_more(lang));
 				break;
 			}
 			else repeat = 1;
 	} while (!repeat);
 	initialnote = key[0];
+	
 	delete[] key;
 }
 
@@ -68,29 +69,29 @@ void Construct7(Polychord& initial, int model, bool notation, bool lang)
 {
 	switch (model)
 	{
-	case 1:
+	case 1://в.маж.
 		Preconstruct(initial, 1, 4);
 		Preconstruct(initial, 2, 7);
 		Preconstruct(initial, 3, 11);
 		break;
 
-	case 2:
+	case 2://м. маж.
 		Preconstruct(initial, 1, 4);
 		Preconstruct(initial, 2, 7);
 		Preconstruct(initial, 3, 10);
 		break;
-	case 3:
+	case 3://в. мін.
 		Preconstruct(initial, 1, 3);
 		Preconstruct(initial, 2, 7);
 		Preconstruct(initial, 3, 11);
 		break;
 
-	case 4:
+	case 4://м. мін. 
 		Preconstruct(initial, 1, 3);
 		Preconstruct(initial, 2, 7);
 		Preconstruct(initial, 3, 10);
 		break;
-	case 5:
+	case 5://м. зм.
 		Preconstruct(initial, 1, 3);
 		Preconstruct(initial, 2, 6);
 		Preconstruct(initial, 3, 10);
@@ -106,30 +107,30 @@ void Construct9(Polychord& initial, int model, bool notation, bool lang)
 {
 	switch (model)
 	{
-	case 1:
+	case 1:// маж.
 		Preconstruct(initial, 1, 4);
 		Preconstruct(initial, 3, 11);
 		break;
 
-	case 2:
+	case 2:// дом.
 		Preconstruct(initial, 1, 4);
 		Preconstruct(initial, 3, 10);
 		break;
-	case 3:
+	case 3:// мін.
 		Preconstruct(initial, 1, 3);
 		Preconstruct(initial, 3, 10);
 		break;
 
-	case 4:
-		initial.pitch[1] = addpitch(initial.pitch[0], 4);
+	case 4:// 6/9
+		Preconstruct(initial, 1, 4);
 		initial.step[3] = addpitch(initial.step[2], 1);
-		initial.pitch[3] = addpitch(initial.pitch[0], 9);
+		Preconstruct(initial, 3, 9);
 		break;
-	case 5:
-		initial.pitch[1] = addpitch(initial.pitch[0], 3);
-		initial.pitch[2] = addpitch(initial.pitch[0], 6);
-		initial.pitch[3] = addpitch(initial.pitch[0], 10);
-		initial.pitch[4] = addpitch(initial.pitch[0], 13);
+	case 5:// зм.
+		Preconstruct(initial, 1, 3);
+		Preconstruct(initial, 2, 6);
+		Preconstruct(initial, 3, 10);
+		Preconstruct(initial, 4, 13);
 		break;
 	}
 
@@ -140,7 +141,7 @@ void Construct9(Polychord& initial, int model, bool notation, bool lang)
 
 }
 
-void Construct11(Polychord& initial, int model, bool notation, bool lang)//конструювання інтервалів
+void Construct11(Polychord& initial, int model, bool notation, bool lang)//конструювання акорду за інтервалами
 {
 	switch (model)
 	{
@@ -202,7 +203,7 @@ string ChordName(int numberofnotes, bool lang)
 	}
 }
 
-int Model(int numberofnotes, bool lang)
+int Model(int numberofnotes, bool lang)// вибір інтервальної структури акорда 
 {
 	Color(11);
 	cout << chord_choose(lang) << ChordName(numberofnotes, lang) << chord_structure(lang);
@@ -227,6 +228,7 @@ string VoiceName(int numberofnotes, bool lang)
 	}
 }
 
+// виводить на екран вихіний акорд (initial)
 void AnalyzeEnteredChord(Polychord &initial, int numberofnotes, bool notation, bool lang)
 {
 	system("cls");
@@ -234,8 +236,10 @@ void AnalyzeEnteredChord(Polychord &initial, int numberofnotes, bool notation, b
 	for (int i = 0; i < numberofnotes; i++)
 	{
 		initial.name[i] = Key_to_notename(initial.key[i], notation, lang);
-		cout << initial.name[i] << " - ";
+		cout << initial.name[i];
+			if (i < numberofnotes - 1) cout << " - ";
 	}
+	cout << endl;
 }
 
 void MultiAnalyze(Polychord* inverted, int numberofnotes, bool notation, int numberofcombinations, bool lang)
@@ -307,7 +311,7 @@ void Chords11v3(Polychord initial, Polychord* inverted, Polychord* polychords, i
 {
 	int d = 0, e = 0;
 
-	header = "з інтервалом" + VoiceName(numberofnotes, lang) + "а між крайніми голосами";
+	header = c_chordsw(lang) + VoiceName(numberofnotes, lang) + between(lang);
 	for (int j = 0; j < numberofcombinations; j++)
 	{
 		if (ifmode)
@@ -329,7 +333,7 @@ void Chords11v3(Polychord initial, Polychord* inverted, Polychord* polychords, i
 
 void Chords11v4(Polychord initial, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode, bool lang)
 {
-	header = ChordName(numberofnotes, lang) + "акорди за зростанням діапазону";
+	header = ChordName(numberofnotes, lang) + increase_range(lang);
 
 	int numberofintervals = numberofnotes - 1;
 	for (int k = 1; k < 90; k++)
@@ -358,7 +362,7 @@ void Chords11v5(string initialnote, Polychord* inverted, Polychord* polychords, 
 	string destination = initialnote;
 	int numberofintervals = numberofnotes - 1;
 	// нонакорди за зростанням діапазону.
-	header = ChordName(numberofnotes, lang) + "акроди за зростанням діапазону від заданої ноти";
+	header = ChordName(numberofnotes, lang) + increase_range_root(lang);
 
 	transposed[0].step[0] = Key_to_step(destination, notation);
 	transposed[0].pitch[0] = Key_to_pitch(destination, notation);
@@ -412,7 +416,7 @@ void Chords11v6(string initialnote, Polychord* inverted, Polychord* polychords, 
 {
 
 	// нонакорди за зростанням діапазону.
-	header = ChordName(numberofnotes, lang) + "акорди за зростанням діапазону із заданим мелодичним тоном";
+	header = ChordName(numberofnotes, lang) + increase_range(lang);
 	Polychord* transposed = new Polychord[numberofcombinations];
 	string destination = initialnote; // вводиться 
 	int numberofintervals = numberofnotes - 1;

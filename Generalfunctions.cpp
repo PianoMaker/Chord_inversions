@@ -17,16 +17,16 @@ void Message(int c, string title)
 
 int EnterNum(int max, bool lang)
 {
-	int initialnote;
+	int num;
 	do
 	{
-		cin >> initialnote;
+		cin >> num;
 
-		if (initialnote > max)
+		if (num > max)
 			Message(12, less(lang) + to_string(max) + "\n");
-	} while (initialnote > max);
+	} while (num > max);
 
-	return initialnote;
+	return num;
 }
 
 

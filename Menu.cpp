@@ -58,19 +58,20 @@ int Restrictions(int numberofnotes, bool lang)
 int ChooseOperation(int numberofnotes, bool lang)
 {
 	Message(11, choose_action(lang));
-	if (numberofnotes > 4) cout << "\n1 - " << display_all(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_order(lang) <<
-		"\n2 - " << display_only(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << with_interval(lang) << ChordName(numberofnotes, lang) << in_melody(lang) <<
-		"\n3 - " << display_only(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << with_interval(lang) << ChordName(numberofnotes, lang) << between(lang) <<
-		"\n4 - " << display_all(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << range_order(lang) <<
-		"\n5 - " << display(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_root(lang) <<
-		"\n6 - " << display(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_melody(lang) << endl;
+	if (numberofnotes > 4) 
+		/*усі*/       cout << "\n1 - " << display_all(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_order(lang) <<
+		/*інтервал в мелодії*/"\n2 - " << display_only(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << with_interval(lang) << ChordName(numberofnotes, lang) << in_melody(lang) <<
+		/*інтервал між */     "\n3 - " << display_only(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << with_interval(lang) << ChordName(numberofnotes, lang) << between(lang) <<
+		/*по діапазону*/      "\n4 - " << display_all(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << range_order(lang) <<
+		/*нота в басу*/       "\n5 - " << display(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_root(lang) <<
+		/*нота в мелодії*/    "\n6 - " << display(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_melody(lang) << endl;
 	else  cout << "\n1- " << display_all(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_order(lang) <<
 		"\n2 - " << display_all(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << range_order(lang) <<
 		"\n3 - " << display_all(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_root(lang) <<
 		"\n4 - " << display(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_melody(lang) << endl;
 
 	int choice;
-	cin.ignore();
+	
 	if (numberofnotes > 4) choice = EnterNum(6, lang);
 	else choice = EnterNum(4, lang);
 	return choice;

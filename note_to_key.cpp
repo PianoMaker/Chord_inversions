@@ -66,7 +66,22 @@ string Note_to_key(int step, int pitch, bool notation, bool lang)
 	{
 		notename = "b"; noteaccname = "x";
 	}
-
+	else if (step == DO && pitch == 11 && notation)
+	{
+		notename = "c"; noteaccname = "es"; alter = -1;
+	}
+	else if (step == DO && pitch == 11 && !notation)
+	{
+		notename = "c"; noteaccname = "b"; alter = -1;
+	}
+	else if (step == DO && pitch == 10 && notation)
+	{
+		notename = "c"; noteaccname = "eses"; alter = -2;
+	}
+	else if (step == DO && pitch == 10 && !notation)
+	{
+		notename = "c"; noteaccname = "bb"; alter = -2;
+	}
 	else if (alter == 2 && notation)
 	{
 		noteaccname = "isis";

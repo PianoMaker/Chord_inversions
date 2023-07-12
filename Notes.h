@@ -63,6 +63,7 @@ int alteration_counter(string key, bool notation);
 
 void All_11(Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode, bool lang);
 
+//виводить на екран вихіний акорд(initial)
 void AnalyzeEnteredChord(Polychord& initial, int numberofnotes, bool notation, bool lang);
 
 // озвучення акордів
@@ -143,6 +144,8 @@ int Model(int numberofnotes, bool lang); // вибір виду акордів
 void MultiAnalyze(Polychord* inverted, int numberofnotes, bool notation, int numberofcombinations, bool lang);
 
 void NoteRanger(Polychord* polychord, long modifications, int numberofnotes);
+
+string Note_to_key(int step, int pitch, bool notation, bool lang);
 
 bool Oncemore(bool lang);
 

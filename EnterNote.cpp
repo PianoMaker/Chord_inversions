@@ -57,7 +57,7 @@ string Key_to_notename(string key, bool notation, bool lang)
 		return note_error(lang);
 
 	else if (note_as_written == "b" && (notation) && n_acc == "es") notename = nsi(lang);
-	else if (note_as_written == "b" && (notation)) notename = nsi(lang) + "b";
+	else if (note_as_written == "b" && (notation)) notename = nsi(lang) + " b";
 	else if (note_as_written == "b" && (!notation)) notename = nsi(lang);
 	else if (note_as_written == "h")
 	{
@@ -135,6 +135,7 @@ int Key_to_pitch(string key, bool notation)
 		alteration = -1;
 	else if (n_acc == "es" && (notation) || n_acc == "s" && (notation) || n_acc == "b" && (!notation))
 		alteration = -1;
+	else if (n_acc.length()>0) return -100; 
 	else alteration = 0;
 	return pitch + alteration;
 }
@@ -152,9 +153,9 @@ string EnterNotes(bool notation, string text, bool lang, bool faq)
 	{
 	cin >> note;
 
-	if (Key_to_step(note, notation) == -100)
+	if (Key_to_pitch(note, notation) == -100 )
 	Message(12, note_error(lang) + trymore(lang) + "\n");
-	} while (Key_to_step(note, notation) == -100);
+	} while (Key_to_pitch(note, notation) == -100);
 
 	return note;
 }

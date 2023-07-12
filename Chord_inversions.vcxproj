@@ -150,7 +150,6 @@
     <ClCompile Include="QualityInterval.cpp" />
     <ClCompile Include="Oct_pitch_filter.cpp" />
     <ClCompile Include="Oncemore.cpp" />
-    <ClCompile Include="non_from_keys.cpp" />
     <ClCompile Include="note_to_key.cpp" />
     <ClCompile Include="pitchchange.cpp" />
     <ClCompile Include="pitch_to_notename.cpp" />

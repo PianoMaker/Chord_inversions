@@ -1,9 +1,10 @@
 #include"Notes.h"
+#include"Messages.h"
 void tableheader(string header, bool lang)
 {
 Message(11, header);
 Line();
-Message(11, "\t\t\tЗвуки\t\t| діапазон\n \t\t\t\t\t|ступенів / півтонів | консонансність | кв.коло ");
+Message(11, table_header(lang));
 Line();
 
 }

@@ -45,9 +45,9 @@ int main()
 			{
 			case 1: /*звук*/Beeper(polychord, modifications, numberofnotes); 
 				savetext = EnterBool(ifsave(lang)); if(!savetext) break;
-			case 2: /*текст*/SaveText(polychord, modifications, numberofnotes, lang); break;
-				//case 3 - створення xml - зробити!!
-			case 4: if (choice < 3)Chord_inversions1_3(&*polychord, modifications, numberofnotes, notation, lang);
+			case 2: /*txt*/SaveText(polychord, modifications, numberofnotes, lang); break;
+			case 3: /*xml*/ cout << "\nmodul is under construction";// -створення xml - зробити!!
+			case 4: /*other*/if (choice < 4)Chord_inversions1_3(&*polychord, modifications, numberofnotes, notation, lang);
 				  else if (choice == 4)Chord_inversions1_4(&*polychord, modifications, numberofnotes, notation, lang);
 				oncemore = true;
 				break;

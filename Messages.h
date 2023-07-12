@@ -148,8 +148,8 @@ const string c_chords_uk = "акорди";
 const string c_chords_en = " chords";
 string c_chords(bool lang);
 
-const string c_chordsw_uk = "\nАкорди з ";
-const string c_chordsw_en = "\nChords with ";
+const string c_chordsw_uk = "акорди з ";
+const string c_chordsw_en = " chords with ";
 string c_chordsw(bool lang);
 
 const string in_melody_uk = "ою в мелодичному положенні";
@@ -164,8 +164,8 @@ const string another_uk = "\nСпробувати інший акорд? 1 - т�
 const string another_en = "\nTry another chord? 1 - yes, 0 - proceed with current chord\n";
 string another(bool lang);
 
-const string chords_achieved_uk = "Акорди отримано:\n";
-const string chords_achieved_en = "Chords achieved:\n";
+const string chords_achieved_uk = "\nАкорди отримано:\n";
+const string chords_achieved_en = "\nChords achieved:\n";
 string chords_achieved(bool lang);
 
 const string upto12_uk = "кількість нот(до 12)\n";
@@ -173,8 +173,8 @@ const string upto12_en = "number of notes (up to 12)\n";
 string upto12(bool lang);
 
 
-const string chords_containing_uk = "Акорди із ";
-const string chords_containing_en = "Chords containing ";
+const string chords_containing_uk = "\nАкорди із ";
+const string chords_containing_en = "\nChords containing ";
 string chords_containing(bool lang);
 
 void tablestats(bool lang);
@@ -280,6 +280,33 @@ string notes_eu(bool lang);
 const string notes_us_uk = "\nс - до, \td - ре, \te - мі, \nf - фа, \tg - соль, \ta - ля, \nb - сі \t#   - дiєз, \tb - бемоль  \n";
 const string notes_us_en = "\n# - sharp, \tb - flat  \n";
 string notes_us(bool lang);
+
+const string increase_range_uk = "акорди за зростанням діапазону";
+const string increase_range_en = " chords by range increase";
+string increase_range(bool lang);
+
+const string increase_range_mel_uk = "акорди за зростанням діапазону із заданим мелодичним тоном";
+const string increase_range_mel_en = " chords by range increase with a given melody" ;
+string increase_range_mel(bool lang);
+
+const string increase_range_root_uk = "акроди за зростанням діапазону від заданої ноти";
+const string increase_range_root_en = " chords by range increase with a given root";
+string increase_range_root(bool lang);
+
+const string noentered_uk = "введений акорд не є ";
+const string noentered_en = "chord entered is not a ";
+string noentered(bool lang);
+
+const string anyway_uk = "акордом.Все одно продовжити ? \n";
+const string anyway_en = " chord.Proceed anyway ? \n";
+string anyway(bool lang);
+
+const string try_or_more_uk = "1 - так, 2 - спробувати знову\n";
+const string try_or_more_en = "1 - yes, 2 - try once more\n";
+string try_or_more(bool lang);
+
+
+
 
 //const string
 //const string
