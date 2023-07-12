@@ -32,13 +32,15 @@ void Chord_inversions1_3(Polychord* polychords, long& modifications, int numbero
 	else initialnote = initial.key[0];
 	int mode = Restrictions(numberofnotes, lang);// дозвіл на обернення 8+ інтервалів
 
-	/* Конструюється вихідний акорд "initial" структури model */
+	/* Конструюється вихідний акорд "initial" структури model (автоматичний режим) */
 
-
-	InitChordAuto(initial, initialnote, notation, numberofnotes);
-	if (numberofnotes == 6)Construct11(initial, model, notation, lang);
-	else if (numberofnotes == 5)Construct9(initial, model, notation, lang);
-	else if (numberofnotes == 4)Construct7(initial, model, notation, lang);
+	if (model != 0)
+	{
+		InitChordAuto(initial, initialnote, notation, numberofnotes);
+		if (numberofnotes == 6)Construct11(initial, model, notation, lang);
+		else if (numberofnotes == 5)Construct9(initial, model, notation, lang);
+		else if (numberofnotes == 4)Construct7(initial, model, notation, lang);
+	}
 	
 
 	// ВИХІДНИЙ АКОРД (initial) нотами на екран

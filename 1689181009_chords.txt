@@ -1,0 +1,34 @@
+
+Chords achieved:
+			Pitches		| range
+ 					|degree | halftones
+do # 	 mi 	sol # 	si ь 	re # 	 fa 	   | 10    | 16
+do # 	 mi 	sol # 	re # 	si ь 	 fa 	   | 17    | 28
+do # 	 mi 	si ь 	sol # 	re # 	 fa 	   | 17    | 28
+do # 	 mi 	si ь 	re # 	sol # 	 fa 	   | 17    | 28
+do # 	 mi 	re # 	sol # 	si ь 	 fa 	   | 17    | 28
+do # 	 mi 	re # 	si ь 	sol # 	 fa 	   | 24    | 40
+do # 	sol # 	 mi 	si ь 	re # 	 fa 	   | 17    | 28
+do # 	sol # 	 mi 	re # 	si ь 	 fa 	   | 24    | 40
+do # 	sol # 	si ь 	 mi 	re # 	 fa 	   | 17    | 28
+do # 	sol # 	re # 	 mi 	si ь 	 fa 	   | 17    | 28
+do # 	si ь 	 mi 	sol # 	re # 	 fa 	   | 17    | 28
+do # 	si ь 	 mi 	re # 	sol # 	 fa 	   | 24    | 40
+do # 	si ь 	sol # 	 mi 	re # 	 fa 	   | 24    | 40
+do # 	si ь 	re # 	 mi 	sol # 	 fa 	   | 17    | 28
+ mi 	do # 	sol # 	si ь 	re # 	 fa 	   | 15    | 25
+ mi 	do # 	sol # 	re # 	si ь 	 fa 	   | 22    | 37
+ mi 	do # 	si ь 	sol # 	re # 	 fa 	   | 22    | 37
+ mi 	do # 	si ь 	re # 	sol # 	 fa 	   | 22    | 37
+ mi 	sol # 	do # 	si ь 	re # 	 fa 	   | 15    | 25
+ mi 	si ь 	do # 	sol # 	re # 	 fa 	   | 15    | 25
+sol # 	do # 	 mi 	si ь 	re # 	 fa 	   | 13    | 21
+sol # 	do # 	 mi 	re # 	si ь 	 fa 	   | 20    | 33
+sol # 	do # 	si ь 	 mi 	re # 	 fa 	   | 20    | 33
+sol # 	 mi 	do # 	si ь 	re # 	 fa 	   | 20    | 33
+sol # 	si ь 	do # 	 mi 	re # 	 fa 	   | 13    | 21
+si ь 	do # 	 mi 	sol # 	re # 	 fa 	   | 11    | 19
+si ь 	do # 	 mi 	re # 	sol # 	 fa 	   | 18    | 31
+si ь 	do # 	sol # 	 mi 	re # 	 fa 	   | 18    | 31
+si ь 	 mi 	do # 	sol # 	re # 	 fa 	   | 18    | 31
+si ь 	sol # 	do # 	 mi 	re # 	 fa 	   | 18    | 31

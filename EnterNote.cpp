@@ -99,7 +99,7 @@ int Key_to_pitch(string key, bool notation)
 
 	/*cout << note_as_written << " (тест)\t";*/
 
-	int pitch, alteration;
+	int pitch, alteration=0;
 
 	if (note_as_written == "c") pitch = 0;
 	else if (note_as_written == "d") pitch = 2;
