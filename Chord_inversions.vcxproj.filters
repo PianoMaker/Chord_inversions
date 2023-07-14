@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="step_to_notename.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="pitch_to_notename.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

@@ -16,17 +16,17 @@ void Line()
 	cout << "\n____________________________________________________________________\n";
 }
 
-void Textnotation(bool notation, bool lang)
+void Textnotation(bool notation)
 {
 	if (notation)
 	{
-		Message(7, use_eu(lang));
-		Message(8, notes_eu(lang));
+		Message(7, use_eu());
+		Message(8, notes_eu());
 	}
 	else 
 	{
-		Message(7, use_us(lang));
-		Message(8, notes_us(lang));
+		Message(7, use_us());
+		Message(8, notes_us());
 	}
 	}
 

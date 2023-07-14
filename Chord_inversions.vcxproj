@@ -160,7 +160,6 @@
     <ClCompile Include="sharpness.cpp" />
     <ClCompile Include="Sharpness_from_key.cpp" />
     <ClCompile Include="stepdiff.cpp" />
-    <ClCompile Include="step_to_notename.cpp" />
     <ClCompile Include="step_to_pitch.cpp" />
     <ClCompile Include="sum_pitchs.cpp" />
     <ClCompile Include="sum_steps.cpp" />

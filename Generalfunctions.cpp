@@ -15,7 +15,7 @@ void Message(int c, string title)
     Color(7);
 }
 
-int EnterNum(int max, bool lang)
+int EnterNum(int max)
 {
 	int num;
 	do
@@ -23,7 +23,7 @@ int EnterNum(int max, bool lang)
 		cin >> num;
 
 		if (num > max)
-			Message(12, less(lang) + to_string(max) + "\n");
+			Message(12, less() + to_string(max) + "\n");
 	} while (num > max);
 
 	return num;

@@ -1,10 +1,10 @@
 #include"Notes.h"
 #include"Messages.h"
-void tableheader(string header, bool lang)
+void tableheader(string header)
 {
 Message(11, header);
 Line();
-Message(11, table_header(lang));
+Message(11, table_header());
 Line();
 
 }

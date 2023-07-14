@@ -1,14 +1,14 @@
 #include"Notes.h";
 #include"Messages.h"
 
-void SaveText(Polychord *polychord, long modifications, int numberofnotes, bool lang)
+void SaveText(Polychord *polychord, long modifications, int numberofnotes)
 {
 		fstream print;
 		string filename = get_current_time(); // у назву файлу вписується поточний час у секундах
 		filename.append("_chords.txt");
 		print.open(filename, ios::out);
-		print << chords_achieved(lang);
-		print << tonetable(lang);
+		print << chords_achieved();
+		print << tonetable();
 		for (int j = 0; j < modifications; j++)
 		{
 			for (int i = 0; i < numberofnotes; i++)
@@ -19,7 +19,7 @@ void SaveText(Polychord *polychord, long modifications, int numberofnotes, bool 
 			print << setw(5) << " | " << setw(2) << sum_pitchs(polychord[j].pitch, numberofnotes - 1) << endl;// підсумок - півтони
 		}
 		print.close();
-		Message(11, save_as(lang));
+		Message(11, save_as());
 		Message(15, filename);
 
 }

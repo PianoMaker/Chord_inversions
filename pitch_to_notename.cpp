@@ -4,7 +4,7 @@
 
 
 
-string Pitch_to_notename(int step, int pitch, bool lang)
+string Pitch_to_notename(int step, int pitch)
 {
 	string notename;
 	string noteaccname;
@@ -23,36 +23,36 @@ string Pitch_to_notename(int step, int pitch, bool lang)
 
 	if (step == DO)
 	{
-		notename = (ndo(lang)); standartpitch = 0;
+		notename = ndo(); standartpitch = 0;
 	}
 	else if (step == RE)
 	{
-		notename = (nre(lang)); standartpitch = 2;
+		notename = nre(); standartpitch = 2;
 	}
 	else if (step == MI)
 	{
-		notename = (nmi(lang)); standartpitch = 4;
+		notename = nmi(); standartpitch = 4;
 	}
 	else if (step == FA)
 	{
-		notename = (nfa(lang)); standartpitch = 5;
+		notename = nfa(); standartpitch = 5;
 	}
 	else if (step == SOL)
 	{
-		notename = (nsol(lang)); standartpitch = 7;
+		notename = nsol(); standartpitch = 7;
 	}
 	else if (step == LA)
 	{
-		notename = (nla(lang)); standartpitch = 9;
+		notename = nla(); standartpitch = 9;
 	}
 	else if (step == SI)
 	{
-		notename = (nsi(lang)); standartpitch = 11;
+		notename = nsi(); standartpitch = 11;
 	}
 
 	else
 	{
-		return (note_error(lang));
+		return note_error();
 	}
 
 	alter = pitch - standartpitch;
@@ -125,7 +125,7 @@ string Pitch_to_notename(int step, int pitch, bool lang)
 
 	else
 	{
-		return (note_error(lang));
+		return note_error();
 	}
 
 	string Key_to_notename(notename + noteaccname);

@@ -2,426 +2,426 @@
 #include "Messages.h"
 
 
-string choose_notation(bool lang)
+string choose_notation()
 {
-	if (lang) return choose_notation_uk;
+	if (lng) return choose_notation_uk;
 	else return choose_notation_en;
 }
 
-string notationtypes(bool lang)
+string notationtypes()
 {
-	if (lang) return notationtypes_uk;
+	if (lng) return notationtypes_uk;
 	else return notationtypes_en;
 }
 
-string choose_program(bool lang)
+string choose_program()
 {
-	if (lang) return choose_program_uk;
+	if (lng) return choose_program_uk;
 	else return choose_program_en;
 }
 
-string choose_chords(bool lang)
+string choose_chords()
 {
-	if (lang) return choose_chords_uk;
+	if (lng) return choose_chords_uk;
 	else return choose_chords_en;
 }
 
-string btw1and5(bool lang)
+string btw1and5()
 {
-	if (lang) return btw1and5_uk;
+	if (lng) return btw1and5_uk;
 	else return btw1and5_en;
 }
 
-string choose_model(bool lang)
+string choose_model()
 {
-	if (lang) return choose_model_uk;
+	if (lng) return choose_model_uk;
 	else return choose_model_en;
 }
 
-string all_voicings(bool lang)
+string all_voicings()
 {
-	if (lang) return all_voicings_uk;
+	if (lng) return all_voicings_uk;
 	else return all_voicings_en;
 }
 
-string sp_voicings(bool lang)
+string sp_voicings()
 {
-	if (lang) return sp_voicings_uk;
+	if (lng) return sp_voicings_uk;
 	else return sp_voicings_en;
 }
 
-string above(bool lang)
+string above()
 {
-	if (lang) return above_uk;
+	if (lng) return above_uk;
 	else return above_en;
 }
 
-string aboveroot(bool lang)
+string aboveroot()
 {
-	if (lang) return aboveroot_uk;
+	if (lng) return aboveroot_uk;
 	else return aboveroot_en;
 }
 
-string less(bool lang)
+string less()
 {
-	if (lang) return less_uk;
+	if (lng) return less_uk;
 	else return less_en;
 }
 
-string thank(bool lang)
+string thank()
 {
-	if (lang) return thank_uk;
+	if (lng) return thank_uk;
 	else return thank_en;
 }
 
-string note_error(bool lang)
+string note_error()
 {
-	if (lang) return note_error_uk;
+	if (lng) return note_error_uk;
 	else return note_error_en;
 }
 
-string trymore(bool lang)
+string trymore()
 {
-	if (lang) return trymore_uk;
+	if (lng) return trymore_uk;
 	else return trymore_en;
 }
 
-string ndo(bool lang)
+string ndo()
 {
-	if (lang) return ndo_uk;
+	if (lng) return ndo_uk;
 	else return ndo_en;
 }
 
-string nre(bool lang)
+string nre()
 {
-	if (lang) return nre_uk;
+	if (lng) return nre_uk;
 	else return nre_en;
 }
 
-string nmi(bool lang)
+string nmi()
 {
-	if (lang) return nmi_uk;
+	if (lng) return nmi_uk;
 	else return nmi_en;
 }
 
-string nfa(bool lang)
+string nfa()
 {
-	if (lang) return nfa_uk;
+	if (lng) return nfa_uk;
 	else return nfa_en;
 }
 
-string nsol(bool lang)
+string nsol()
 {
-	if (lang) return nsol_uk;
+	if (lng) return nsol_uk;
 	else return nsol_en;
 }
 
-string nla(bool lang)
+string nla()
 {
-	if (lang) return nla_uk;
+	if (lng) return nla_uk;
 	else return nla_en;
 }
 
-string nsi(bool lang)
+string nsi()
 {
-	if (lang) return nsi_uk;
+	if (lng) return nsi_uk;
 	else return nsi_en;
 }
 
-string enter(bool lang)
+string enter()
 {
-	if (lang) return enter_uk;
+	if (lng) return enter_uk;
 	else return enter_en;
 }
 
-string sound(bool lang)
+string sound()
 {
-	if (lang) return sound_uk;
+	if (lng) return sound_uk;
 	else return sound_en;
 }
 
-string fsounds(bool lang)
+string fsounds()
 {
-	if (lang) return fsounds_uk;
+	if (lng) return fsounds_uk;
 	else return fsounds_en;
 }
 
-string melody(bool lang)
+string melody()
 {
-	if (lang) return melody_uk;
+	if (lng) return melody_uk;
 	else return melody_en;
 }
 
-string root(bool lang)
+string root()
 {
-	if (lang) return root_uk;
+	if (lng) return root_uk;
 	else return root_en;
 }
 
-string c7th(bool lang)
+string c7th()
 {
-	if (lang) return c7th_uk;
+	if (lng) return c7th_uk;
 	else return c7th_en;
 }
 
-string i7th(bool lang)
+string i7th()
 {
-	if (lang) return i7th_uk;
+	if (lng) return i7th_uk;
 	else return i7th_en;
 }
 
-string c9th(bool lang)
+string c9th()
 {
-	if (lang) return c9th_uk;
+	if (lng) return c9th_uk;
 	else return c9th_en;
 }
-string c11th(bool lang)
+string c11th()
 {
-	if (lang) return c11th_uk;
+	if (lng) return c11th_uk;
 	else return c11th_en;
 }
-string c13th(bool lang)
+string c13th()
 {
-	if (lang) return c13th_uk;
+	if (lng) return c13th_uk;
 	else return c13th_en;
 }
 
-string chord_entered(bool lang)
+string chord_entered()
 {
-	if (lang) return chord_entered_uk;
+	if (lng) return chord_entered_uk;
 	else return chord_entered_en;
 }
 
-string c_all(bool lang)
+string c_all()
 {
-	if (lang) return c_all_uk;
+	if (lng) return c_all_uk;
 	else return c_all_en;
 }
-string c_chords(bool lang)
+string c_chords()
 {
-	if (lang) return c_chords_uk;
+	if (lng) return c_chords_uk;
 	else return c_chords_en;
 }
 
-string c_chordsw(bool lang)
+string c_chordsw()
 {
-	if (lang) return c_chordsw_uk;
+	if (lng) return c_chordsw_uk;
 	else return c_chordsw_en;
 }
 
-string in_melody(bool lang)
+string in_melody()
 {
-	if (lang) return in_melody_uk;
+	if (lng) return in_melody_uk;
 	else return in_melody_en;
 }
 
-string save_as(bool lang)
+string save_as()
 {
-	if (lang) return save_as_uk;
+	if (lng) return save_as_uk;
 	else return save_as_en;
 }
 
-string another(bool lang)
+string another()
 {
-	if (lang) return another_uk;
+	if (lng) return another_uk;
 	else return another_en;
 }
 
-string chords_achieved(bool lang)
+string chords_achieved()
 {
-	if (lang) return chords_achieved_uk;
+	if (lng) return chords_achieved_uk;
 	else return chords_achieved_en;
 }
 
-string upto12(bool lang)
+string upto12()
 {
-	if (lang) return upto12_uk;
+	if (lng) return upto12_uk;
 	else return upto12_en;
 }
 
-string chords_containing(bool lang)
+string chords_containing()
 {
-	if (lang) return chords_containing_uk;
+	if (lng) return chords_containing_uk;
 	else return chords_containing_en;
 }
 
-void tablestats(bool lang)
+void tablestats()
 {
-	if (!lang)cout << "\nnumberofnotes \t" << "steps \t" << "chords possible \t";
+	if (!lng)cout << "\nnumberofnotes \t" << "steps \t" << "chords possible \t";
 	else cout << "\nкількість нот \t" << "ступені \t" << "акордів існує \t";
 }
 
-string choose_action(bool lang)
+string choose_action()
 {
-	if (lang) return choose_action_uk;
+	if (lng) return choose_action_uk;
 	else return choose_action_en;
 }
 
-string display_only(bool lang)
+string display_only()
 {
-	if (lang) return display_only_uk;
+	if (lng) return display_only_uk;
 	else return display_only_en;
 }
-string display_all(bool lang)
+string display_all()
 {
-	if (lang) return display_all_uk;
+	if (lng) return display_all_uk;
 	else return display_all_en;
 }
-string display(bool lang)
+string display()
 {
-	if (lang) return display_uk;
+	if (lng) return display_uk;
 	else return display_en;
 }
 
-string inversions_order(bool lang)
+string inversions_order()
 {
-	if (lang) return inversions_order_uk;
+	if (lng) return inversions_order_uk;
 	else return inversions_order_en;
 }
 
-string range_order(bool lang)
+string range_order()
 {
-	if (lang) return range_order_uk;
+	if (lng) return range_order_uk;
 	else return range_order_en;
 }
 
-string final_action(bool lang)
+string final_action()
 {
-	if (lang) return final_action_uk;
+	if (lng) return final_action_uk;
 	else return final_action_en;
 }
 
-string inversions_root(bool lang)
+string inversions_root()
 {
-	if (lang) return inversions_root_uk;
+	if (lng) return inversions_root_uk;
 	else return inversions_root_en;
 }
 
-string inversions_melody(bool lang)
+string inversions_melody()
 {
-	if (lang) return inversions_melody_uk;
+	if (lng) return inversions_melody_uk;
 	else return inversions_melody_en;
 }
 
-string with_interval(bool lang)
+string with_interval()
 {
-	if (lang) return with_interval_uk;
+	if (lng) return with_interval_uk;
 	else return with_interval_en;
 }
 
-string between(bool lang)
+string between()
 {
-	if (lang) return between_uk;
+	if (lng) return between_uk;
 	else return between_en;
 }
 
-string chord_structure(bool lang)
+string chord_structure()
 {
-	if (lang) return chord_structure_uk;
+	if (lng) return chord_structure_uk;
 	else return chord_structure_en;
 }
 
-string chord_choose(bool lang)
+string chord_choose()
 {
-	if (lang) return chord_choose_uk;
+	if (lng) return chord_choose_uk;
 	else return chord_choose_en;
 }
 
-string chord_structure1(bool lang)
+string chord_structure1()
 {
-	if (lang) return chord_structure1_uk;
+	if (lng) return chord_structure1_uk;
 	else return chord_structure1_en;
 }
-string chord_structure2(bool lang)
+string chord_structure2()
 {
-	if (lang) return chord_structure2_uk;
+	if (lng) return chord_structure2_uk;
 	else return chord_structure2_en;
 }
-string chord_structure3(bool lang)
+string chord_structure3()
 {
-	if (lang) return chord_structure3_uk;
+	if (lng) return chord_structure3_uk;
 	else return chord_structure3_en;
 }
 
-string tonetable(bool lang)
+string tonetable()
 {
-	if (lang) return tonetable_uk;
+	if (lng) return tonetable_uk;
 	else return tonetable_en;
 }
 
-string ifsave(bool lang)
+string ifsave()
 {
-	if (lang) return ifsave_uk;
+	if (lng) return ifsave_uk;
 	else return ifsave_en;
 }
 
-string intotal(bool lang)
+string intotal()
 {
-	if (lang) return intotal_uk;
+	if (lng) return intotal_uk;
 	else return intotal_en;
 }
-string table_header(bool lang)
+string table_header()
 {
-	if (lang) return table_header_uk;
+	if (lng) return table_header_uk;
 	else return table_header_en;
 }
 
-string use_eu(bool lang)
+string use_eu()
 {
-	if (lang) return use_eu_uk;
+	if (lng) return use_eu_uk;
 	else return use_eu_en;
 }
 
-string use_us(bool lang)
+string use_us()
 {
-	if (lang) return use_us_uk;
+	if (lng) return use_us_uk;
 	else return use_us_en;
 }
 
-string notes_eu(bool lang)
+string notes_eu()
 {
-	if (lang) return notes_eu_uk;
+	if (lng) return notes_eu_uk;
 	else return notes_eu_en;
 }
 
-string notes_us(bool lang)
+string notes_us()
 {
-	if (lang) return notes_us_uk;
+	if (lng) return notes_us_uk;
 	else return notes_us_en;
 }
 
-string increase_range_mel(bool lang)
+string increase_range_mel()
 {
-	if (lang) return increase_range_mel_uk;
+	if (lng) return increase_range_mel_uk;
 	else return increase_range_mel_en;
 }
 
-string increase_range(bool lang)
+string increase_range()
 {
-	if (lang) return increase_range_uk;
+	if (lng) return increase_range_uk;
 	else return increase_range_en;
 }
 
-string increase_range_root(bool lang)
+string increase_range_root()
 {
-	if (lang) return increase_range_root_uk;
+	if (lng) return increase_range_root_uk;
 	else return increase_range_root_en;
 }
 
-string noentered(bool lang)
+string noentered()
 {
-	if (lang) return noentered_uk;
+	if (lng) return noentered_uk;
 	else return noentered_en;
 }
 
-string anyway(bool lang)
+string anyway()
 {
-	if (lang) return anyway_uk;
+	if (lng) return anyway_uk;
 	else return anyway_en;
 }
 
-string try_or_more(bool lang)
+string try_or_more()
 {
-	if (lang) return try_or_more_uk;
+	if (lng) return try_or_more_uk;
 	else return try_or_more_en;
 }

@@ -1,5 +1,6 @@
 #include "Notes.h"
 #include "Messages.h"
+#define CHORD ChordName(numberofnotes) << c_chords() <<
 
 bool ChooseLanguage()
 {
@@ -9,23 +10,23 @@ bool ChooseLanguage()
 }
 
 
-bool ChooseNotation(bool lang)
+bool ChooseNotation()
 {
-	Message(11, choose_notation(lang));
-	Message(7, notationtypes(lang));
+	Message(11, choose_notation());
+	Message(7, notationtypes());
 	return EnterBool("");
 }
 
-int Menu(int &numberofnotes, bool lang)
+int Menu(int &numberofnotes)
 {
 	int choice;
-	Message(11, choose_program(lang));
-	Message(15, choose_chords(lang));
+	Message(11, choose_program());
+	Message(15, choose_chords());
 	do
 	{
 		cin >> choice;
 
-		if (choice < 1 || choice > 5) Message(12, btw1and5(lang));
+		if (choice < 1 || choice > 5) Message(12, btw1and5());
 	} while (choice < 1 || choice > 5);
 	system("cls");
 
@@ -39,51 +40,51 @@ int Menu(int &numberofnotes, bool lang)
 	return choice;
 }
 
-int Restrictions(int numberofnotes, bool lang)
+int Restrictions(int numberofnotes)
 {
 	if (numberofnotes < 5) return 0;
 	else
 	{
-		Message(11, choose_model(lang));
-		Message(7, all_voicings(lang));
-		Message(7, sp_voicings(lang));
-		Message(6, above(lang));
-		Message(7, aboveroot(lang));
+		Message(11, choose_model());
+		Message(7, all_voicings());
+		Message(7, sp_voicings());
+		Message(6, above());
+		Message(7, aboveroot());
 
-		int mode = EnterNum(1, lang);
+		int mode = EnterNum(1);
 		return mode;
 	}
 }
 
-int ChooseOperation(int numberofnotes, bool lang)
+int ChooseOperation(int numberofnotes)
 {
-	Message(11, choose_action(lang));
+	Message(11, choose_action());
 	if (numberofnotes > 4) 
-		/*усі*/       cout << "\n1 - " << display_all(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_order(lang) <<
-		/*інтервал в мелодії*/"\n2 - " << display_only(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << with_interval(lang) << ChordName(numberofnotes, lang) << in_melody(lang) <<
-		/*інтервал між */     "\n3 - " << display_only(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << with_interval(lang) << ChordName(numberofnotes, lang) << between(lang) <<
-		/*по діапазону*/      "\n4 - " << display_all(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << range_order(lang) <<
-		/*нота в басу*/       "\n5 - " << display(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_root(lang) <<
-		/*нота в мелодії*/    "\n6 - " << display(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_melody(lang) << endl;
-	else  cout << "\n1- " << display_all(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_order(lang) <<
-		"\n2 - " << display_all(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << range_order(lang) <<
-		"\n3 - " << display_all(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_root(lang) <<
-		"\n4 - " << display(lang) << ChordName(numberofnotes, lang) << c_chords(lang) << inversions_melody(lang) << endl;
+		/*усі*/       cout << "\n1 - " << display_all() << CHORD inversions_order() <<
+		/*інтервал в мелодії*/"\n2 - " << display_only() << CHORD with_interval() << ChordName(numberofnotes) << in_melody() <<
+		/*інтервал між */     "\n3 - " << display_only() << CHORD with_interval() << ChordName(numberofnotes) << between() <<
+		/*сорт. по діапазону*/"\n4 - " << display_all() << CHORD range_order() <<
+		/*задано бас */       "\n5 - " << display() << CHORD inversions_root() <<
+		/*задано мелодію*/    "\n6 - " << display() << CHORD inversions_melody() << endl;
+	else  cout << "\n1- " << display_all() << CHORD inversions_order() <<
+		"\n2 - " << display_all() << CHORD range_order() <<
+		"\n3 - " << display_all() << CHORD inversions_root() <<
+		"\n4 - " << display() << CHORD inversions_melody() << endl;
 
 	int choice;
 	
-	if (numberofnotes > 4) choice = EnterNum(6, lang);
-	else choice = EnterNum(4, lang);
+	if (numberofnotes > 4) choice = EnterNum(6);
+	else choice = EnterNum(4);
 	return choice;
 
 }
 
-int Postmenu(bool lang)
+int Postmenu()
 {
 	int choice;
-	Message(11, choose_action(lang));
-	Message(15, final_action(lang));
-	choice = EnterNum(4, lang);
+	Message(11, choose_action());
+	Message(15, final_action());
+	choice = EnterNum(4);
 	system("cls");
 	return choice;
 }

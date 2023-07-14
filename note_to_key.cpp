@@ -3,7 +3,7 @@
 #include"Messages.h"
 
 
-string Note_to_key(int step, int pitch, bool notation, bool lang)
+string Note_to_key(int step, int pitch, bool notation)
 {
 	string notename;
 	string noteaccname;
@@ -52,7 +52,7 @@ string Note_to_key(int step, int pitch, bool notation, bool lang)
 
 	else
 	{
-		return note_error(lang);
+		return note_error();
 	}
 
 	alter = pitch - standartpitch;
@@ -117,7 +117,7 @@ string Note_to_key(int step, int pitch, bool notation, bool lang)
 
 	else
 	{
-		return note_error(lang);
+		return note_error();
 	}
 
 	string Key_to_notename(notename + noteaccname);
