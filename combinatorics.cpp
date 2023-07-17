@@ -38,9 +38,8 @@ int CombineN(const Polychord& initial, Polychord* inverted, int nn)
 
 
 
-int Combine6(Polychord initial, Polychord* inverted)
+ void Combine6(Polychord initial, Polychord* inverted)
 {
-
 	inverted[0] = initial;
 
 	int c = 0;//рахує кількість модифікацій
@@ -72,10 +71,9 @@ int Combine6(Polychord initial, Polychord* inverted)
 								c++;
 							}
 						}
-    return c;
 }
 
-int Combine5(Polychord initial, Polychord* inverted)
+void Combine5(Polychord initial, Polychord* inverted)
 {
 
 	inverted[0] = initial;
@@ -89,26 +87,25 @@ int Combine5(Polychord initial, Polychord* inverted)
 			for (int k = 0; k < nn; k++)
 				for (int l = 0; l < nn; l++)
 					for (int m = 0; m < nn; m++)
+					{
+						if (i != j && i != k && i != l && i != m &&// умова для уникнення однакових нот
+							j != k && j != l && j != m
+							&& k != l && k != m
+							&& l != m)
 						{
-							if (i != j && i != k && i != l && i != m &&// умова для уникнення однакових нот
-								j != k && j != l && j != m 
-								&& k != l && k != m 
-								&& l != m  )
-							{
 
-								//cout << c << ": ";
-								inverted[c].key[0] = initial.key[i]; //cout << initial.key[i];
-								inverted[c].key[1] = initial.key[j]; //cout << initial.key[j];
-								inverted[c].key[2] = initial.key[k]; //cout << initial.key[k];
-								inverted[c].key[3] = initial.key[l]; //cout << initial.key[l];
-								inverted[c].key[4] = initial.key[m]; //cout << initial.key[m] << endl;
-								c++;
-							}
+							//cout << c << ": ";
+							inverted[c].key[0] = initial.key[i]; //cout << initial.key[i];
+							inverted[c].key[1] = initial.key[j]; //cout << initial.key[j];
+							inverted[c].key[2] = initial.key[k]; //cout << initial.key[k];
+							inverted[c].key[3] = initial.key[l]; //cout << initial.key[l];
+							inverted[c].key[4] = initial.key[m]; //cout << initial.key[m] << endl;
+							c++;
 						}
-	return c;
+					}
 }
 
-int Combine4(Polychord initial, Polychord* inverted)
+void Combine4(Polychord initial, Polychord* inverted)
 {
 
 	inverted[0] = initial;
@@ -121,20 +118,19 @@ int Combine4(Polychord initial, Polychord* inverted)
 		for (int j = 0; j < nn; j++)
 			for (int k = 0; k < nn; k++)
 				for (int l = 0; l < nn; l++)
+				{
+					if (i != j && i != k && i != l &&// умова для уникнення однакових нот
+						j != k && j != l
+						&& k != l)
 					{
-						if (i != j && i != k && i != l  &&// умова для уникнення однакових нот
-							j != k && j != l 
-							&& k != l)
-						{
 
-							//cout << c << ": ";
-							inverted[c].key[0] = initial.key[i]; //cout << initial.key[i];
-							inverted[c].key[1] = initial.key[j]; //cout << initial.key[j];
-							inverted[c].key[2] = initial.key[k]; //cout << initial.key[k];
-							inverted[c].key[3] = initial.key[l]; //cout << initial.key[l];
-							c++;
-						}
+						//cout << c << ": ";
+						inverted[c].key[0] = initial.key[i]; //cout << initial.key[i];
+						inverted[c].key[1] = initial.key[j]; //cout << initial.key[j];
+						inverted[c].key[2] = initial.key[k]; //cout << initial.key[k];
+						inverted[c].key[3] = initial.key[l]; //cout << initial.key[l];
+						c++;
 					}
-	return c;
+				}
 }
 

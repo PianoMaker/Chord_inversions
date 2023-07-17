@@ -135,6 +135,9 @@
     <ClCompile Include="lang.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Xml.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Notes.h">

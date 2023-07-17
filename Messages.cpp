@@ -68,6 +68,12 @@ string less()
 	else return less_en;
 }
 
+string more()
+{
+	if (lng) return more_uk;
+	else return more_en;
+}
+
 string thank()
 {
 	if (lng) return thank_uk;
@@ -84,6 +90,12 @@ string trymore()
 {
 	if (lng) return trymore_uk;
 	else return trymore_en;
+}
+
+string entertempo()
+{
+	if (lng) return entertempo_uk;
+	else return entertempo_en;
 }
 
 string ndo()
@@ -203,10 +215,10 @@ string c_chords()
 	else return c_chords_en;
 }
 
-string c_chordsw()
+string c_chordswith()
 {
-	if (lng) return c_chordsw_uk;
-	else return c_chordsw_en;
+	if (lng) return c_chordswith_uk;
+	else return c_chordswith_en;
 }
 
 string in_melody()
@@ -424,4 +436,10 @@ string try_or_more()
 {
 	if (lng) return try_or_more_uk;
 	else return try_or_more_en;
+}
+
+string chordmode()
+{
+	if (lng) return chordmode_uk;
+	else return chordmode_en;
 }

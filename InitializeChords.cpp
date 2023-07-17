@@ -3,9 +3,23 @@
 
 //bool Lng::lng;
 
-void InitChordManual(Polychord& initial, string &initialnote, bool notation, int numberofnotes)//ручний конструктор
+void NumberOfNotes(Polychord &polychord, int numberofnotes)
+{
+	polychord.numberofnotes = numberofnotes;
+}
+
+void NumberOfNotes(Polychord *polychord, int numberofnotes, int combinations)
+{
+	for (int i = 0; i < combinations; i++)
+	{
+		NumberOfNotes(polychord[i], numberofnotes);
+	}
+}
+
+void InitChordManual(Polychord& initial, string &initialnote, bool notation)//ручний конструктор
 {
 	bool repeat = 0;
+	int numberofnotes = initial.numberofnotes;
 	string* key = new string[numberofnotes];
 	string enteringtext = enter() + to_string(numberofnotes) + fsounds();
 	do 
@@ -48,9 +62,21 @@ void InitNote(string& initialnote, int choice, bool notation)
 	initialnote = EnterNotes(notation, enteringtext);
 }
 
+string InitNote(Polychord initial, int choice)
+{
+	string enteringtext;
+	if (choice == 6) enteringtext = enter() + melody();
+	else enteringtext = enter() + root();
+	;
+
+	if (choice == 6) return initial.key[initial.numberofnotes - 1];
+	else return initial.key[0];
+}
+
 void InitChordAuto(Polychord& initial, string initialnote, bool notation, int numberofnotes)//напівавтоматичний конструктор
 {
 	initial.step[0] = Key_to_step(initialnote, notation);
+
 	initial.pitch[0] = Key_to_pitch(initialnote, notation);
 	initial.step[1] = addstep(initial.step[0], 2);
 	if (numberofnotes > 2)initial.step[2] = addstep(initial.step[1], 2);
@@ -231,35 +257,37 @@ string VoiceName(int numberofnotes)
 }
 
 // виводить на екран вихіний акорд (initial)
-void AnalyzeEnteredChord(Polychord &initial, int numberofnotes, bool notation)
+void AnalyzeEnteredChord(Polychord &initial, bool notation)
 {
 	system("cls");
 	cout << chord_entered();
-	for (int i = 0; i < numberofnotes; i++)
+	for (int i = 0; i < initial.numberofnotes; i++)
 	{
 		initial.name[i] = Key_to_notename(initial.key[i], notation);
+		initial.alter[i] = alter_from_pitch(initial.step[i], initial.pitch[i]);
 		cout << initial.name[i];
-			if (i < numberofnotes - 1) cout << " - ";
+			if (i < initial.numberofnotes - 1) cout << " - ";
 	}
 	cout << endl;
 }
 
-void MultiAnalyze(Polychord* inverted, int numberofnotes, bool notation, int numberofcombinations)
+void MultiAnalyze(Polychord* inverted, bool notation, int combinations)
 {
-	for (int j = 0; j < numberofcombinations; j++)
-		for (int i = 0; i < numberofnotes; i++)
+	for (int j = 0; j < combinations; j++)
+		for (int i = 0; i < inverted[i].numberofnotes; i++)
 		{
 			inverted[j].pitch[i] = Key_to_pitch(inverted[j].key[i], notation); // висота (int)
 			inverted[j].name[i] = Key_to_notename(inverted[j].key[i], notation); // назва (string)
 			inverted[j].step[i] = Key_to_step(inverted[j].key[i], notation);  // ступінь від "до" (int)
+			//inverted[j].alter[i] = alter_from_pitch(inverted[j].step[i], inverted[j].pitch[i]); // альтерації (int)
 		}
 	;
 }
 
-void IntervaslAnalize(Polychord initial, Polychord* inverted, int numberofnotes, int numberofcombinations)
+void IntervaslAnalize(Polychord initial, Polychord* inverted, int combinations)
 {
-for (int j = 0; j < numberofcombinations; j++)
-	for (int i = 0; i < numberofnotes; i++)
+for (int j = 0; j < combinations; j++)
+	for (int i = 0; i < initial.numberofnotes; i++)
 	{
 		if (inverted[j].key[i] == initial.key[0]) inverted[j].prima = i;
 		if (inverted[j].key[i] == initial.key[1]) inverted[j].terzia = i;
@@ -271,10 +299,10 @@ for (int j = 0; j < numberofcombinations; j++)
 	}
 }
 
-void All_11(Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode)
+void All_11(Polychord* inverted, Polychord* polychords, int& sum, string& header, int combinations, int numberofnotes, int mode)
 {
 	header = c_all() + ChordName(numberofnotes) + c_chords();
-	for (int j = 0; j < numberofcombinations; j++)
+	for (int j = 0; j < combinations; j++)
 	{
 		if (ifmode)
 		{
@@ -286,13 +314,14 @@ void All_11(Polychord* inverted, Polychord* polychords, int& sum, string& header
 	}
 }
 
-void Chords11v2(Polychord initial, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode)
+void Chords11v2(Polychord initial, Polychord* inverted, Polychord* polychords, int& sum, string& header, int combinations, int mode)
 {
 	// нонакорди з ноною нагорі.
 	int d = 0, e = 0;
+	int numberofnotes = initial.numberofnotes;
 
-	header = ChordName(numberofnotes) + c_chordsw() + VoiceName(numberofnotes) + in_melody();
-	for (int j = 0; j < numberofcombinations; j++)
+	header = ChordName(numberofnotes) + c_chordswith() + VoiceName(numberofnotes) + in_melody();
+	for (int j = 0; j < combinations; j++)
 	{
 		if (ifmode)
 		{
@@ -309,12 +338,12 @@ void Chords11v2(Polychord initial, Polychord* inverted, Polychord* polychords, i
 	sum = d;
 }
 
-void Chords11v3(Polychord initial, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode)
+void Chords11v3(Polychord* inverted, Polychord* polychords, int& sum, string& header, int combinations, int numberofnotes, int mode)
 {
 	int d = 0, e = 0;
 
-	header = c_chordsw() + VoiceName(numberofnotes) + between();
-	for (int j = 0; j < numberofcombinations; j++)
+	header = c_chordswith() + VoiceName(numberofnotes) + between();
+	for (int j = 0; j < combinations; j++)
 	{
 		if (ifmode)
 		{
@@ -333,13 +362,13 @@ void Chords11v3(Polychord initial, Polychord* inverted, Polychord* polychords, i
 	sum = d;
 }
 
-void Chords11v4(Polychord initial, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode)
+void Chords11v4(Polychord* inverted, Polychord* polychords, int& sum, string& header, int combinations, int numberofnotes, int mode)
 {
 	header = ChordName(numberofnotes) + increase_range();
 
 	int numberofintervals = numberofnotes - 1;
 	for (int k = 1; k < 90; k++)
-		for (int j = 0; j < numberofcombinations; j++)
+		for (int j = 0; j < combinations; j++)
 		{
 			if (!(mode > 0 && inverted[j].undecima - inverted[j].prima < 2))
 			{
@@ -357,10 +386,10 @@ void Chords11v4(Polychord initial, Polychord* inverted, Polychord* polychords, i
 	allsum(sum);
 }
 
-void Chords11v5(string initialnote, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode, bool notation)
+void Chords11v5(string initialnote, Polychord* inverted, Polychord* polychords, int& sum, string& header, int combinations, int numberofnotes, int mode, bool notation)
 
 {
-	Polychord* transposed = new Polychord[numberofcombinations];
+	Polychord* transposed = new Polychord[combinations];
 	string destination = initialnote;
 	int numberofintervals = numberofnotes - 1;
 	// нонакорди за зростанням діапазону.
@@ -370,7 +399,7 @@ void Chords11v5(string initialnote, Polychord* inverted, Polychord* polychords, 
 	transposed[0].pitch[0] = Key_to_pitch(destination, notation);
 
 
-	for (int i = 0; i < numberofcombinations; i++)
+	for (int i = 0; i < combinations; i++)
 	{
 		int stepshift = Stepdiff(inverted[i].step[0], transposed[0].step[0]); // зсув про ступенях
 		int pitchshift = Pitchdiff(inverted[i].pitch[0], transposed[0].pitch[0]); // зсув по півтонах
@@ -389,7 +418,7 @@ void Chords11v5(string initialnote, Polychord* inverted, Polychord* polychords, 
 		}
 	}
 
-	for (int j = 0; j < numberofcombinations; j++)
+	for (int j = 0; j < combinations; j++)
 		for (int i = 0; i < numberofnotes; i++)
 		{
 			transposed[j].name[i] = Pitch_to_notename(transposed[j].step[i], transposed[j].pitch[i]); // генеруємо назви нот (string)
@@ -397,7 +426,7 @@ void Chords11v5(string initialnote, Polychord* inverted, Polychord* polychords, 
 
 
 	for (int k = 1; k < 90; k++)
-		for (int j = 0; j < numberofcombinations; j++)
+		for (int j = 0; j < combinations; j++)
 		{
 			if (ifmode)
 			{
@@ -414,12 +443,12 @@ void Chords11v5(string initialnote, Polychord* inverted, Polychord* polychords, 
 	delete[] transposed;
 }
 
-void Chords11v6(string initialnote, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode, bool notation)
+void Chords11v6(string initialnote, Polychord* inverted, Polychord* polychords, int& sum, string& header, int combinations, int numberofnotes, int mode, bool notation)
 {
 
 	// нонакорди за зростанням діапазону.
 	header = ChordName(numberofnotes) + increase_range();
-	Polychord* transposed = new Polychord[numberofcombinations];
+	Polychord* transposed = new Polychord[combinations];
 	string destination = initialnote; // вводиться 
 	int numberofintervals = numberofnotes - 1;
 	transposed[0].step[numberofnotes-1] = Key_to_step(destination, notation);
@@ -427,7 +456,7 @@ void Chords11v6(string initialnote, Polychord* inverted, Polychord* polychords, 
 
 
 
-	for (int i = 0; i < numberofcombinations; i++)
+	for (int i = 0; i < combinations; i++)
 	{
 		int stepshift = Stepdiff(inverted[i].step[numberofnotes - 1], transposed[0].step[numberofnotes - 1]); // зсув про ступенях
 		int pitchshift = Pitchdiff(inverted[i].pitch[numberofnotes - 1], transposed[0].pitch[numberofnotes - 1]); // зсув по півтонах
@@ -444,7 +473,7 @@ void Chords11v6(string initialnote, Polychord* inverted, Polychord* polychords, 
 		}
 	}
 
-	for (int j = 0; j < numberofcombinations; j++)
+	for (int j = 0; j < combinations; j++)
 		for (int i = 0; i < numberofnotes; i++)
 		{
 			transposed[j].name[i] = Pitch_to_notename(transposed[j].step[i], transposed[j].pitch[i]); // генеруємо назви нот (string)
@@ -452,7 +481,7 @@ void Chords11v6(string initialnote, Polychord* inverted, Polychord* polychords, 
 		}
 
 	for (int k = 1; k < 90; k++)
-		for (int j = 0; j < numberofcombinations; j++)
+		for (int j = 0; j < combinations; j++)
 		{
 			if (ifmode)
 			{

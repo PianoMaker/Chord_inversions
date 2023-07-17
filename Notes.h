@@ -40,10 +40,14 @@ void greeting();
 
 struct Polychord
 {
+	int numberofnotes; // кільість нот
 	string key[12]; // назва латинкою
-	string name[12]; // назва кирилицею
+	string name[12]; // назва українською або італійською
+	char capitalized[12]; // для формату XML
 	int step[12]; // ступінь від до=0
 	int pitch[12]; // півтони від до=0
+	int alter[12]; // альтерація для кожного звука
+	int octave[12]; // октава для формату XML
 	string position[12]; // позиція в акорді
 	int consonanse_rate;// консонантність
 	int prima;//позиції інтервалів
@@ -53,7 +57,6 @@ struct Polychord
 	int nona;
 	int undecima;
 	int terzdecima;
-	int numberofnotes;
 };
 
 
@@ -71,15 +74,15 @@ int alteration_counter(string key, bool notation);
 void All_11(Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
 
 //виводить на екран вихіний акорд(initial)
-void AnalyzeEnteredChord(Polychord& initial, int numberofnotes, bool notation);
+void AnalyzeEnteredChord(Polychord& initial, bool notation);
 
 // озвучення акордів
 void Beeper(Polychord* polychord, long modifications, int numberofnotes); 
 
 // конструктори акордів за інтервальною структурою
-void Chords11v2(Polychord initial, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
-void Chords11v3(Polychord initial, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
-void Chords11v4(Polychord initial, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
+void Chords11v2(Polychord initial, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int mode);
+void Chords11v3(Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
+void Chords11v4(Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
 void Chords11v5(string initialnote, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode, bool notation);
 void Chords11v6(string initialnote, Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode, bool notation);
 bool ChooseLanguage();
@@ -89,10 +92,10 @@ void Color(int color);
 
 //int Combine(Polychord* A, Polychord initialnote, int numberofnotes);
 
-int Combine4(Polychord initial, Polychord* inverted);
-int Combine5(Polychord initial, Polychord* inverted);
-int Combine6(Polychord initial, Polychord* inverted);
-int CombineN(const Polychord& initial, Polychord* inverted, int nn);
+void Combine4(Polychord initial, Polychord* inverted);
+void Combine5(Polychord initial, Polychord* inverted);
+void Combine6(Polychord initial, Polychord* inverted);
+//int CombineN(const Polychord& initial, Polychord* inverted, int nn);
 
 string ChordName(int numberofnotes);
 
@@ -108,7 +111,7 @@ long CombinationsCounter(int numberofnotes, int sounds = 2);
 
 string EnterNotes(bool notation, string text, bool faq = false); // введення ноти з відсіюванням невірних символів
 
-int EnterNum(int max); // введення числа не більше заданого
+int EnterNum(int max, int min=0); // введення числа не більше заданого
 
 long long Factorial_counter(int amount);
 
@@ -122,13 +125,15 @@ int Int_quality(int steps, int halftones); // якість інтервалу
 
 bool Ifconsonans(int steps, int quality);
 
-void InitChordManual(Polychord& initial, string& initialnote, bool notation, int numberofnotes);//конструктор акорду
+void InitChordManual(Polychord& initial, string& initialnote, bool notation);//конструктор акорду
 
 void InitNote(string& initialnote, int model, bool notation); // введення основної ноти
 
+string InitNote(Polychord initial, int choice); // введення основної ноти
+
 void InitChordAuto(Polychord& initial, string initialnote, bool notation, int numberofnotes); // конструктор акорду
 
-void IntervaslAnalize(Polychord initial, Polychord* inverted, int numberofnotes, int numberofcombinations); // встановлює положення складових акорду
+void IntervaslAnalize(Polychord initial, Polychord* inverted, int combinations); // встановлює положення складових акорду
 
 int Key_to_step(string key, bool notation = 1); // ВИЗНАЧЕННЯ СТУПЕНЮ (ВІДНОСНО ДО) за латинським позначеням 
 
@@ -148,11 +153,15 @@ int Restrictions(int numberofnotes); // вибір обмежень
 
 int Model(int numberofnotes); // вибір виду акордів
 
-void MultiAnalyze(Polychord* inverted, int numberofnotes, bool notation, int numberofcombinations);
+void MultiAnalyze(Polychord* inverted, bool notation, int combinations);
 
 void NoteRanger(Polychord* polychord, long modifications, int numberofnotes);
 
 string Note_to_key(int step, int pitch, bool notation);
+
+void NumberOfNotes(Polychord& polychord, int numberofnotes);
+
+void NumberOfNotes(Polychord* polychord, int numberofnotes, int combinations);
 
 bool Oncemore();
 
@@ -207,6 +216,8 @@ bool EnterBool(string text);
 int Quality_of_a_step(int position, int* steps, int* halftones, int inversion = 0);
 
 string VoiceName(int numberofnotes);
+
+void xml(Polychord* polychord, int numberofnotes, int modifications);
 
 
 

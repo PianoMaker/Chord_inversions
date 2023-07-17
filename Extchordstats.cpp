@@ -4,7 +4,7 @@
 #define Sharp (MeanSharpness(polychords[j], numberofnotes))
 
 
-void Extchordstats(Polychord* polychords, long& modifications, int& numberofnotes, bool notation)
+void ExtChordStats(Polychord* polychords, long& modifications, int& numberofnotes, bool notation)
 {
  
 	string initialnote = "c"; // ручне введення основного тону

@@ -167,6 +167,7 @@
     <ClCompile Include="table_footer.cpp" />
     <ClCompile Include="Generalfunctions.cpp" />
     <ClCompile Include="Chord_inversions1_3.cpp" />
+    <ClCompile Include="Xml.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Messages.h" />

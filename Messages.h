@@ -46,9 +46,18 @@ const string aboveroot_uk = "за основний тон щонайменш н�
 const string aboveroot_en = "the root \n";
 string aboveroot();
 
+const string entertempo_uk = "Введіть темп (20-500)\n";
+const string entertempo_en = "Enter tempo (20-500)\n";
+string entertempo();
+
 const string less_uk = "число має бути менше ніж ";
 const string less_en = "the number must be less than ";
 string less();
+
+const string more_uk = "число має бути більше ніж ";
+const string more_en = "the number must be more than ";
+string more();
+
 
 const string thank_uk = "\nДякуємо за використання програми!";
 const string thank_en = "\nThank you for using our program!";
@@ -148,9 +157,9 @@ const string c_chords_uk = "акорди";
 const string c_chords_en = " chords";
 string c_chords();
 
-const string c_chordsw_uk = "акорди з ";
-const string c_chordsw_en = " chords with ";
-string c_chordsw();
+const string c_chordswith_uk = "акорди з ";
+const string c_chordswith_en = " chords with ";
+string c_chordswith();
 
 const string in_melody_uk = "ою в мелодичному положенні";
 const string in_melody_en = " in melody";
@@ -305,12 +314,6 @@ const string try_or_more_uk = "1 - так, 2 - спробувати знову\n
 const string try_or_more_en = "1 - yes, 2 - try once more\n";
 string try_or_more();
 
-
-
-
-//const string
-//const string
-//const string
-//const string
-//const string
-//const string
+const string chordmode_uk = "1 - акорди, 2 - арпеджіо\n";
+const string chordmode_en = "1 -chords, 2 - arpeggio\n";
+string chordmode();

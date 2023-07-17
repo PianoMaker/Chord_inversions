@@ -15,7 +15,7 @@ void Message(int c, string title)
     Color(7);
 }
 
-int EnterNum(int max)
+int EnterNum(int max, int min)
 {
 	int num;
 	do
@@ -24,7 +24,9 @@ int EnterNum(int max)
 
 		if (num > max)
 			Message(12, less() + to_string(max) + "\n");
-	} while (num > max);
+		if (num < min)
+			Message(12, more() + to_string(min) + "\n");
+	} while (num > max || num < min);
 
 	return num;
 }

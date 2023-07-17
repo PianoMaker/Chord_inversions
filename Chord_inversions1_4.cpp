@@ -8,11 +8,11 @@
 	return chords_containing() + to_string(sounds) + fsounds();
 }
 
-void Chord_inversions1_4(Polychord* polychords, long& modifications, int &numberofnotes, bool notation)
+void ExtChords(Polychord* polychords, long& modifications, int &numberofnotes, bool notation)
 {
-		string initialnote; // ручне введення основного тону
+		// ручне введення основного тону
 		
-		initialnote = EnterNotes(notation, enter() + root(), true);
+		string initialnote = EnterNotes(notation, enter() + root(), true);
 
 		Message(11, enter() + upto12() );
 		numberofnotes = EnterNum(12);
@@ -35,6 +35,8 @@ void Chord_inversions1_4(Polychord* polychords, long& modifications, int &number
 			Multichord[i].step[0] = Key_to_step(initialnote, notation);  // ступінь від "до", int
 			Multichord[i].pitch[0] = Key_to_pitch(initialnote, notation); // висота в півтонах від "до", int
 			Multichord[i].name[0] = Key_to_notename(initialnote, notation); // назва ноти, string
+			Multichord[i].numberofnotes = numberofnotes;
+
 		}
 
 		if (test)cout << "test base: " << Multichord[0].name[0] << " " << Multichord[0].pitch[0] << endl;
@@ -80,6 +82,7 @@ void Chord_inversions1_4(Polychord* polychords, long& modifications, int &number
 			{
 
 				polychords[c] = Multichord[j];
+				polychords[c].numberofnotes = numberofnotes;
 				for (int i = 0; i < numberofnotes; i++)
 				polychords[c].name[i] = Pitch_to_notename(polychords[c].step[i], polychords[c].pitch[i]);
 			
