@@ -145,7 +145,8 @@ void xml(Polychord *polychord, int numberofnotes, int modifications) {
         cout << "Error: Failed to open input file " << file << "\n";
     }
 
-    string new_filename = get_current_time(); // у назву файлу вписується поточний час у секундах
+    string new_filename = "...archive/";
+    new_filename.append(get_current_time()); // у назву файлу вписується поточний час у секундах
     new_filename.append("_output.xml");
     ofstream write(new_filename);
     if (!write) {

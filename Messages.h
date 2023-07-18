@@ -306,8 +306,8 @@ const string noentered_uk = "введений акорд не є ";
 const string noentered_en = "chord entered is not a ";
 string noentered();
 
-const string anyway_uk = "акордом.Все одно продовжити ? \n";
-const string anyway_en = " chord.Proceed anyway ? \n";
+const string anyway_uk = "акордом. Все одно продовжити? \n";
+const string anyway_en = " chord. Proceed anyway? \n";
 string anyway();
 
 const string try_or_more_uk = "1 - так, 2 - спробувати знову\n";

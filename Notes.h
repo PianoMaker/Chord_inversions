@@ -3,6 +3,8 @@
 #include <fstream>
 #include <iomanip>
 #include <vector>
+#include<windows.h>
+
 #pragma once
 #define ifmode (!(mode > 0 && inverted[j].nona - inverted[j].prima < 2) && !(mode > 0 && numberofnotes > 5 && inverted[j].undecima - inverted[j].prima < 3) && !(mode > 0 && numberofnotes > 5 && inverted[j].undecima - inverted[j].terzia < 2))
 

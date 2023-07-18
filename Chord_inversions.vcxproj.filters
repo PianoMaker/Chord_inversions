@@ -99,9 +99,6 @@
     <ClCompile Include="Extchordstats.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\G [docs]\C++ learn\Chords_master\pitchdiff.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="stepdiff.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -136,6 +133,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Xml.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pitchdiff.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

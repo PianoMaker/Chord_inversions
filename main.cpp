@@ -1,5 +1,6 @@
 #include"Notes.h"
 #include"Messages.h"
+
 #define CLS system("cls"); greeting(); clef();
 
 // МОДЕЛІ ПРОГРАМИ
@@ -11,6 +12,7 @@ extern bool lng = false;
 
 int main()
 {
+	SetConsoleOutputCP(65001);
 	CLS;
 	int N, numberofnotes;
 	long modifications;

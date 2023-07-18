@@ -2,6 +2,8 @@
 #include "Messages.h"
 
 
+
+
 string choose_notation()
 {
 	if (lng) return choose_notation_uk;
