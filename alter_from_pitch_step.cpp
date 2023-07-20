@@ -9,6 +9,8 @@ int alter_from_pitch(int step, int pitch)
 
 	while (step > 6)
 		step -= 7;
+	while (step < 0)
+		step += 7;
 	while (pitch > 11)
 		pitch -= 12;
 

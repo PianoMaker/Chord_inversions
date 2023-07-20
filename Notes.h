@@ -76,6 +76,8 @@ int alteration_counter(string key, bool notation);
 
 void All_11(Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
 
+void Alterize(Polychord* A, int modifications, bool notation); // переальтерація
+
 //виводить на екран вихіний акорд(initial)
 void AnalyzeEnteredChord(Polychord& initial, bool notation);
 
@@ -118,6 +120,8 @@ int EnterNum(int max, int min=0); // введення числа не більш
 
 long long Factorial_counter(int amount);
 
+void Flatize(Polychord* A, int modifications, bool notation); // перетворення бемолів на дієзи
+
 string get_current_time();
 
 //void InitChord(Polychord& initial, bool notation, int numberofnotes, int model);
@@ -150,7 +154,7 @@ string Longline();
 
 int Menu(int& numberofnotes);// головне меню
 
-float MeanSharpness(Polychord chord, int sounds); // визначає середнє положення на квінтовому колі
+float MeanSharpness(Polychord chord); // визначає середнє положення на квінтовому колі
 
 int Restrictions(int numberofnotes); // вибір обмежень
 
@@ -201,6 +205,8 @@ Polychord* Polychord_Add(Polychord* polychord, long modifications, int& counter,
 float Sharpness(int enterstep, int alter); // вводиться step, alter 
 
 void Simplify(Polychord* A, int modifications, bool notation); // усунення дубль-знаків
+
+void Sharpize(Polychord* A, int modifications, bool notation); // перетворення бемолів на дієзи
 
 void Show(Polychord* polychords, int modifications, string header, bool diff);// на екран
 

@@ -84,7 +84,7 @@ int Postmenu()
 	int choice;
 	Message(11, choose_action());
 	Message(15, final_action());
-	choice = EnterNum(5);
+	choice = EnterNum(7);
 	system("cls");
 	return choice;
 }

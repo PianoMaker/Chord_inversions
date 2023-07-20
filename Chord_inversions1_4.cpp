@@ -108,7 +108,7 @@ void ExtChords(Polychord* polychords, long& modifications, int &numberofnotes, b
 
 		// РЕЗУЛЬТАТИ НА ЕКРАН
 
-		Show(polychords, modifications, header, true);
+	//	Show(polychords, modifications, header, true);
 
 		
 	

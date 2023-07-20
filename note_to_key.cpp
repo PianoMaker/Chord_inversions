@@ -9,13 +9,11 @@ string Note_to_key(int step, int pitch, bool notation)
 	string noteaccname;
 	int alter, standartpitch;
 	//cout << "test1 step =" << step << "\n";
-	if (step == -1)
-	{
-		notename = "--";
-	}
-	else if (step > 6)
+	while (step < 0)
+		step += 7;
+	while (step > 6)
 		step -= 7;
-	else;
+
 	//cout << "test2 step =" << step << "\n";
 	if (step == DO)
 	{

@@ -12,14 +12,10 @@ string Pitch_to_notename(int step, int pitch)
 
 	while (step > 6)
 		step -= 7;
+	while (step < 0)
+		step += 7;
 	while (pitch > 11)
 		pitch -= 12;
-
-	//cout << "test1 step =" << step << "\n";
-	if (step == -1)
-	{
-		notename = "--";
-	}
 
 	if (step == DO)
 	{

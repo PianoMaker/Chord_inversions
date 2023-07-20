@@ -370,18 +370,19 @@ void Chords11v4(Polychord* inverted, Polychord* polychords, int& sum, string& he
 	for (int k = 1; k < 90; k++)
 		for (int j = 0; j < combinations; j++)
 		{
-			if (!(mode > 0 && inverted[j].undecima - inverted[j].prima < 2))
+			if (ifmode)
 			{
-				if (ifmode)
+				if (sum_steps(inverted[j].step, numberofintervals) == k)
 				{
-					if (sum_steps(inverted[j].step, numberofintervals) == k)
+					for (int i = 0; i < numberofnotes; i++)
 					{
-						for (int i = 0; i < numberofnotes; i++)
-							polychords[sum] = inverted[j];
-						sum++;
+						polychords[sum] = inverted[j];
+						//polychords[sum].numberofnotes = numberofnotes;
 					}
+					sum++;
 				}
 			}
+
 		}
 	allsum(sum);
 }
@@ -403,6 +404,7 @@ void Chords11v5(string initialnote, Polychord* inverted, Polychord* polychords, 
 	{
 		int stepshift = Stepdiff(inverted[i].step[0], transposed[0].step[0]); // зсув про ступенях
 		int pitchshift = Pitchdiff(inverted[i].pitch[0], transposed[0].pitch[0]); // зсув по півтонах
+		transposed[i].numberofnotes = numberofnotes;
 		transposed[i].prima = inverted[i].prima;
 		transposed[i].terzia = inverted[i].terzia;
 		transposed[i].quinta = inverted[i].quinta;
@@ -460,6 +462,7 @@ void Chords11v6(string initialnote, Polychord* inverted, Polychord* polychords, 
 	{
 		int stepshift = Stepdiff(inverted[i].step[numberofnotes - 1], transposed[0].step[numberofnotes - 1]); // зсув про ступенях
 		int pitchshift = Pitchdiff(inverted[i].pitch[numberofnotes - 1], transposed[0].pitch[numberofnotes - 1]); // зсув по півтонах
+		transposed[i].numberofnotes = numberofnotes;
 		transposed[i].prima = inverted[i].prima;
 		transposed[i].terzia = inverted[i].terzia;
 		transposed[i].quinta = inverted[i].quinta;

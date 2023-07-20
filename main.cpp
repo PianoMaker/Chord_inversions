@@ -2,6 +2,7 @@
 #include"Messages.h"
 
 #define CLS system("cls"); greeting(); clef();
+#define REPEAT oncemore = true; break;
 
 // МОДЕЛІ ПРОГРАМИ
 void Chord_inversions1_3(Polychord* polychords, long& modifications, int numberofnotes, bool notation, string &header);
@@ -45,18 +46,22 @@ int main()
 	{
 		do
 		{
+			Show(polychord, modifications, header, diff);
 			int action = Postmenu();// меню
 			NoteRanger(polychord, modifications, numberofnotes);
 			bool savetext;
 
 			switch (action)
 			{
-			case 1: /*звук*/Beeper(polychord, modifications, numberofnotes); 
-				savetext = EnterBool(ifsave()); if(!savetext) break;
-			case 2: /*simplify*/Simplify(polychord, modifications, notation); Show(polychord, modifications, header, diff); break;
-			case 3: /*txt*/SaveText(polychord, modifications, numberofnotes); break;
-			case 4: /*xml*/ xml(polychord, numberofnotes, modifications); break;
-			case 5: /*other*/if (choice < 3)Chord_inversions1_3(&*polychord, modifications, numberofnotes, notation, header);
+			case 0: Longline(); clef(); oncemore = false; break;
+			case 1: /* зіграти  */Beeper(polychord, modifications, numberofnotes); REPEAT;
+			case 2: /*спростити*/Simplify(polychord, modifications, notation); REPEAT;
+			case 3: /* дієзи   */Sharpize(polychord, modifications, notation); REPEAT;
+			case 4: /* бемолі */Flatize(polychord, modifications, notation); REPEAT;
+			case 5: /*переальтерація*/Alterize(polychord, modifications, notation); REPEAT;
+			case 6: /*txt*/SaveText(polychord, modifications, numberofnotes); break;
+			case 7: /*xml*/ xml(polychord, numberofnotes, modifications); break;
+			case 8: /*other chord*/if (choice < 3)Chord_inversions1_3(&*polychord, modifications, numberofnotes, notation, header);
 				  else if (choice == 4)ExtChords(&*polychord, modifications, numberofnotes, notation, header);
 				oncemore = true;
 				break;
@@ -65,6 +70,7 @@ int main()
 				Longline();
 				clef();
 				oncemore = false;
+				break;
 			}
 		} while (oncemore);
 	}

@@ -98,7 +98,7 @@ operation:
 
 	// РЕЗУЛЬТАТИ НА ЕКРАН
 
-	Show(polychords, sum, header, false);
+	//Show(polychords, sum, header, false);
 
 	cout << "\ntime elapsed: " << clockend - clockstart << " ms";
 
