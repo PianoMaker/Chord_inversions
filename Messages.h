@@ -214,8 +214,8 @@ const string range_order_uk = " в порядку зростання діапа�
 const string range_order_en = " in ascending order of range";
 string range_order();
 
-const string final_action_uk = "\n1 - Зіграти акорди\n2 - Зберегти як текст\n3 - Зберегти як xml\n4 - Cпробувати інший акорд\n0 - завершення роботи\n";
-const string final_action_en = "\n1 - Play chords\n2 - Save as text\n3 - Save as xml\n4 - Try another chord\n0 - Exit\n";
+const string final_action_uk = "\n1 - Зіграти акорди\n2 - спростити альтерацію\n3 - Зберегти як текст\n4 - Зберегти як xml\n5 - Cпробувати інший акорд\n0 - завершення роботи\n";
+const string final_action_en = "\n1 - Play chords\n2 - simplify alteration\n3 - Save as text\n4 - Save as xml\n5 - Try another chord\n0 - Exit\n";
 string final_action();
 
 const string inversions_root_uk = " та обернення від заданої ноти";;

@@ -136,63 +136,61 @@ void End(ofstream& write)
 
 void xml(Polychord *polychord, int numberofnotes, int modifications) {
 
-
-          
-
     ifstream head("xml-start.txt");// адреса шапки  
     string file = "xml-start.txt";
     if (!head) {
         cout << "Error: Failed to open input file " << file << "\n";
     }
-
-    string new_filename = "...archive/";
-    new_filename.append(get_current_time()); // у назву файлу вписується поточний час у секундах
-    new_filename.append("_output.xml");
-    ofstream write(new_filename);
-    if (!write) {
-        cout << "Error: Failed to open output file " << new_filename << '\n';
-    }
-    else
-    {
-        cout << "writing to file " <<  new_filename << endl;
-    }
-
-    string line;
-    while (getline(head, line)) {// копіюється довга шапка  
-        write << line << '\n';
-    }
-
-    int mode = Mode();
-    
-    Header(write, numberofnotes, mode); // розмір за кількістю нот 
-    int barnumber; // нумерація тактів
-
-    string duration;
-    if (mode) duration = "whole";
-    else duration = "quarter";
-    
-    
-    Addtempo(write);
-	for (int j = 0; j < modifications; j++)
-	{
-		Step_to_Capital(polychord[j]); // форматування ноти (літера) під xml
-		Octave(polychord[j]);// форматування ноти (октава) під xml
-        for (int i = 0; i < numberofnotes; i++)
-             polychord[j].alter[i] = alter_from_pitch(polychord[j].step[i], polychord[j].pitch[i]);
+    else {
         
-		if (j > 0)write << "   <measure number = \"" << j + 1 << "\">\n";//початок такту
-
-		for (int i = 0; i < numberofnotes; i++)
+        string new_filename = "archive/";
+        new_filename.append(get_current_time()); // у назву файлу вписується поточний час у секундах
+        new_filename.append("_output.xml");
+        ofstream write(new_filename);
+        if (!write) {
+            cout << "Error: Failed to open output file " << new_filename << '\n';
+        }
+        else
         {
-          if(i!=0 && mode) Note(write, polychord[j].capitalized[i], polychord[j].octave[i], true, duration, polychord[j].alter[i]); // запис нот, арпеджіо
-          else  Note(write, polychord[j].capitalized[i], polychord[j].octave[i], false, duration, polychord[j].alter[i]); // запис нот, акордами
+            cout << "writing to file " << new_filename << endl;
         }
 
-		Barend(write); // закінчення такту
-	}
+        string line;
+        while (getline(head, line)) {// копіюється довга шапка  
+            write << line << '\n';
+        }
 
-    End(write);
+        int mode = Mode();
 
-    write.close();
+        Header(write, numberofnotes, mode); // розмір за кількістю нот 
+        int barnumber; // нумерація тактів
+
+        string duration;
+        if (mode) duration = "whole";
+        else duration = "quarter";
+
+
+        Addtempo(write);
+        for (int j = 0; j < modifications; j++)
+        {
+            Step_to_Capital(polychord[j]); // форматування ноти (літера) під xml
+            Octave(polychord[j]);// форматування ноти (октава) під xml
+            for (int i = 0; i < numberofnotes; i++)
+                polychord[j].alter[i] = alter_from_pitch(polychord[j].step[i], polychord[j].pitch[i]);
+
+            if (j > 0)write << "   <measure number = \"" << j + 1 << "\">\n";//початок такту
+
+            for (int i = 0; i < numberofnotes; i++)
+            {
+                if (i != 0 && mode) Note(write, polychord[j].capitalized[i], polychord[j].octave[i], true, duration, polychord[j].alter[i]); // запис нот, арпеджіо
+                else  Note(write, polychord[j].capitalized[i], polychord[j].octave[i], false, duration, polychord[j].alter[i]); // запис нот, акордами
+            }
+
+            Barend(write); // закінчення такту
+        }
+
+        End(write);
+        write.close();
+    }
 
 }

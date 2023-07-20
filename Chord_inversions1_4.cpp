@@ -8,7 +8,7 @@
 	return chords_containing() + to_string(sounds) + fsounds();
 }
 
-void ExtChords(Polychord* polychords, long& modifications, int &numberofnotes, bool notation)
+void ExtChords(Polychord* polychords, long& modifications, int &numberofnotes, bool notation, string &header)
 {
 		// ручне введення основного тону
 		
@@ -21,7 +21,7 @@ void ExtChords(Polychord* polychords, long& modifications, int &numberofnotes, b
 		Polychord *Multichord = new Polychord[modifications];
 		cout << "modifications = " << modifications << endl; 
 
-		string header = get_chord_string(numberofnotes);
+		header = get_chord_string(numberofnotes);
 		
 
 		bool test;
@@ -101,33 +101,15 @@ void ExtChords(Polychord* polychords, long& modifications, int &numberofnotes, b
 		
 
 		if (test) cout << "c = " << c << "; " << "e = " << e;
+		modifications = c;
 
 		Line();
 
 
 		// РЕЗУЛЬТАТИ НА ЕКРАН
 
-		tableheader(header);
+		Show(polychords, modifications, header, true);
 
-		for (int j = 0; j < c; j++)
-		{
-			cout << j + 1 << "| ";
-
-			for (int i = 0; i < numberofnotes; i++)
-			{
-				cout << "\t" << left << setw(4) << polychords[j].name[i];
-			}
-			cout << setw(4) << " \t| " << setw(1) << sum_steps(polychords[j].step, numberofnotes - 1) << setw(1) << " ";
-			cout << setw(1) << " | " << setw(1) << sum_pitchs(polychords[j].pitch, numberofnotes - 1) << " ";
-			cout << setw(1) << " | " << setw(1) << round(Consonans_rate(polychords[j].step, polychords[j].pitch, numberofnotes) * 100) << " % "; // консонантність
-			if (Sharp > 0) 	cout << setw(1) << " | " << setw(2) << "+" << Sharp << endl;
-			else 			cout << setw(1) << " | " << setw(2) << Sharp << endl;
-
-			
-
-		}
-		tablefooter(0, false, c);
-
-		modifications = c;
+		
 	
 }

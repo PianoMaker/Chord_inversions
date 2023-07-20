@@ -21,6 +21,7 @@ using std::endl;
 using std::to_string;
 using std::setw;
 using std::left;
+using std::right;
 using std::setfill;
 using std::ios;
 
@@ -198,6 +199,10 @@ int Pitchdiff(int low_pitch, int high_pitch);
 Polychord* Polychord_Add(Polychord* polychord, long modifications, int& counter, int& sound, int numberofnotes, bool test);
 
 float Sharpness(int enterstep, int alter); // вводиться step, alter 
+
+void Simplify(Polychord* A, int modifications, bool notation); // усунення дубль-знаків
+
+void Show(Polychord* polychords, int modifications, string header, bool diff);// на екран
 
 int Stepdiff(int low_note, int high_note);
 

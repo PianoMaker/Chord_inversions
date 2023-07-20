@@ -25,6 +25,8 @@ int alter_from_pitch(int step, int pitch)
 
 	if (alter == 11 && standartpitch == 0)
 		alter = -1;
+	else if (alter == -11 && standartpitch == 11)
+		alter = 1;
 	else if (alter == -10 && standartpitch == 11)
 		alter = 2;
 	else if (alter == 10 && standartpitch == 0)

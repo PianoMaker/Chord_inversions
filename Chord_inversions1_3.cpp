@@ -5,7 +5,7 @@
 
 
 
-void Chord_inversions1_3(Polychord* polychords, long& modifications, int numberofnotes, bool notation)
+void Chord_inversions1_3(Polychord* polychords, long& modifications, int numberofnotes, bool notation, string &header)
 {
 	int numberofintervals = numberofnotes - 1;
 	long combinations = PermutationCounter(numberofnotes);
@@ -52,8 +52,6 @@ operation:
 	if (numberofnotes == 4)Combine4(initial, inverted);
 	//int numberofcombinations = CombineN(initial, inverted, numberofnotes);
 
-
-
 	// записує у структуру значення звуковисотностей
 	MultiAnalyze(inverted, notation, combinations);
 
@@ -62,7 +60,6 @@ operation:
 
 	// СТВОРЕННЯ СПИСКІВ АКОРДІВ (ФІЛЬТРАЦІЯ або СОРТУВАННЯ за choice i mode)
 	int sum = 0; // остаточна кількість модифікацій (з урахуванням фільтрів)
-	string header;
 	if (numberofnotes > 4)
 	{
 		switch (choice)
@@ -96,24 +93,13 @@ operation:
 		}
 	}
 
-	float consonansrate = Consonans_rate(polychords[0].step, polychords[0].pitch, 6); // консонантність
+	float consonansrate = Consonans_rate(polychords[0].step, polychords[0].pitch, numberofnotes); // консонантність
 	int clockend = clock();
 
 	// РЕЗУЛЬТАТИ НА ЕКРАН
 
-	tableheader(header);
+	Show(polychords, sum, header, false);
 
-	for (int j = 0; j < sum; j++)
-	{
-		for (int i = 0; i < numberofnotes; i++)
-		{
-			cout << left << setw(3) << /*ноти*/polychords[j].name[i] << setw(1) << " \t";
-		}
-		cout << setw(1) << " | " << setw(2) << sum_steps(polychords[j].step, numberofintervals) << setw(1) << " ";
-		cout << setw(1) << " | " << setw(2) << sum_pitchs(polychords[j].pitch, numberofintervals) << endl;
-	}
-
-	tablefooter(consonansrate, true, sum);
 	cout << "\ntime elapsed: " << clockend - clockstart << " ms";
 
 

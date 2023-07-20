@@ -4,7 +4,8 @@
 void SaveText(Polychord *polychord, long modifications, int numberofnotes)
 {
 		fstream print;
-		string filename = get_current_time(); // у назву файлу вписується поточний час у секундах
+		string filename = "archive/";
+		filename.append(get_current_time()); // у назву файлу вписується поточний час у секундах
 		filename.append("_chords.txt");
 		print.open(filename, ios::out);
 		print << chords_achieved();

@@ -159,6 +159,8 @@
     <ClCompile Include="Savetext.cpp" />
     <ClCompile Include="sharpness.cpp" />
     <ClCompile Include="Sharpness_from_key.cpp" />
+    <ClCompile Include="Show.cpp" />
+    <ClCompile Include="Simplify_alt.cpp" />
     <ClCompile Include="stepdiff.cpp" />
     <ClCompile Include="step_to_pitch.cpp" />
     <ClCompile Include="sum_pitchs.cpp" />
