@@ -37,7 +37,7 @@ int main()
 	case 2:/*нонакорди*/
 	case 3:/*ундецимакорди*/ Chord_inversions1_3(&*polychord, modifications, numberofnotes, notation, header); diff = false;  break;
 	case 4:	/*політерцієві*/ ExtChords(&*polychord, modifications, numberofnotes, notation, header); diff = true; break;
-	case 5: /*статистика*/   ExtChordStats(&*polychord, modifications, numberofnotes, notation); break;
+	case 5: /*статистика*/   ExtChordStats(&*polychord, modifications, numberofnotes, notation); diff = false; break;
 	default: cout << "\nincorrect choice";  break;
 	};
 

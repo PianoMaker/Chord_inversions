@@ -24,9 +24,9 @@ void ExtChords(Polychord* polychords, long& modifications, int &numberofnotes, b
 		header = get_chord_string(numberofnotes);
 		
 
-		bool test;
+		bool test/* = 0*/;
 		Message (8,"test regime ? 1 - yes, 0 - no\n");
-		cin >> test;
+		cin >> test;/*глючить без тест-режиму у режимі release*/
 
 
 		for (int i =0; i< modifications; i++)

@@ -1,4 +1,4 @@
-#include "Notes.h";
+#include "Notes.h"
 
 void NoteRanger(Polychord* polychord, long modifications, int numberofnotes)
 {
