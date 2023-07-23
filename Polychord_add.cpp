@@ -1,6 +1,6 @@
-#include"Notes.h";
+#include"Notes.h"
 
-Polychord* Polychord_Add(Polychord* polychord, long modifications, int& counter, int& sound, int sounds, bool test)
+Polychord* Polychord_Add(Polychord* polychord, int& counter, int& sound, int sounds, bool test)
 {
 
 	Polychord* A = new Polychord[counter * 2];
@@ -8,8 +8,7 @@ Polychord* Polychord_Add(Polychord* polychord, long modifications, int& counter,
 
 	if (test)cout << "" << "" << "" << "" << "";
 	//else cout << "_";
-
-
+ 
 	for (int i = 0; i < counter; i++)
 	{
 		//if (test)cout << "\nCopying existing chord from taken:\n";
@@ -108,7 +107,7 @@ Polychord* Polychord_Add(Polychord* polychord, long modifications, int& counter,
 	{
 
 		counter *= 2;
-		A = Polychord_Add(A, modifications, counter, sound, sounds, test);
+		A = Polychord_Add(A, counter, sound, sounds, test);
 	}
 	else return A;
 }

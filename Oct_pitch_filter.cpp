@@ -1,4 +1,4 @@
-#include"Notes.h";
+#include"Notes.h"
 
 bool PitchFilter(int* pitch, int sounds)
 {

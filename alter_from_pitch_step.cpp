@@ -5,7 +5,7 @@
 int alter_from_pitch(int step, int pitch)
 {
 
-	int alter, standartpitch;
+	int alter, standartpitch = 0;
 
 	while (step > 6)
 		step -= 7;
@@ -22,7 +22,10 @@ int alter_from_pitch(int step, int pitch)
 	else if (step == SOL) standartpitch = 7;
 	else if (step == LA) standartpitch = 9;
 	else if (step == SI) standartpitch = 11;
-
+	else
+	{
+		standartpitch = pitch; Message(12, "ERROR!!! Alteration could not be found!!!");
+	}
 	alter = pitch - standartpitch;
 
 	if (alter == 11 && standartpitch == 0)

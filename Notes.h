@@ -76,7 +76,7 @@ int alteration_counter(string key, bool notation);
 
 void All_11(Polychord* inverted, Polychord* polychords, int& sum, string& header, int numberofcombinations, int numberofnotes, int mode);
 
-void Alterize(Polychord* A, int modifications, bool notation); // переальтерація
+void Alterize(Polychord* A, long modifications, bool notation); // переальтерація
 
 //виводить на екран вихіний акорд(initial)
 void AnalyzeEnteredChord(Polychord& initial, bool notation);
@@ -113,6 +113,7 @@ void Construct9(Polychord& initial, int model, bool notation);
 void Construct7(Polychord& initial, int model, bool notation);
 long CombinationsCounter(int numberofnotes, int sounds = 2);
 
+void ExtChordsCore(Polychord* polychords, long& modifications, string initialnote, bool notation, int numberofnotes, bool test);
 
 string EnterNotes(bool notation, string text, bool faq = false); // введення ноти з відсіюванням невірних символів
 
@@ -120,7 +121,7 @@ int EnterNum(int max, int min=0); // введення числа не більш
 
 long long Factorial_counter(int amount);
 
-void Flatize(Polychord* A, int modifications, bool notation); // перетворення бемолів на дієзи
+void Flatize(Polychord* A, long modifications, bool notation); // перетворення бемолів на дієзи
 
 string get_current_time();
 
@@ -200,15 +201,15 @@ bool PitchFilter(int* pitch, int sounds); // фільтрує акорди з о
 
 int Pitchdiff(int low_pitch, int high_pitch);
 
-Polychord* Polychord_Add(Polychord* polychord, long modifications, int& counter, int& sound, int numberofnotes, bool test);
+Polychord* Polychord_Add(Polychord* polychord, int& counter, int& sound, int numberofnotes, bool test);
 
 float Sharpness(int enterstep, int alter); // вводиться step, alter 
 
-void Simplify(Polychord* A, int modifications, bool notation); // усунення дубль-знаків
+void Simplify(Polychord* A, long modifications, bool notation); // усунення дубль-знаків
 
-void Sharpize(Polychord* A, int modifications, bool notation); // перетворення бемолів на дієзи
+void Sharpize(Polychord* A, long modifications, bool notation); // перетворення бемолів на дієзи
 
-void Show(Polychord* polychords, int modifications, string header, bool diff);// на екран
+void Show(Polychord* polychords, long modifications, string header, bool diff);// на екран
 
 int Stepdiff(int low_note, int high_note);
 
@@ -230,7 +231,7 @@ int Quality_of_a_step(int position, int* steps, int* halftones, int inversion = 
 
 string VoiceName(int numberofnotes);
 
-void xml(Polychord* polychord, int numberofnotes, int modifications);
+void xml(Polychord* polychord, int numberofnotes, long modifications);
 
 
 

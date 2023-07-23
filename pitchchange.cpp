@@ -1,6 +1,6 @@
 /// ВПЛИВ ЗНАКІВ АЛЬТЕРАЦІЇ НА ВИСОТУ ЗВУКА
 
-#include <iostream>;
+#include <iostream>
 using namespace std;
 enum NOTES5 { DO, RE, MI, FA, SOL, LA, SI };
 

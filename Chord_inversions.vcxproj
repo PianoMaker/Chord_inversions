@@ -142,6 +142,7 @@
     <ClCompile Include="Current_time.cpp" />
     <ClCompile Include="EnterNote.cpp" />
     <ClCompile Include="Extchordstats.cpp" />
+    <ClCompile Include="ExtCore.cpp" />
     <ClCompile Include="InitializeChords.cpp" />
     <ClCompile Include="lang.cpp" />
     <ClCompile Include="main.cpp" />

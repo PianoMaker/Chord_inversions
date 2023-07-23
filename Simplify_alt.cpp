@@ -1,6 +1,6 @@
 ﻿#include"Notes.h"
 
-void Simplify(Polychord *A, int modifications, bool notation)
+void Simplify(Polychord *A, long modifications, bool notation)
 {
 	for(int i = 0; i < modifications; i++)
 		for (int j = 0; j < A[i].numberofnotes; j++)
@@ -25,7 +25,7 @@ void Simplify(Polychord *A, int modifications, bool notation)
 		}
 }
 
-void Sharpize(Polychord* A, int modifications, bool notation)
+void Sharpize(Polychord* A, long modifications, bool notation)
 {
 	for (int i = 0; i < modifications; i++)
 		for (int j = 0; j < A[i].numberofnotes; j++)
@@ -43,7 +43,7 @@ void Sharpize(Polychord* A, int modifications, bool notation)
 		}
 }
 
-void Flatize(Polychord* A, int modifications, bool notation)
+void Flatize(Polychord* A, long modifications, bool notation)
 {
 	for (int i = 0; i < modifications; i++)
 		for (int j = 0; j < A[i].numberofnotes; j++)
@@ -83,7 +83,7 @@ void Stepup(Polychord &A, bool notation)
 		}
 }
 
-void Alterize(Polychord* A, int modifications, bool notation)
+void Alterize(Polychord* A, long modifications, bool notation)
 {
 	for (int i = 0; i < modifications; i++)
 	{

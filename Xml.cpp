@@ -134,7 +134,7 @@ void End(ofstream& write)
 }
 
 
-void xml(Polychord *polychord, int numberofnotes, int modifications) {
+void xml(Polychord *polychord, int numberofnotes, long modifications) {
 
     ifstream head("xml-start.txt");// адреса шапки  
     string file = "xml-start.txt";
